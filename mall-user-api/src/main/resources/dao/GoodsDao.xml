@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsl.malluserapi.dao.GoodsDao">
+    <update id="updateGoodsUpperBatch" >
+        update goods_sku set status = 1
+        where id in
+        <foreach collection="Ids" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+    <update id="updateGoodsDownBatch" >
+        update goods_sku set status = 0
+        where id in
+        <foreach collection="Ids" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+    <select id="selectMaxPrice" resultType="java.math.BigDecimal">
+        select max(price) from goods_sku where spu_id = #{id}
+    </select>
+    <select id="selectMinPrice" resultType="java.math.BigDecimal">
+        select min(price) from goods_sku where spu_id = #{id}
+    </select>
+    <select id="selectTotalSal" resultType="java.lang.Integer">
+        select sum(sales_volume) from goods_sku where spu_id = #{id}
+    </select>
+    <select id="selectMinGiftPoint" resultType="java.math.BigDecimal">
+        select min(gift_point) from goods_sku where spu_id = #{id}
+    </select>
+</mapper>

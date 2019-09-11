@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev #默认为开发环境
+  jmx:
+    enabled: false
+
+mybatis:
+  mapper-locations:
+    - classpath:dao/*Dao.xml
+    - classpath*:mapper/*Mapper.xml
+
+#pagehelper分页插件配置
+pagehelper:
+  # 数据库的方言
+  helperDialect: mysql
+  # 启用合理化，如果pageNum < 1 会查询第一页，如果pageNum > pages会查询最后一页
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+logging:
+#  level:
+#    root: info #日志配置DEBUG,INFO,WARN,ERROR
+#    com.zsl.malluserapi: debug
+  path: /data/logs #配置日志生成路径
+weixin:
+  appID: wxf7dd607dae04e0c1
+  appsecret: 8d6d46f5a79c2edf87ac2018d7d6824c
+  accessUrl: https://api.weixin.qq.com/cgi-bin/token #授权地址
+  grantType: client_credential
+  jsapiTicket: https://api.weixin.qq.com/cgi-bin/ticket/getticket
