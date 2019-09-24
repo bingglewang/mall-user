@@ -100,6 +100,18 @@ public class GoodsController {
     }
 
     /**
+     * 是否域上优品用户或商品
+     * @param spuId  商品spu_id
+     * @param sourceUserId 分享人userId
+     * @param targetUserId 被分享人userId
+     * @return
+     */
+    @GetMapping("isSuperiorUserOrGoods")
+    public CommonResult isSuperiorUserOrGoods(Long spuId,Integer sourceUserId,Integer targetUserId,Integer doRedis){
+        return goodsService.isSuperiorUserOrGoods(spuId,sourceUserId,targetUserId,doRedis);
+    }
+
+    /**
      * 商品批量上架
      * @param intIdsQuery
      * @param result

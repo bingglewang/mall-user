@@ -45,11 +45,11 @@ public class PointUtil {
         Float sum = price - cost - price * (REVENUE + COST + ROYALTY + REFERRER_PRICE);
         return new Float(sum * CONSUMER_RATIO).intValue();
     }
-/*    public static  void main(String args[]){
+   /* public static  void main(String args[]){
         //成本价
-        Float cost = 70f;
+        Float cost = 0.1f;
         //售价
-        Float price = 89f;
+        Float price = 0.2f;
         //可分配利润比例
         Float sum = price - cost - price * (REVENUE + COST + ROYALTY + REFERRER_PRICE);
         System.out.println("赠送积分："+new Float(sum * CONSUMER_RATIO).intValue());

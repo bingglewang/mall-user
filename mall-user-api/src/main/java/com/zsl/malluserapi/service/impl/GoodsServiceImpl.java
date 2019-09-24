@@ -1,6 +1,7 @@
 package com.zsl.malluserapi.service.impl;
 
 import com.zsl.malluserapi.dao.GoodsDao;
+import com.zsl.malluserapi.dao.UserDao;
 import com.zsl.malluserapi.dto.goods.in.AreaValue;
 import com.zsl.malluserapi.dto.goods.in.GoodsInParam;
 import com.zsl.malluserapi.dto.goods.in.GoodsSkuInParam;
@@ -8,9 +9,11 @@ import com.zsl.malluserapi.dto.goods.out.GoodsSpuVo;
 import com.zsl.malluserapi.dto.goods.out.SpecChildListVo;
 import com.zsl.malluserapi.dto.goods.out.SpecListVo;
 import com.zsl.malluserapi.service.GoodsService;
+import com.zsl.malluserapi.service.RedisService;
 import com.zsl.malluserapi.util.CartesianArith;
 import com.zsl.malluserapi.util.PointUtil;
 import com.zsl.malluserapi.util.TreeUtil;
+import com.zsl.mallusercommon.CommonResult;
 import com.zsl.malluserdb.mapper.*;
 import com.zsl.malluserdb.po.*;
 import org.springframework.beans.BeanUtils;
@@ -69,6 +72,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private ShippingRegionLimitsMapper shippingRegionLimitsMapper;
+
+    @Autowired
+    private RedisService redisService;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public List<GoodsSku> getGoodsList(String goodsName, Integer page, Integer limit, String sort, String order) {
@@ -219,6 +228,36 @@ public class GoodsServiceImpl implements GoodsService {
         }
         result.put("goodsInfoPicList", goodsInfoPicList);
         return result;
+    }
+
+    @Override
+    public CommonResult isSuperiorUserOrGoods(Long spuId, Integer sourceUserId, Integer targetUserId,Integer doRedis) {
+        Map<String,Object> result = new HashMap<>();
+        //判断商品是否是域上优品
+        Integer superiorId = goodsDao.selectSuperiorBySpuId(spuId);
+        //判断是否是域上优品用户
+        Integer rankTarget = userDao.selectSuperiorByUserId(targetUserId);
+        if(superiorId != null && superiorId == 1){
+            result.put("isSuperiorGood",true);
+            if(rankTarget != null){
+                result.put("userRank",rankTarget);
+            }else{
+                result.put("userRank",-1); //小白
+                Integer rankSource = userDao.selectSuperiorByUserId(sourceUserId);
+                //通过域上优品会员分享
+                if(rankSource != null && doRedis != null && doRedis == 1){
+                    redisService.set("SUPERIOR_SHARE"+targetUserId,""+sourceUserId);
+                }
+            }
+        }else{
+            result.put("isSuperiorGood",false);
+            if(rankTarget != null) {
+                result.put("userRank", rankTarget);
+            }else{
+                result.put("userRank", -1);
+            }
+        }
+        return CommonResult.success(result);
     }
 
     public int getMinGifgPointBySpuId(Long SpuId){

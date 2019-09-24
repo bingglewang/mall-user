@@ -13,6 +13,7 @@ import java.util.List;
 public interface GoodsDao {
  int updateGoodsUpperBatch(@Param("Ids") List<Integer> ids);
  int updateGoodsDownBatch(@Param("Ids") List<Integer> ids);
+ Integer selectSuperiorBySpuId(@Param("id") Long id);
  BigDecimal selectMaxPrice(@Param("id") Long id);
  BigDecimal selectMinPrice(@Param("id") Long id);
  BigDecimal selectMinGiftPoint(@Param("id") Long id);

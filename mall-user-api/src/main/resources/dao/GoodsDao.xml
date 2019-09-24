@@ -15,6 +15,9 @@
             #{item}
         </foreach>
     </update>
+    <select id="selectSuperiorBySpuId" resultType="java.lang.Integer">
+      select superior from goods_spu where id = #{id}
+    </select>
     <select id="selectMaxPrice" resultType="java.math.BigDecimal">
         select max(price) from goods_sku where spu_id = #{id}
     </select>
