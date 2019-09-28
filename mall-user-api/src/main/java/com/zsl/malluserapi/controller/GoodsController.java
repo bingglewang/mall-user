@@ -82,6 +82,10 @@ public class GoodsController {
                 if (!CollectionUtils.isEmpty(goodsSpuList)) {
                     goodsOutVO.setGoodsPic(goodsSpuList.get(0).getPictureUrl()); //商品主图
                 }
+                //活动价格
+                BigDecimal activityPrice = goodsDao.selectMinActivityPrice(goodsSpu.getId());
+                activityPrice = activityPrice == null ? new BigDecimal(-1) : activityPrice;
+                goodsOutVO.setActivityPrice(activityPrice);
                 result.add(goodsOutVO);
             }
 

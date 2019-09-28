@@ -16,4 +16,5 @@ public class GoodsOutVO {
     private String price;//价格
     private Long totalSal;//总销量
     private String goodsPic; //商品图片
+    private BigDecimal activityPrice;//商品活动价格
 }

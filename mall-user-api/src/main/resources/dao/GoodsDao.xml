@@ -21,6 +21,12 @@
     <select id="selectMaxPrice" resultType="java.math.BigDecimal">
         select max(price) from goods_sku where spu_id = #{id}
     </select>
+    <select id="selectMinActivityPrice" resultType="java.math.BigDecimal">
+        select min(price)  from goods_activity where sku_id in
+        (select id from goods_sku where spu_id = #{id})
+        and activity_open = 1
+        and (NOW() BETWEEN start_time and end_time)
+    </select>
     <select id="selectMinPrice" resultType="java.math.BigDecimal">
         select min(price) from goods_sku where spu_id = #{id}
     </select>

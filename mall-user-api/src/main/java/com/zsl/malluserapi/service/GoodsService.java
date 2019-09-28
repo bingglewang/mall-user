@@ -3,6 +3,7 @@ package com.zsl.malluserapi.service;
 import com.zsl.malluserapi.dto.goods.in.GoodsInParam;
 import com.zsl.mallusercommon.CommonResult;
 import com.zsl.malluserdb.po.GoodsSku;
+import com.zsl.malluserdb.po.GoodsSpu;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface GoodsService {
      * @param order
      * @return
      */
-    List<GoodsSku> getGoodsList(String goodsName, Integer page, Integer limit, String sort, String order);
+    List<GoodsSpu> getGoodsList(String goodsName, Integer page, Integer limit, String sort, String order);
 
     /**
      * 商品详情

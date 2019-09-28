@@ -24,6 +24,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 
 @Service
@@ -80,21 +81,21 @@ public class GoodsServiceImpl implements GoodsService {
     private UserDao userDao;
 
     @Override
-    public List<GoodsSku> getGoodsList(String goodsName, Integer page, Integer limit, String sort, String order) {
-        GoodsSkuExample goodsSkuExample = new GoodsSkuExample();
-        GoodsSkuExample.Criteria criteria = goodsSkuExample.createCriteria();
+    public List<GoodsSpu> getGoodsList(String goodsName, Integer page, Integer limit, String sort, String order) {
+        GoodsSpuExample goodsSpuExample = new GoodsSpuExample();
+        GoodsSpuExample.Criteria criteria = goodsSpuExample.createCriteria();
 
         if (!StringUtils.isEmpty(goodsName)) {
-            criteria.andSkuNameLike("%" + goodsName + "%");
+            criteria.andGoodsNameLike("%" + goodsName + "%");
         }
 
         if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(order)) {
-            goodsSkuExample.setOrderByClause(sort + " " + order);
+            goodsSpuExample.setOrderByClause(sort + " " + order);
         }
         criteria.andStatusEqualTo(true); //根据商品商品上架下架
         //PageHelper.startPage(page, limit);
 
-        return goodsSkuMapper.selectByExample(goodsSkuExample);
+        return goodsSpuMapper.selectByExample(goodsSpuExample);
     }
 
     @Override
@@ -123,6 +124,10 @@ public class GoodsServiceImpl implements GoodsService {
         }else{
             goodsInfo.setTotalSal(goodsDao.selectTotalSal(goodsSpu.getId())+"");
         }
+        //活动价格
+        BigDecimal activityPrice = goodsDao.selectMinActivityPrice(goodsSpu.getId());
+        activityPrice = activityPrice == null ? new BigDecimal(-1) : activityPrice;
+        result.put("activityPrice",activityPrice);
         result.put("goodsInfo", goodsInfo);
         //商品组图
         List<String> goodsPic = new ArrayList<>();

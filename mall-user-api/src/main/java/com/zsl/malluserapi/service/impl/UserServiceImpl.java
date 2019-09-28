@@ -220,8 +220,15 @@ public class UserServiceImpl implements UserService {
         if(friend != null){
             UserFriend updateFriend = new UserFriend();
             updateFriend.setId(friend.getId());
-            updateFriend.setNickName(updateMember.getNickname()); //昵称
-            updateFriend.setPhoto(updateMember.getPicUrl()); //头像
+            if(StringUtils.isNotBlank(updateMember.getRealname())){
+                //昵称
+                updateFriend.setNickName(updateMember.getRealname());
+            }else{
+                //昵称
+                updateFriend.setNickName(updateMember.getNickname());
+            }
+            //头像
+            updateFriend.setPhoto(updateMember.getPicUrl());
             userFriendMapper.updateByPrimaryKeySelective(updateFriend);
         }
         return 1;
