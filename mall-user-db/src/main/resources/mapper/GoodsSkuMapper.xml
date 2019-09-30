@@ -18,6 +18,9 @@
     <result column="status" jdbcType="BIT" property="status" />
     <result column="gift_point" jdbcType="INTEGER" property="giftPoint" />
     <result column="sku_picture" jdbcType="VARCHAR" property="skuPicture" />
+    <result column="gift_money" jdbcType="DECIMAL" property="giftMoney" />
+    <result column="father_money" jdbcType="DECIMAL" property="fatherMoney" />
+    <result column="grandfather_money" jdbcType="DECIMAL" property="grandfatherMoney" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -79,7 +82,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, spu_id, shop_id, sku_no, sku_name, cost, price, point, sales_volume, stock, warn_stock, 
-    create_time, update_time, `status`, gift_point, sku_picture
+    create_time, update_time, `status`, gift_point, sku_picture, gift_money, father_money, 
+    grandfather_money
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsSkuExample" resultMap="BaseResultMap">
     select
@@ -157,13 +161,15 @@
       sku_name, cost, price, 
       point, sales_volume, stock, 
       warn_stock, create_time, update_time, 
-      `status`, gift_point, sku_picture
+      `status`, gift_point, sku_picture, 
+      gift_money, father_money, grandfather_money
       )
     values (#{spuId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, #{skuNo,jdbcType=VARCHAR}, 
       #{skuName,jdbcType=VARCHAR}, #{cost,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
       #{point,jdbcType=INTEGER}, #{salesVolume,jdbcType=INTEGER}, #{stock,jdbcType=INTEGER}, 
       #{warnStock,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=BIT}, #{giftPoint,jdbcType=INTEGER}, #{skuPicture,jdbcType=VARCHAR}
+      #{status,jdbcType=BIT}, #{giftPoint,jdbcType=INTEGER}, #{skuPicture,jdbcType=VARCHAR}, 
+      #{giftMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, #{grandfatherMoney,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsSku">
@@ -217,6 +223,15 @@
       <if test="skuPicture != null">
         sku_picture,
       </if>
+      <if test="giftMoney != null">
+        gift_money,
+      </if>
+      <if test="fatherMoney != null">
+        father_money,
+      </if>
+      <if test="grandfatherMoney != null">
+        grandfather_money,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="spuId != null">
@@ -263,6 +278,15 @@
       </if>
       <if test="skuPicture != null">
         #{skuPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="giftMoney != null">
+        #{giftMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherMoney != null">
+        #{fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="grandfatherMoney != null">
+        #{grandfatherMoney,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -323,6 +347,15 @@
       <if test="record.skuPicture != null">
         sku_picture = #{record.skuPicture,jdbcType=VARCHAR},
       </if>
+      <if test="record.giftMoney != null">
+        gift_money = #{record.giftMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fatherMoney != null">
+        father_money = #{record.fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.grandfatherMoney != null">
+        grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -345,7 +378,10 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       `status` = #{record.status,jdbcType=BIT},
       gift_point = #{record.giftPoint,jdbcType=INTEGER},
-      sku_picture = #{record.skuPicture,jdbcType=VARCHAR}
+      sku_picture = #{record.skuPicture,jdbcType=VARCHAR},
+      gift_money = #{record.giftMoney,jdbcType=DECIMAL},
+      father_money = #{record.fatherMoney,jdbcType=DECIMAL},
+      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -398,6 +434,15 @@
       <if test="skuPicture != null">
         sku_picture = #{skuPicture,jdbcType=VARCHAR},
       </if>
+      <if test="giftMoney != null">
+        gift_money = #{giftMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherMoney != null">
+        father_money = #{fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="grandfatherMoney != null">
+        grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -417,7 +462,10 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       `status` = #{status,jdbcType=BIT},
       gift_point = #{giftPoint,jdbcType=INTEGER},
-      sku_picture = #{skuPicture,jdbcType=VARCHAR}
+      sku_picture = #{skuPicture,jdbcType=VARCHAR},
+      gift_money = #{giftMoney,jdbcType=DECIMAL},
+      father_money = #{fatherMoney,jdbcType=DECIMAL},
+      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsSkuExample" resultMap="BaseResultMap">

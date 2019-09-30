@@ -18,17 +18,25 @@ public class GoodsOrderDetail implements Serializable {
 
     private Integer totalPoint;
 
-    private Long totalFreight;
+    private BigDecimal totalFreight;
 
     private Integer presentCoin;
 
-    private Boolean degreeOfSatisfaction;
+    private Boolean returned;
 
-    private String evaluationContent;
+    private Integer surplusValidCount;
 
-    private String evaluationImageUrl;
+    private String goodsName;
 
-    private Boolean anonymity;
+    private String goodsPicture;
+
+    private String goodsSpec;
+
+    private BigDecimal presentMoney;
+
+    private BigDecimal fatherMoney;
+
+    private BigDecimal grandfatherMoney;
 
     private static final long serialVersionUID = 1L;
 
@@ -80,11 +88,11 @@ public class GoodsOrderDetail implements Serializable {
         this.totalPoint = totalPoint;
     }
 
-    public Long getTotalFreight() {
+    public BigDecimal getTotalFreight() {
         return totalFreight;
     }
 
-    public void setTotalFreight(Long totalFreight) {
+    public void setTotalFreight(BigDecimal totalFreight) {
         this.totalFreight = totalFreight;
     }
 
@@ -96,36 +104,68 @@ public class GoodsOrderDetail implements Serializable {
         this.presentCoin = presentCoin;
     }
 
-    public Boolean getDegreeOfSatisfaction() {
-        return degreeOfSatisfaction;
+    public Boolean getReturned() {
+        return returned;
     }
 
-    public void setDegreeOfSatisfaction(Boolean degreeOfSatisfaction) {
-        this.degreeOfSatisfaction = degreeOfSatisfaction;
+    public void setReturned(Boolean returned) {
+        this.returned = returned;
     }
 
-    public String getEvaluationContent() {
-        return evaluationContent;
+    public Integer getSurplusValidCount() {
+        return surplusValidCount;
     }
 
-    public void setEvaluationContent(String evaluationContent) {
-        this.evaluationContent = evaluationContent == null ? null : evaluationContent.trim();
+    public void setSurplusValidCount(Integer surplusValidCount) {
+        this.surplusValidCount = surplusValidCount;
     }
 
-    public String getEvaluationImageUrl() {
-        return evaluationImageUrl;
+    public String getGoodsName() {
+        return goodsName;
     }
 
-    public void setEvaluationImageUrl(String evaluationImageUrl) {
-        this.evaluationImageUrl = evaluationImageUrl == null ? null : evaluationImageUrl.trim();
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName == null ? null : goodsName.trim();
     }
 
-    public Boolean getAnonymity() {
-        return anonymity;
+    public String getGoodsPicture() {
+        return goodsPicture;
     }
 
-    public void setAnonymity(Boolean anonymity) {
-        this.anonymity = anonymity;
+    public void setGoodsPicture(String goodsPicture) {
+        this.goodsPicture = goodsPicture == null ? null : goodsPicture.trim();
+    }
+
+    public String getGoodsSpec() {
+        return goodsSpec;
+    }
+
+    public void setGoodsSpec(String goodsSpec) {
+        this.goodsSpec = goodsSpec == null ? null : goodsSpec.trim();
+    }
+
+    public BigDecimal getPresentMoney() {
+        return presentMoney;
+    }
+
+    public void setPresentMoney(BigDecimal presentMoney) {
+        this.presentMoney = presentMoney;
+    }
+
+    public BigDecimal getFatherMoney() {
+        return fatherMoney;
+    }
+
+    public void setFatherMoney(BigDecimal fatherMoney) {
+        this.fatherMoney = fatherMoney;
+    }
+
+    public BigDecimal getGrandfatherMoney() {
+        return grandfatherMoney;
+    }
+
+    public void setGrandfatherMoney(BigDecimal grandfatherMoney) {
+        this.grandfatherMoney = grandfatherMoney;
     }
 
     @Override
@@ -142,10 +182,14 @@ public class GoodsOrderDetail implements Serializable {
         sb.append(", totalPoint=").append(totalPoint);
         sb.append(", totalFreight=").append(totalFreight);
         sb.append(", presentCoin=").append(presentCoin);
-        sb.append(", degreeOfSatisfaction=").append(degreeOfSatisfaction);
-        sb.append(", evaluationContent=").append(evaluationContent);
-        sb.append(", evaluationImageUrl=").append(evaluationImageUrl);
-        sb.append(", anonymity=").append(anonymity);
+        sb.append(", returned=").append(returned);
+        sb.append(", surplusValidCount=").append(surplusValidCount);
+        sb.append(", goodsName=").append(goodsName);
+        sb.append(", goodsPicture=").append(goodsPicture);
+        sb.append(", goodsSpec=").append(goodsSpec);
+        sb.append(", presentMoney=").append(presentMoney);
+        sb.append(", fatherMoney=").append(fatherMoney);
+        sb.append(", grandfatherMoney=").append(grandfatherMoney);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -171,10 +215,14 @@ public class GoodsOrderDetail implements Serializable {
             && (this.getTotalPoint() == null ? other.getTotalPoint() == null : this.getTotalPoint().equals(other.getTotalPoint()))
             && (this.getTotalFreight() == null ? other.getTotalFreight() == null : this.getTotalFreight().equals(other.getTotalFreight()))
             && (this.getPresentCoin() == null ? other.getPresentCoin() == null : this.getPresentCoin().equals(other.getPresentCoin()))
-            && (this.getDegreeOfSatisfaction() == null ? other.getDegreeOfSatisfaction() == null : this.getDegreeOfSatisfaction().equals(other.getDegreeOfSatisfaction()))
-            && (this.getEvaluationContent() == null ? other.getEvaluationContent() == null : this.getEvaluationContent().equals(other.getEvaluationContent()))
-            && (this.getEvaluationImageUrl() == null ? other.getEvaluationImageUrl() == null : this.getEvaluationImageUrl().equals(other.getEvaluationImageUrl()))
-            && (this.getAnonymity() == null ? other.getAnonymity() == null : this.getAnonymity().equals(other.getAnonymity()));
+            && (this.getReturned() == null ? other.getReturned() == null : this.getReturned().equals(other.getReturned()))
+            && (this.getSurplusValidCount() == null ? other.getSurplusValidCount() == null : this.getSurplusValidCount().equals(other.getSurplusValidCount()))
+            && (this.getGoodsName() == null ? other.getGoodsName() == null : this.getGoodsName().equals(other.getGoodsName()))
+            && (this.getGoodsPicture() == null ? other.getGoodsPicture() == null : this.getGoodsPicture().equals(other.getGoodsPicture()))
+            && (this.getGoodsSpec() == null ? other.getGoodsSpec() == null : this.getGoodsSpec().equals(other.getGoodsSpec()))
+            && (this.getPresentMoney() == null ? other.getPresentMoney() == null : this.getPresentMoney().equals(other.getPresentMoney()))
+            && (this.getFatherMoney() == null ? other.getFatherMoney() == null : this.getFatherMoney().equals(other.getFatherMoney()))
+            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()));
     }
 
     @Override
@@ -189,10 +237,14 @@ public class GoodsOrderDetail implements Serializable {
         result = prime * result + ((getTotalPoint() == null) ? 0 : getTotalPoint().hashCode());
         result = prime * result + ((getTotalFreight() == null) ? 0 : getTotalFreight().hashCode());
         result = prime * result + ((getPresentCoin() == null) ? 0 : getPresentCoin().hashCode());
-        result = prime * result + ((getDegreeOfSatisfaction() == null) ? 0 : getDegreeOfSatisfaction().hashCode());
-        result = prime * result + ((getEvaluationContent() == null) ? 0 : getEvaluationContent().hashCode());
-        result = prime * result + ((getEvaluationImageUrl() == null) ? 0 : getEvaluationImageUrl().hashCode());
-        result = prime * result + ((getAnonymity() == null) ? 0 : getAnonymity().hashCode());
+        result = prime * result + ((getReturned() == null) ? 0 : getReturned().hashCode());
+        result = prime * result + ((getSurplusValidCount() == null) ? 0 : getSurplusValidCount().hashCode());
+        result = prime * result + ((getGoodsName() == null) ? 0 : getGoodsName().hashCode());
+        result = prime * result + ((getGoodsPicture() == null) ? 0 : getGoodsPicture().hashCode());
+        result = prime * result + ((getGoodsSpec() == null) ? 0 : getGoodsSpec().hashCode());
+        result = prime * result + ((getPresentMoney() == null) ? 0 : getPresentMoney().hashCode());
+        result = prime * result + ((getFatherMoney() == null) ? 0 : getFatherMoney().hashCode());
+        result = prime * result + ((getGrandfatherMoney() == null) ? 0 : getGrandfatherMoney().hashCode());
         return result;
     }
 
@@ -205,10 +257,14 @@ public class GoodsOrderDetail implements Serializable {
         totalPoint("total_point", "totalPoint", "INTEGER", false),
         totalFreight("total_freight", "totalFreight", "DECIMAL", false),
         presentCoin("present_coin", "presentCoin", "INTEGER", false),
-        degreeOfSatisfaction("degree_of_satisfaction", "degreeOfSatisfaction", "BIT", false),
-        evaluationContent("evaluation_content", "evaluationContent", "VARCHAR", false),
-        evaluationImageUrl("evaluation_image_url", "evaluationImageUrl", "VARCHAR", false),
-        anonymity("anonymity", "anonymity", "BIT", false);
+        returned("returned", "returned", "BIT", false),
+        surplusValidCount("surplus_valid_count", "surplusValidCount", "INTEGER", false),
+        goodsName("goods_name", "goodsName", "VARCHAR", false),
+        goodsPicture("goods_picture", "goodsPicture", "VARCHAR", false),
+        goodsSpec("goods_spec", "goodsSpec", "VARCHAR", false),
+        presentMoney("present_money", "presentMoney", "DECIMAL", false),
+        fatherMoney("father_money", "fatherMoney", "DECIMAL", false),
+        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

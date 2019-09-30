@@ -10,10 +10,14 @@
     <result column="total_point" jdbcType="INTEGER" property="totalPoint" />
     <result column="total_freight" jdbcType="DECIMAL" property="totalFreight" />
     <result column="present_coin" jdbcType="INTEGER" property="presentCoin" />
-    <result column="degree_of_satisfaction" jdbcType="BIT" property="degreeOfSatisfaction" />
-    <result column="evaluation_content" jdbcType="VARCHAR" property="evaluationContent" />
-    <result column="evaluation_image_url" jdbcType="VARCHAR" property="evaluationImageUrl" />
-    <result column="anonymity" jdbcType="BIT" property="anonymity" />
+    <result column="returned" jdbcType="BIT" property="returned" />
+    <result column="surplus_valid_count" jdbcType="INTEGER" property="surplusValidCount" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_picture" jdbcType="VARCHAR" property="goodsPicture" />
+    <result column="goods_spec" jdbcType="VARCHAR" property="goodsSpec" />
+    <result column="present_money" jdbcType="DECIMAL" property="presentMoney" />
+    <result column="father_money" jdbcType="DECIMAL" property="fatherMoney" />
+    <result column="grandfather_money" jdbcType="DECIMAL" property="grandfatherMoney" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,7 +79,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, sku_id, order_no, total_amount, total_count, total_point, total_freight, present_coin, 
-    degree_of_satisfaction, evaluation_content, evaluation_image_url, anonymity
+    returned, surplus_valid_count, goods_name, goods_picture, goods_spec, present_money, 
+    father_money, grandfather_money
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderDetailExample" resultMap="BaseResultMap">
     select
@@ -151,12 +156,16 @@
     </selectKey>
     insert into goods_order_detail (sku_id, order_no, total_amount, 
       total_count, total_point, total_freight, 
-      present_coin, degree_of_satisfaction, evaluation_content, 
-      evaluation_image_url, anonymity)
+      present_coin, returned, surplus_valid_count, 
+      goods_name, goods_picture, goods_spec, 
+      present_money, father_money, grandfather_money
+      )
     values (#{skuId,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{totalAmount,jdbcType=DECIMAL}, 
       #{totalCount,jdbcType=INTEGER}, #{totalPoint,jdbcType=INTEGER}, #{totalFreight,jdbcType=DECIMAL}, 
-      #{presentCoin,jdbcType=INTEGER}, #{degreeOfSatisfaction,jdbcType=BIT}, #{evaluationContent,jdbcType=VARCHAR}, 
-      #{evaluationImageUrl,jdbcType=VARCHAR}, #{anonymity,jdbcType=BIT})
+      #{presentCoin,jdbcType=INTEGER}, #{returned,jdbcType=BIT}, #{surplusValidCount,jdbcType=INTEGER}, 
+      #{goodsName,jdbcType=VARCHAR}, #{goodsPicture,jdbcType=VARCHAR}, #{goodsSpec,jdbcType=VARCHAR}, 
+      #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, #{grandfatherMoney,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsOrderDetail">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -185,17 +194,29 @@
       <if test="presentCoin != null">
         present_coin,
       </if>
-      <if test="degreeOfSatisfaction != null">
-        degree_of_satisfaction,
+      <if test="returned != null">
+        returned,
       </if>
-      <if test="evaluationContent != null">
-        evaluation_content,
+      <if test="surplusValidCount != null">
+        surplus_valid_count,
       </if>
-      <if test="evaluationImageUrl != null">
-        evaluation_image_url,
+      <if test="goodsName != null">
+        goods_name,
       </if>
-      <if test="anonymity != null">
-        anonymity,
+      <if test="goodsPicture != null">
+        goods_picture,
+      </if>
+      <if test="goodsSpec != null">
+        goods_spec,
+      </if>
+      <if test="presentMoney != null">
+        present_money,
+      </if>
+      <if test="fatherMoney != null">
+        father_money,
+      </if>
+      <if test="grandfatherMoney != null">
+        grandfather_money,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -220,17 +241,29 @@
       <if test="presentCoin != null">
         #{presentCoin,jdbcType=INTEGER},
       </if>
-      <if test="degreeOfSatisfaction != null">
-        #{degreeOfSatisfaction,jdbcType=BIT},
+      <if test="returned != null">
+        #{returned,jdbcType=BIT},
       </if>
-      <if test="evaluationContent != null">
-        #{evaluationContent,jdbcType=VARCHAR},
+      <if test="surplusValidCount != null">
+        #{surplusValidCount,jdbcType=INTEGER},
       </if>
-      <if test="evaluationImageUrl != null">
-        #{evaluationImageUrl,jdbcType=VARCHAR},
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
       </if>
-      <if test="anonymity != null">
-        #{anonymity,jdbcType=BIT},
+      <if test="goodsPicture != null">
+        #{goodsPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSpec != null">
+        #{goodsSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="presentMoney != null">
+        #{presentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherMoney != null">
+        #{fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="grandfatherMoney != null">
+        #{grandfatherMoney,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -267,17 +300,29 @@
       <if test="record.presentCoin != null">
         present_coin = #{record.presentCoin,jdbcType=INTEGER},
       </if>
-      <if test="record.degreeOfSatisfaction != null">
-        degree_of_satisfaction = #{record.degreeOfSatisfaction,jdbcType=BIT},
+      <if test="record.returned != null">
+        returned = #{record.returned,jdbcType=BIT},
       </if>
-      <if test="record.evaluationContent != null">
-        evaluation_content = #{record.evaluationContent,jdbcType=VARCHAR},
+      <if test="record.surplusValidCount != null">
+        surplus_valid_count = #{record.surplusValidCount,jdbcType=INTEGER},
       </if>
-      <if test="record.evaluationImageUrl != null">
-        evaluation_image_url = #{record.evaluationImageUrl,jdbcType=VARCHAR},
+      <if test="record.goodsName != null">
+        goods_name = #{record.goodsName,jdbcType=VARCHAR},
       </if>
-      <if test="record.anonymity != null">
-        anonymity = #{record.anonymity,jdbcType=BIT},
+      <if test="record.goodsPicture != null">
+        goods_picture = #{record.goodsPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsSpec != null">
+        goods_spec = #{record.goodsSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="record.presentMoney != null">
+        present_money = #{record.presentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fatherMoney != null">
+        father_money = #{record.fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.grandfatherMoney != null">
+        grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null">
@@ -294,10 +339,14 @@
       total_point = #{record.totalPoint,jdbcType=INTEGER},
       total_freight = #{record.totalFreight,jdbcType=DECIMAL},
       present_coin = #{record.presentCoin,jdbcType=INTEGER},
-      degree_of_satisfaction = #{record.degreeOfSatisfaction,jdbcType=BIT},
-      evaluation_content = #{record.evaluationContent,jdbcType=VARCHAR},
-      evaluation_image_url = #{record.evaluationImageUrl,jdbcType=VARCHAR},
-      anonymity = #{record.anonymity,jdbcType=BIT}
+      returned = #{record.returned,jdbcType=BIT},
+      surplus_valid_count = #{record.surplusValidCount,jdbcType=INTEGER},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      goods_picture = #{record.goodsPicture,jdbcType=VARCHAR},
+      goods_spec = #{record.goodsSpec,jdbcType=VARCHAR},
+      present_money = #{record.presentMoney,jdbcType=DECIMAL},
+      father_money = #{record.fatherMoney,jdbcType=DECIMAL},
+      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -326,17 +375,29 @@
       <if test="presentCoin != null">
         present_coin = #{presentCoin,jdbcType=INTEGER},
       </if>
-      <if test="degreeOfSatisfaction != null">
-        degree_of_satisfaction = #{degreeOfSatisfaction,jdbcType=BIT},
+      <if test="returned != null">
+        returned = #{returned,jdbcType=BIT},
       </if>
-      <if test="evaluationContent != null">
-        evaluation_content = #{evaluationContent,jdbcType=VARCHAR},
+      <if test="surplusValidCount != null">
+        surplus_valid_count = #{surplusValidCount,jdbcType=INTEGER},
       </if>
-      <if test="evaluationImageUrl != null">
-        evaluation_image_url = #{evaluationImageUrl,jdbcType=VARCHAR},
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
       </if>
-      <if test="anonymity != null">
-        anonymity = #{anonymity,jdbcType=BIT},
+      <if test="goodsPicture != null">
+        goods_picture = #{goodsPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSpec != null">
+        goods_spec = #{goodsSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="presentMoney != null">
+        present_money = #{presentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherMoney != null">
+        father_money = #{fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="grandfatherMoney != null">
+        grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -350,10 +411,14 @@
       total_point = #{totalPoint,jdbcType=INTEGER},
       total_freight = #{totalFreight,jdbcType=DECIMAL},
       present_coin = #{presentCoin,jdbcType=INTEGER},
-      degree_of_satisfaction = #{degreeOfSatisfaction,jdbcType=BIT},
-      evaluation_content = #{evaluationContent,jdbcType=VARCHAR},
-      evaluation_image_url = #{evaluationImageUrl,jdbcType=VARCHAR},
-      anonymity = #{anonymity,jdbcType=BIT}
+      returned = #{returned,jdbcType=BIT},
+      surplus_valid_count = #{surplusValidCount,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_picture = #{goodsPicture,jdbcType=VARCHAR},
+      goods_spec = #{goodsSpec,jdbcType=VARCHAR},
+      present_money = #{presentMoney,jdbcType=DECIMAL},
+      father_money = #{fatherMoney,jdbcType=DECIMAL},
+      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderDetailExample" resultMap="BaseResultMap">

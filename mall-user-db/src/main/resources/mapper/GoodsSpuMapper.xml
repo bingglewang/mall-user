@@ -13,6 +13,8 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="freight" jdbcType="DECIMAL" property="freight" />
     <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="superior" jdbcType="BIT" property="superior" />
+    <result column="status" jdbcType="BIT" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -74,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, spu_no, goods_name, goods_sub_name, low_price, category_id, brand_id, create_time, 
-    update_time, freight, shop_id
+    update_time, freight, shop_id, superior, `status`
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsSpuExample" resultMap="BaseResultMap">
     select
@@ -151,11 +153,11 @@
     insert into goods_spu (spu_no, goods_name, goods_sub_name, 
       low_price, category_id, brand_id, 
       create_time, update_time, freight, 
-      shop_id)
+      shop_id, superior, `status`)
     values (#{spuNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsSubName,jdbcType=VARCHAR}, 
       #{lowPrice,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, #{brandId,jdbcType=BIGINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{freight,jdbcType=DECIMAL}, 
-      #{shopId,jdbcType=BIGINT})
+      #{shopId,jdbcType=BIGINT}, #{superior,jdbcType=BIT}, #{status,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsSpu">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -193,6 +195,12 @@
       <if test="shopId != null">
         shop_id,
       </if>
+      <if test="superior != null">
+        superior,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="spuNo != null">
@@ -224,6 +232,12 @@
       </if>
       <if test="shopId != null">
         #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="superior != null">
+        #{superior,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -269,6 +283,12 @@
       <if test="record.shopId != null">
         shop_id = #{record.shopId,jdbcType=BIGINT},
       </if>
+      <if test="record.superior != null">
+        superior = #{record.superior,jdbcType=BIT},
+      </if>
+      <if test="record.status != null">
+        `status` = #{record.status,jdbcType=BIT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -286,7 +306,9 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       freight = #{record.freight,jdbcType=DECIMAL},
-      shop_id = #{record.shopId,jdbcType=BIGINT}
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      superior = #{record.superior,jdbcType=BIT},
+      `status` = #{record.status,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -324,6 +346,12 @@
       <if test="shopId != null">
         shop_id = #{shopId,jdbcType=BIGINT},
       </if>
+      <if test="superior != null">
+        superior = #{superior,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BIT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -338,7 +366,9 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       freight = #{freight,jdbcType=DECIMAL},
-      shop_id = #{shopId,jdbcType=BIGINT}
+      shop_id = #{shopId,jdbcType=BIGINT},
+      superior = #{superior,jdbcType=BIT},
+      `status` = #{status,jdbcType=BIT}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsSpuExample" resultMap="BaseResultMap">

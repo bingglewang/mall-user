@@ -17,6 +17,12 @@ public class GoodsOrderInfo implements Serializable {
 
     private Boolean currentState;
 
+    private Integer trackingCompanyId;
+
+    private String trackingNumber;
+
+    private Boolean orderEvaluate;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -67,6 +73,30 @@ public class GoodsOrderInfo implements Serializable {
         this.currentState = currentState;
     }
 
+    public Integer getTrackingCompanyId() {
+        return trackingCompanyId;
+    }
+
+    public void setTrackingCompanyId(Integer trackingCompanyId) {
+        this.trackingCompanyId = trackingCompanyId;
+    }
+
+    public String getTrackingNumber() {
+        return trackingNumber;
+    }
+
+    public void setTrackingNumber(String trackingNumber) {
+        this.trackingNumber = trackingNumber == null ? null : trackingNumber.trim();
+    }
+
+    public Boolean getOrderEvaluate() {
+        return orderEvaluate;
+    }
+
+    public void setOrderEvaluate(Boolean orderEvaluate) {
+        this.orderEvaluate = orderEvaluate;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -79,6 +109,9 @@ public class GoodsOrderInfo implements Serializable {
         sb.append(", shopId=").append(shopId);
         sb.append(", preState=").append(preState);
         sb.append(", currentState=").append(currentState);
+        sb.append(", trackingCompanyId=").append(trackingCompanyId);
+        sb.append(", trackingNumber=").append(trackingNumber);
+        sb.append(", orderEvaluate=").append(orderEvaluate);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -101,7 +134,10 @@ public class GoodsOrderInfo implements Serializable {
             && (this.getTradeNo() == null ? other.getTradeNo() == null : this.getTradeNo().equals(other.getTradeNo()))
             && (this.getShopId() == null ? other.getShopId() == null : this.getShopId().equals(other.getShopId()))
             && (this.getPreState() == null ? other.getPreState() == null : this.getPreState().equals(other.getPreState()))
-            && (this.getCurrentState() == null ? other.getCurrentState() == null : this.getCurrentState().equals(other.getCurrentState()));
+            && (this.getCurrentState() == null ? other.getCurrentState() == null : this.getCurrentState().equals(other.getCurrentState()))
+            && (this.getTrackingCompanyId() == null ? other.getTrackingCompanyId() == null : this.getTrackingCompanyId().equals(other.getTrackingCompanyId()))
+            && (this.getTrackingNumber() == null ? other.getTrackingNumber() == null : this.getTrackingNumber().equals(other.getTrackingNumber()))
+            && (this.getOrderEvaluate() == null ? other.getOrderEvaluate() == null : this.getOrderEvaluate().equals(other.getOrderEvaluate()));
     }
 
     @Override
@@ -114,6 +150,9 @@ public class GoodsOrderInfo implements Serializable {
         result = prime * result + ((getShopId() == null) ? 0 : getShopId().hashCode());
         result = prime * result + ((getPreState() == null) ? 0 : getPreState().hashCode());
         result = prime * result + ((getCurrentState() == null) ? 0 : getCurrentState().hashCode());
+        result = prime * result + ((getTrackingCompanyId() == null) ? 0 : getTrackingCompanyId().hashCode());
+        result = prime * result + ((getTrackingNumber() == null) ? 0 : getTrackingNumber().hashCode());
+        result = prime * result + ((getOrderEvaluate() == null) ? 0 : getOrderEvaluate().hashCode());
         return result;
     }
 
@@ -123,7 +162,10 @@ public class GoodsOrderInfo implements Serializable {
         tradeNo("trade_no", "tradeNo", "VARCHAR", false),
         shopId("shop_id", "shopId", "BIGINT", false),
         preState("pre_state", "preState", "BIT", false),
-        currentState("current_state", "currentState", "BIT", false);
+        currentState("current_state", "currentState", "BIT", false),
+        trackingCompanyId("tracking_company_id", "trackingCompanyId", "INTEGER", false),
+        trackingNumber("tracking_number", "trackingNumber", "VARCHAR", false),
+        orderEvaluate("order_evaluate", "orderEvaluate", "BIT", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

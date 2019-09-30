@@ -40,6 +40,10 @@ public class UserMember implements Serializable {
 
     private String country;
 
+    private Double balance;
+
+    private Integer node;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -178,6 +182,22 @@ public class UserMember implements Serializable {
         this.country = country == null ? null : country.trim();
     }
 
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public Integer getNode() {
+        return node;
+    }
+
+    public void setNode(Integer node) {
+        this.node = node;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -201,6 +221,8 @@ public class UserMember implements Serializable {
         sb.append(", province=").append(province);
         sb.append(", city=").append(city);
         sb.append(", country=").append(country);
+        sb.append(", balance=").append(balance);
+        sb.append(", node=").append(node);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -234,7 +256,9 @@ public class UserMember implements Serializable {
             && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
-            && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()));
+            && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
+            && (this.getBalance() == null ? other.getBalance() == null : this.getBalance().equals(other.getBalance()))
+            && (this.getNode() == null ? other.getNode() == null : this.getNode().equals(other.getNode()));
     }
 
     @Override
@@ -258,6 +282,8 @@ public class UserMember implements Serializable {
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
+        result = prime * result + ((getBalance() == null) ? 0 : getBalance().hashCode());
+        result = prime * result + ((getNode() == null) ? 0 : getNode().hashCode());
         return result;
     }
 
@@ -278,7 +304,9 @@ public class UserMember implements Serializable {
         sex("sex", "sex", "CHAR", false),
         province("province", "province", "VARCHAR", false),
         city("city", "city", "VARCHAR", false),
-        country("country", "country", "VARCHAR", false);
+        country("country", "country", "VARCHAR", false),
+        balance("balance", "balance", "DOUBLE", false),
+        node("node", "node", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

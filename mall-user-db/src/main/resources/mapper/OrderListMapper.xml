@@ -14,6 +14,7 @@
     <result column="trade_time" jdbcType="TIMESTAMP" property="tradeTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
     <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_evaluate" jdbcType="BIT" property="orderEvaluate" />
     <result column="current_state" jdbcType="BIT" property="currentState" />
     <result column="child_amount" jdbcType="DECIMAL" property="childAmount" />
     <result column="child_count" jdbcType="INTEGER" property="childCount" />
@@ -89,9 +90,9 @@
   </sql>
   <sql id="Base_Column_List">
     id, trade_no, member_id, current_status, trade_amount, trade_count, trade_point, 
-    evaluate, freight_charge, trade_time, end_time, order_no, current_state, child_amount, 
-    child_count, child_point, sku_name, price, picture_url, shop_name, spec_value, spec_name, 
-    shop_id, sku_id, total_coin, present_coin
+    evaluate, freight_charge, trade_time, end_time, order_no, order_evaluate, current_state, 
+    child_amount, child_count, child_point, sku_name, price, picture_url, shop_name, 
+    spec_value, spec_name, shop_id, sku_id, total_coin, present_coin
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.OrderListExample" resultMap="BaseResultMap">
     select
@@ -143,21 +144,21 @@
     insert into order_list (trade_no, member_id, current_status, 
       trade_amount, trade_count, trade_point, 
       evaluate, freight_charge, trade_time, 
-      end_time, order_no, current_state, 
-      child_amount, child_count, child_point, 
-      sku_name, price, picture_url, 
-      shop_name, spec_value, spec_name, 
-      shop_id, sku_id, total_coin, 
-      present_coin)
+      end_time, order_no, order_evaluate, 
+      current_state, child_amount, child_count, 
+      child_point, sku_name, price, 
+      picture_url, shop_name, spec_value, 
+      spec_name, shop_id, sku_id, 
+      total_coin, present_coin)
     values (#{tradeNo,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, #{currentStatus,jdbcType=TINYINT}, 
       #{tradeAmount,jdbcType=REAL}, #{tradeCount,jdbcType=INTEGER}, #{tradePoint,jdbcType=INTEGER}, 
       #{evaluate,jdbcType=BIT}, #{freightCharge,jdbcType=DECIMAL}, #{tradeTime,jdbcType=TIMESTAMP}, 
-      #{endTime,jdbcType=TIMESTAMP}, #{orderNo,jdbcType=VARCHAR}, #{currentState,jdbcType=BIT}, 
-      #{childAmount,jdbcType=DECIMAL}, #{childCount,jdbcType=INTEGER}, #{childPoint,jdbcType=INTEGER}, 
-      #{skuName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{pictureUrl,jdbcType=VARCHAR}, 
-      #{shopName,jdbcType=VARCHAR}, #{specValue,jdbcType=VARCHAR}, #{specName,jdbcType=VARCHAR}, 
-      #{shopId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{totalCoin,jdbcType=INTEGER}, 
-      #{presentCoin,jdbcType=INTEGER})
+      #{endTime,jdbcType=TIMESTAMP}, #{orderNo,jdbcType=VARCHAR}, #{orderEvaluate,jdbcType=BIT}, 
+      #{currentState,jdbcType=BIT}, #{childAmount,jdbcType=DECIMAL}, #{childCount,jdbcType=INTEGER}, 
+      #{childPoint,jdbcType=INTEGER}, #{skuName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{pictureUrl,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{specValue,jdbcType=VARCHAR}, 
+      #{specName,jdbcType=VARCHAR}, #{shopId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, 
+      #{totalCoin,jdbcType=INTEGER}, #{presentCoin,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.OrderList">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -197,6 +198,9 @@
       </if>
       <if test="orderNo != null">
         order_no,
+      </if>
+      <if test="orderEvaluate != null">
+        order_evaluate,
       </if>
       <if test="currentState != null">
         current_state,
@@ -274,6 +278,9 @@
       </if>
       <if test="orderNo != null">
         #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderEvaluate != null">
+        #{orderEvaluate,jdbcType=BIT},
       </if>
       <if test="currentState != null">
         #{currentState,jdbcType=BIT},
@@ -364,6 +371,9 @@
       <if test="record.orderNo != null">
         order_no = #{record.orderNo,jdbcType=VARCHAR},
       </if>
+      <if test="record.orderEvaluate != null">
+        order_evaluate = #{record.orderEvaluate,jdbcType=BIT},
+      </if>
       <if test="record.currentState != null">
         current_state = #{record.currentState,jdbcType=BIT},
       </if>
@@ -425,6 +435,7 @@
       trade_time = #{record.tradeTime,jdbcType=TIMESTAMP},
       end_time = #{record.endTime,jdbcType=TIMESTAMP},
       order_no = #{record.orderNo,jdbcType=VARCHAR},
+      order_evaluate = #{record.orderEvaluate,jdbcType=BIT},
       current_state = #{record.currentState,jdbcType=BIT},
       child_amount = #{record.childAmount,jdbcType=DECIMAL},
       child_count = #{record.childCount,jdbcType=INTEGER},

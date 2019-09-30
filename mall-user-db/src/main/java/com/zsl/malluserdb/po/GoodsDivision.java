@@ -10,8 +10,6 @@ public class GoodsDivision implements Serializable {
 
     private Integer divisionId;
 
-    private Long skuId;
-
     private String topicName;
 
     private String viceName;
@@ -21,6 +19,8 @@ public class GoodsDivision implements Serializable {
     private String goodsPicture;
 
     private BigDecimal goodsPrice;
+
+    private Long spuId;
 
     private static final long serialVersionUID = 1L;
 
@@ -38,14 +38,6 @@ public class GoodsDivision implements Serializable {
 
     public void setDivisionId(Integer divisionId) {
         this.divisionId = divisionId;
-    }
-
-    public Long getSkuId() {
-        return skuId;
-    }
-
-    public void setSkuId(Long skuId) {
-        this.skuId = skuId;
     }
 
     public String getTopicName() {
@@ -88,6 +80,14 @@ public class GoodsDivision implements Serializable {
         this.goodsPrice = goodsPrice;
     }
 
+    public Long getSpuId() {
+        return spuId;
+    }
+
+    public void setSpuId(Long spuId) {
+        this.spuId = spuId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -96,12 +96,12 @@ public class GoodsDivision implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", divisionId=").append(divisionId);
-        sb.append(", skuId=").append(skuId);
         sb.append(", topicName=").append(topicName);
         sb.append(", viceName=").append(viceName);
         sb.append(", goodsName=").append(goodsName);
         sb.append(", goodsPicture=").append(goodsPicture);
         sb.append(", goodsPrice=").append(goodsPrice);
+        sb.append(", spuId=").append(spuId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -121,12 +121,12 @@ public class GoodsDivision implements Serializable {
         GoodsDivision other = (GoodsDivision) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getDivisionId() == null ? other.getDivisionId() == null : this.getDivisionId().equals(other.getDivisionId()))
-            && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
             && (this.getTopicName() == null ? other.getTopicName() == null : this.getTopicName().equals(other.getTopicName()))
             && (this.getViceName() == null ? other.getViceName() == null : this.getViceName().equals(other.getViceName()))
             && (this.getGoodsName() == null ? other.getGoodsName() == null : this.getGoodsName().equals(other.getGoodsName()))
             && (this.getGoodsPicture() == null ? other.getGoodsPicture() == null : this.getGoodsPicture().equals(other.getGoodsPicture()))
-            && (this.getGoodsPrice() == null ? other.getGoodsPrice() == null : this.getGoodsPrice().equals(other.getGoodsPrice()));
+            && (this.getGoodsPrice() == null ? other.getGoodsPrice() == null : this.getGoodsPrice().equals(other.getGoodsPrice()))
+            && (this.getSpuId() == null ? other.getSpuId() == null : this.getSpuId().equals(other.getSpuId()));
     }
 
     @Override
@@ -135,24 +135,24 @@ public class GoodsDivision implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getDivisionId() == null) ? 0 : getDivisionId().hashCode());
-        result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
         result = prime * result + ((getTopicName() == null) ? 0 : getTopicName().hashCode());
         result = prime * result + ((getViceName() == null) ? 0 : getViceName().hashCode());
         result = prime * result + ((getGoodsName() == null) ? 0 : getGoodsName().hashCode());
         result = prime * result + ((getGoodsPicture() == null) ? 0 : getGoodsPicture().hashCode());
         result = prime * result + ((getGoodsPrice() == null) ? 0 : getGoodsPrice().hashCode());
+        result = prime * result + ((getSpuId() == null) ? 0 : getSpuId().hashCode());
         return result;
     }
 
     public enum Column {
         id("id", "id", "INTEGER", false),
         divisionId("division_id", "divisionId", "INTEGER", false),
-        skuId("sku_id", "skuId", "BIGINT", false),
         topicName("topic_name", "topicName", "VARCHAR", false),
         viceName("vice_name", "viceName", "VARCHAR", false),
         goodsName("goods_name", "goodsName", "VARCHAR", false),
         goodsPicture("goods_picture", "goodsPicture", "VARCHAR", false),
-        goodsPrice("goods_price", "goodsPrice", "DECIMAL", false);
+        goodsPrice("goods_price", "goodsPrice", "DECIMAL", false),
+        spuId("spu_id", "spuId", "BIGINT", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

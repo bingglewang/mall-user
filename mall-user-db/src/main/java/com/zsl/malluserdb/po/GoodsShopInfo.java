@@ -14,6 +14,10 @@ public class GoodsShopInfo implements Serializable {
 
     private Date updateTime;
 
+    private String shopSite;
+
+    private String shopSiteDetail;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -48,6 +52,22 @@ public class GoodsShopInfo implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public String getShopSite() {
+        return shopSite;
+    }
+
+    public void setShopSite(String shopSite) {
+        this.shopSite = shopSite == null ? null : shopSite.trim();
+    }
+
+    public String getShopSiteDetail() {
+        return shopSiteDetail;
+    }
+
+    public void setShopSiteDetail(String shopSiteDetail) {
+        this.shopSiteDetail = shopSiteDetail == null ? null : shopSiteDetail.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -58,6 +78,8 @@ public class GoodsShopInfo implements Serializable {
         sb.append(", shopName=").append(shopName);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
+        sb.append(", shopSite=").append(shopSite);
+        sb.append(", shopSiteDetail=").append(shopSiteDetail);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -78,7 +100,9 @@ public class GoodsShopInfo implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getShopName() == null ? other.getShopName() == null : this.getShopName().equals(other.getShopName()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getShopSite() == null ? other.getShopSite() == null : this.getShopSite().equals(other.getShopSite()))
+            && (this.getShopSiteDetail() == null ? other.getShopSiteDetail() == null : this.getShopSiteDetail().equals(other.getShopSiteDetail()));
     }
 
     @Override
@@ -89,6 +113,8 @@ public class GoodsShopInfo implements Serializable {
         result = prime * result + ((getShopName() == null) ? 0 : getShopName().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
+        result = prime * result + ((getShopSite() == null) ? 0 : getShopSite().hashCode());
+        result = prime * result + ((getShopSiteDetail() == null) ? 0 : getShopSiteDetail().hashCode());
         return result;
     }
 
@@ -96,7 +122,9 @@ public class GoodsShopInfo implements Serializable {
         id("id", "id", "BIGINT", false),
         shopName("shop_name", "shopName", "VARCHAR", false),
         createTime("create_time", "createTime", "TIMESTAMP", false),
-        updateTime("update_time", "updateTime", "TIMESTAMP", false);
+        updateTime("update_time", "updateTime", "TIMESTAMP", false),
+        shopSite("shop_site", "shopSite", "VARCHAR", false),
+        shopSiteDetail("shop_site_detail", "shopSiteDetail", "VARCHAR", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

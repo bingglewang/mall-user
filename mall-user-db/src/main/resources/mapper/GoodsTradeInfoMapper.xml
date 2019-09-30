@@ -8,6 +8,7 @@
     <result column="member_id" jdbcType="INTEGER" property="memberId" />
     <result column="address_id" jdbcType="INTEGER" property="addressId" />
     <result column="pay_way" jdbcType="TINYINT" property="payWay" />
+    <result column="source" jdbcType="BIT" property="source" />
     <result column="current_status" jdbcType="TINYINT" property="currentStatus" />
     <result column="pre_status" jdbcType="TINYINT" property="preStatus" />
     <result column="evaluate" jdbcType="BIT" property="evaluate" />
@@ -22,6 +23,14 @@
     <result column="finish_time" jdbcType="TIMESTAMP" property="finishTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
     <result column="shipments_time" jdbcType="TIMESTAMP" property="shipmentsTime" />
+    <result column="hidden" jdbcType="BIT" property="hidden" />
+    <result column="recipients" jdbcType="VARCHAR" property="recipients" />
+    <result column="recipients_phone" jdbcType="VARCHAR" property="recipientsPhone" />
+    <result column="shipping_address" jdbcType="VARCHAR" property="shippingAddress" />
+    <result column="shipping_address_detail" jdbcType="VARCHAR" property="shippingAddressDetail" />
+    <result column="present_money" jdbcType="DECIMAL" property="presentMoney" />
+    <result column="father_money" jdbcType="DECIMAL" property="fatherMoney" />
+    <result column="grandfather_money" jdbcType="DECIMAL" property="grandfatherMoney" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -82,9 +91,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, trade_no, out_trade_no, member_id, address_id, pay_way, current_status, pre_status, 
-    evaluate, total_amount, total_count, total_point, total_coin, freight_charge, remark, 
-    trade_time, payment_time, finish_time, end_time, shipments_time
+    id, trade_no, out_trade_no, member_id, address_id, pay_way, `source`, current_status, 
+    pre_status, evaluate, total_amount, total_count, total_point, total_coin, freight_charge, 
+    remark, trade_time, payment_time, finish_time, end_time, shipments_time, hidden, 
+    recipients, recipients_phone, shipping_address, shipping_address_detail, present_money, 
+    father_money, grandfather_money
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsTradeInfoExample" resultMap="BaseResultMap">
     select
@@ -159,19 +170,25 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into goods_trade_info (trade_no, out_trade_no, member_id, 
-      address_id, pay_way, current_status, 
-      pre_status, evaluate, total_amount, 
-      total_count, total_point, total_coin, 
-      freight_charge, remark, trade_time, 
-      payment_time, finish_time, end_time, 
-      shipments_time)
+      address_id, pay_way, `source`, 
+      current_status, pre_status, evaluate, 
+      total_amount, total_count, total_point, 
+      total_coin, freight_charge, remark, 
+      trade_time, payment_time, finish_time, 
+      end_time, shipments_time, hidden, 
+      recipients, recipients_phone, shipping_address, 
+      shipping_address_detail, present_money, father_money, 
+      grandfather_money)
     values (#{tradeNo,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
-      #{addressId,jdbcType=INTEGER}, #{payWay,jdbcType=TINYINT}, #{currentStatus,jdbcType=TINYINT}, 
-      #{preStatus,jdbcType=TINYINT}, #{evaluate,jdbcType=BIT}, #{totalAmount,jdbcType=REAL}, 
-      #{totalCount,jdbcType=INTEGER}, #{totalPoint,jdbcType=INTEGER}, #{totalCoin,jdbcType=INTEGER}, 
-      #{freightCharge,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{tradeTime,jdbcType=TIMESTAMP}, 
-      #{paymentTime,jdbcType=TIMESTAMP}, #{finishTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
-      #{shipmentsTime,jdbcType=TIMESTAMP})
+      #{addressId,jdbcType=INTEGER}, #{payWay,jdbcType=TINYINT}, #{source,jdbcType=BIT}, 
+      #{currentStatus,jdbcType=TINYINT}, #{preStatus,jdbcType=TINYINT}, #{evaluate,jdbcType=BIT}, 
+      #{totalAmount,jdbcType=REAL}, #{totalCount,jdbcType=INTEGER}, #{totalPoint,jdbcType=INTEGER}, 
+      #{totalCoin,jdbcType=INTEGER}, #{freightCharge,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{tradeTime,jdbcType=TIMESTAMP}, #{paymentTime,jdbcType=TIMESTAMP}, #{finishTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{shipmentsTime,jdbcType=TIMESTAMP}, #{hidden,jdbcType=BIT}, 
+      #{recipients,jdbcType=VARCHAR}, #{recipientsPhone,jdbcType=VARCHAR}, #{shippingAddress,jdbcType=VARCHAR}, 
+      #{shippingAddressDetail,jdbcType=VARCHAR}, #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, 
+      #{grandfatherMoney,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsTradeInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -193,6 +210,9 @@
       </if>
       <if test="payWay != null">
         pay_way,
+      </if>
+      <if test="source != null">
+        `source`,
       </if>
       <if test="currentStatus != null">
         current_status,
@@ -236,6 +256,30 @@
       <if test="shipmentsTime != null">
         shipments_time,
       </if>
+      <if test="hidden != null">
+        hidden,
+      </if>
+      <if test="recipients != null">
+        recipients,
+      </if>
+      <if test="recipientsPhone != null">
+        recipients_phone,
+      </if>
+      <if test="shippingAddress != null">
+        shipping_address,
+      </if>
+      <if test="shippingAddressDetail != null">
+        shipping_address_detail,
+      </if>
+      <if test="presentMoney != null">
+        present_money,
+      </if>
+      <if test="fatherMoney != null">
+        father_money,
+      </if>
+      <if test="grandfatherMoney != null">
+        grandfather_money,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="tradeNo != null">
@@ -252,6 +296,9 @@
       </if>
       <if test="payWay != null">
         #{payWay,jdbcType=TINYINT},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=BIT},
       </if>
       <if test="currentStatus != null">
         #{currentStatus,jdbcType=TINYINT},
@@ -295,6 +342,30 @@
       <if test="shipmentsTime != null">
         #{shipmentsTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="hidden != null">
+        #{hidden,jdbcType=BIT},
+      </if>
+      <if test="recipients != null">
+        #{recipients,jdbcType=VARCHAR},
+      </if>
+      <if test="recipientsPhone != null">
+        #{recipientsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingAddress != null">
+        #{shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingAddressDetail != null">
+        #{shippingAddressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="presentMoney != null">
+        #{presentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherMoney != null">
+        #{fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="grandfatherMoney != null">
+        #{grandfatherMoney,jdbcType=DECIMAL},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.zsl.malluserdb.po.GoodsTradeInfoExample" resultType="java.lang.Long">
@@ -323,6 +394,9 @@
       </if>
       <if test="record.payWay != null">
         pay_way = #{record.payWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.source != null">
+        `source` = #{record.source,jdbcType=BIT},
       </if>
       <if test="record.currentStatus != null">
         current_status = #{record.currentStatus,jdbcType=TINYINT},
@@ -366,6 +440,30 @@
       <if test="record.shipmentsTime != null">
         shipments_time = #{record.shipmentsTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.hidden != null">
+        hidden = #{record.hidden,jdbcType=BIT},
+      </if>
+      <if test="record.recipients != null">
+        recipients = #{record.recipients,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipientsPhone != null">
+        recipients_phone = #{record.recipientsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingAddress != null">
+        shipping_address = #{record.shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingAddressDetail != null">
+        shipping_address_detail = #{record.shippingAddressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.presentMoney != null">
+        present_money = #{record.presentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fatherMoney != null">
+        father_money = #{record.fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.grandfatherMoney != null">
+        grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -379,6 +477,7 @@
       member_id = #{record.memberId,jdbcType=INTEGER},
       address_id = #{record.addressId,jdbcType=INTEGER},
       pay_way = #{record.payWay,jdbcType=TINYINT},
+      `source` = #{record.source,jdbcType=BIT},
       current_status = #{record.currentStatus,jdbcType=TINYINT},
       pre_status = #{record.preStatus,jdbcType=TINYINT},
       evaluate = #{record.evaluate,jdbcType=BIT},
@@ -392,7 +491,15 @@
       payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
       finish_time = #{record.finishTime,jdbcType=TIMESTAMP},
       end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      shipments_time = #{record.shipmentsTime,jdbcType=TIMESTAMP}
+      shipments_time = #{record.shipmentsTime,jdbcType=TIMESTAMP},
+      hidden = #{record.hidden,jdbcType=BIT},
+      recipients = #{record.recipients,jdbcType=VARCHAR},
+      recipients_phone = #{record.recipientsPhone,jdbcType=VARCHAR},
+      shipping_address = #{record.shippingAddress,jdbcType=VARCHAR},
+      shipping_address_detail = #{record.shippingAddressDetail,jdbcType=VARCHAR},
+      present_money = #{record.presentMoney,jdbcType=DECIMAL},
+      father_money = #{record.fatherMoney,jdbcType=DECIMAL},
+      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -414,6 +521,9 @@
       </if>
       <if test="payWay != null">
         pay_way = #{payWay,jdbcType=TINYINT},
+      </if>
+      <if test="source != null">
+        `source` = #{source,jdbcType=BIT},
       </if>
       <if test="currentStatus != null">
         current_status = #{currentStatus,jdbcType=TINYINT},
@@ -457,6 +567,30 @@
       <if test="shipmentsTime != null">
         shipments_time = #{shipmentsTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="hidden != null">
+        hidden = #{hidden,jdbcType=BIT},
+      </if>
+      <if test="recipients != null">
+        recipients = #{recipients,jdbcType=VARCHAR},
+      </if>
+      <if test="recipientsPhone != null">
+        recipients_phone = #{recipientsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingAddress != null">
+        shipping_address = #{shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingAddressDetail != null">
+        shipping_address_detail = #{shippingAddressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="presentMoney != null">
+        present_money = #{presentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherMoney != null">
+        father_money = #{fatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="grandfatherMoney != null">
+        grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -467,6 +601,7 @@
       member_id = #{memberId,jdbcType=INTEGER},
       address_id = #{addressId,jdbcType=INTEGER},
       pay_way = #{payWay,jdbcType=TINYINT},
+      `source` = #{source,jdbcType=BIT},
       current_status = #{currentStatus,jdbcType=TINYINT},
       pre_status = #{preStatus,jdbcType=TINYINT},
       evaluate = #{evaluate,jdbcType=BIT},
@@ -480,7 +615,15 @@
       payment_time = #{paymentTime,jdbcType=TIMESTAMP},
       finish_time = #{finishTime,jdbcType=TIMESTAMP},
       end_time = #{endTime,jdbcType=TIMESTAMP},
-      shipments_time = #{shipmentsTime,jdbcType=TIMESTAMP}
+      shipments_time = #{shipmentsTime,jdbcType=TIMESTAMP},
+      hidden = #{hidden,jdbcType=BIT},
+      recipients = #{recipients,jdbcType=VARCHAR},
+      recipients_phone = #{recipientsPhone,jdbcType=VARCHAR},
+      shipping_address = #{shippingAddress,jdbcType=VARCHAR},
+      shipping_address_detail = #{shippingAddressDetail,jdbcType=VARCHAR},
+      present_money = #{presentMoney,jdbcType=DECIMAL},
+      father_money = #{fatherMoney,jdbcType=DECIMAL},
+      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsTradeInfoExample" resultMap="BaseResultMap">

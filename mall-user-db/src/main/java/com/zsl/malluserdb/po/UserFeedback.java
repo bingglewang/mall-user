@@ -149,8 +149,8 @@ public class UserFeedback implements Serializable {
         userId("user_id", "userId", "INTEGER", false),
         readStatus("read_status", "readStatus", "TINYINT", false),
         content("content", "content", "VARCHAR", false),
-        createTime("create_time", "createTime", "DATE", false),
-        modifyTime("modify_time", "modifyTime", "DATE", false),
+        createTime("create_time", "createTime", "TIMESTAMP", false),
+        modifyTime("modify_time", "modifyTime", "TIMESTAMP", false),
         phone("phone", "phone", "BIGINT", false),
         picture("picture", "picture", "VARCHAR", false);
 

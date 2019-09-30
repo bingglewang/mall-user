@@ -39,6 +39,12 @@ public class GoodsSku implements Serializable {
 
     private String skuPicture;
 
+    private BigDecimal giftMoney;
+
+    private BigDecimal fatherMoney;
+
+    private BigDecimal grandfatherMoney;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -169,6 +175,30 @@ public class GoodsSku implements Serializable {
         this.skuPicture = skuPicture == null ? null : skuPicture.trim();
     }
 
+    public BigDecimal getGiftMoney() {
+        return giftMoney;
+    }
+
+    public void setGiftMoney(BigDecimal giftMoney) {
+        this.giftMoney = giftMoney;
+    }
+
+    public BigDecimal getFatherMoney() {
+        return fatherMoney;
+    }
+
+    public void setFatherMoney(BigDecimal fatherMoney) {
+        this.fatherMoney = fatherMoney;
+    }
+
+    public BigDecimal getGrandfatherMoney() {
+        return grandfatherMoney;
+    }
+
+    public void setGrandfatherMoney(BigDecimal grandfatherMoney) {
+        this.grandfatherMoney = grandfatherMoney;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -191,6 +221,9 @@ public class GoodsSku implements Serializable {
         sb.append(", status=").append(status);
         sb.append(", giftPoint=").append(giftPoint);
         sb.append(", skuPicture=").append(skuPicture);
+        sb.append(", giftMoney=").append(giftMoney);
+        sb.append(", fatherMoney=").append(fatherMoney);
+        sb.append(", grandfatherMoney=").append(grandfatherMoney);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -223,7 +256,10 @@ public class GoodsSku implements Serializable {
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getGiftPoint() == null ? other.getGiftPoint() == null : this.getGiftPoint().equals(other.getGiftPoint()))
-            && (this.getSkuPicture() == null ? other.getSkuPicture() == null : this.getSkuPicture().equals(other.getSkuPicture()));
+            && (this.getSkuPicture() == null ? other.getSkuPicture() == null : this.getSkuPicture().equals(other.getSkuPicture()))
+            && (this.getGiftMoney() == null ? other.getGiftMoney() == null : this.getGiftMoney().equals(other.getGiftMoney()))
+            && (this.getFatherMoney() == null ? other.getFatherMoney() == null : this.getFatherMoney().equals(other.getFatherMoney()))
+            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()));
     }
 
     @Override
@@ -246,6 +282,9 @@ public class GoodsSku implements Serializable {
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getGiftPoint() == null) ? 0 : getGiftPoint().hashCode());
         result = prime * result + ((getSkuPicture() == null) ? 0 : getSkuPicture().hashCode());
+        result = prime * result + ((getGiftMoney() == null) ? 0 : getGiftMoney().hashCode());
+        result = prime * result + ((getFatherMoney() == null) ? 0 : getFatherMoney().hashCode());
+        result = prime * result + ((getGrandfatherMoney() == null) ? 0 : getGrandfatherMoney().hashCode());
         return result;
     }
 
@@ -265,7 +304,10 @@ public class GoodsSku implements Serializable {
         updateTime("update_time", "updateTime", "TIMESTAMP", false),
         status("status", "status", "BIT", true),
         giftPoint("gift_point", "giftPoint", "INTEGER", false),
-        skuPicture("sku_picture", "skuPicture", "VARCHAR", false);
+        skuPicture("sku_picture", "skuPicture", "VARCHAR", false),
+        giftMoney("gift_money", "giftMoney", "DECIMAL", false),
+        fatherMoney("father_money", "fatherMoney", "DECIMAL", false),
+        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

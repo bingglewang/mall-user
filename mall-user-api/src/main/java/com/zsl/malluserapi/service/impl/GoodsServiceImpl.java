@@ -112,6 +112,8 @@ public class GoodsServiceImpl implements GoodsService {
         goodsInfo.setGoodsSubName(goodsSpu.getGoodsSubName());
         BigDecimal max = goodsDao.selectMaxPrice(goodsSpu.getId());
         BigDecimal min = goodsDao.selectMinPrice(goodsSpu.getId());
+        max = max == null ? new BigDecimal(0) :max;
+        min = min == null ? new BigDecimal(0) :min;
         if(max.compareTo(min) == 0){
             goodsInfo.setPrice(min+"");
         }else{
@@ -119,10 +121,12 @@ public class GoodsServiceImpl implements GoodsService {
         }
         goodsInfo.setMaxPrice(goodsDao.selectMaxPrice(goodsSpu.getId()));
         goodsInfo.setMinPrice(goodsDao.selectMinPrice(goodsSpu.getId()));
+        Integer totalsal = goodsDao.selectTotalSal(goodsSpu.getId());
+        totalsal = totalsal  == null ? 0 : totalsal;
         if(getMinGifgPointBySpuId(goodsSpu.getId()) > 0){
-            goodsInfo.setTotalSal(goodsDao.selectTotalSal(goodsSpu.getId())+"  赠送"+getMinGifgPointBySpuId(goodsSpu.getId())+"积分");
+            goodsInfo.setTotalSal(totalsal+"  赠送"+getMinGifgPointBySpuId(goodsSpu.getId())+"积分");
         }else{
-            goodsInfo.setTotalSal(goodsDao.selectTotalSal(goodsSpu.getId())+"");
+            goodsInfo.setTotalSal(totalsal+"");
         }
         //活动价格
         BigDecimal activityPrice = goodsDao.selectMinActivityPrice(goodsSpu.getId());

@@ -31,6 +31,8 @@ public class OrderList implements Serializable {
 
     private String orderNo;
 
+    private Boolean orderEvaluate;
+
     private Boolean currentState;
 
     private BigDecimal childAmount;
@@ -155,6 +157,14 @@ public class OrderList implements Serializable {
 
     public void setOrderNo(String orderNo) {
         this.orderNo = orderNo == null ? null : orderNo.trim();
+    }
+
+    public Boolean getOrderEvaluate() {
+        return orderEvaluate;
+    }
+
+    public void setOrderEvaluate(Boolean orderEvaluate) {
+        this.orderEvaluate = orderEvaluate;
     }
 
     public Boolean getCurrentState() {
@@ -287,6 +297,7 @@ public class OrderList implements Serializable {
         sb.append(", tradeTime=").append(tradeTime);
         sb.append(", endTime=").append(endTime);
         sb.append(", orderNo=").append(orderNo);
+        sb.append(", orderEvaluate=").append(orderEvaluate);
         sb.append(", currentState=").append(currentState);
         sb.append(", childAmount=").append(childAmount);
         sb.append(", childCount=").append(childCount);
@@ -330,6 +341,7 @@ public class OrderList implements Serializable {
             && (this.getTradeTime() == null ? other.getTradeTime() == null : this.getTradeTime().equals(other.getTradeTime()))
             && (this.getEndTime() == null ? other.getEndTime() == null : this.getEndTime().equals(other.getEndTime()))
             && (this.getOrderNo() == null ? other.getOrderNo() == null : this.getOrderNo().equals(other.getOrderNo()))
+            && (this.getOrderEvaluate() == null ? other.getOrderEvaluate() == null : this.getOrderEvaluate().equals(other.getOrderEvaluate()))
             && (this.getCurrentState() == null ? other.getCurrentState() == null : this.getCurrentState().equals(other.getCurrentState()))
             && (this.getChildAmount() == null ? other.getChildAmount() == null : this.getChildAmount().equals(other.getChildAmount()))
             && (this.getChildCount() == null ? other.getChildCount() == null : this.getChildCount().equals(other.getChildCount()))
@@ -362,6 +374,7 @@ public class OrderList implements Serializable {
         result = prime * result + ((getTradeTime() == null) ? 0 : getTradeTime().hashCode());
         result = prime * result + ((getEndTime() == null) ? 0 : getEndTime().hashCode());
         result = prime * result + ((getOrderNo() == null) ? 0 : getOrderNo().hashCode());
+        result = prime * result + ((getOrderEvaluate() == null) ? 0 : getOrderEvaluate().hashCode());
         result = prime * result + ((getCurrentState() == null) ? 0 : getCurrentState().hashCode());
         result = prime * result + ((getChildAmount() == null) ? 0 : getChildAmount().hashCode());
         result = prime * result + ((getChildCount() == null) ? 0 : getChildCount().hashCode());
@@ -392,6 +405,7 @@ public class OrderList implements Serializable {
         tradeTime("trade_time", "tradeTime", "TIMESTAMP", false),
         endTime("end_time", "endTime", "TIMESTAMP", false),
         orderNo("order_no", "orderNo", "VARCHAR", false),
+        orderEvaluate("order_evaluate", "orderEvaluate", "BIT", false),
         currentState("current_state", "currentState", "BIT", false),
         childAmount("child_amount", "childAmount", "DECIMAL", false),
         childCount("child_count", "childCount", "INTEGER", false),

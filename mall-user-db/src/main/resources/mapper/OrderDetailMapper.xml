@@ -32,8 +32,7 @@
     <result column="full_site" jdbcType="VARCHAR" property="fullSite" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="consignee" jdbcType="VARCHAR" property="consignee" />
-    <result column="mobile" jdbcType="CHAR" property="mobile" />
-    <result column="is_default" jdbcType="BIT" property="isDefault" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="shop_id" jdbcType="BIGINT" property="shopId" />
     <result column="sku_id" jdbcType="BIGINT" property="skuId" />
     <result column="total_coin" jdbcType="INTEGER" property="totalCoin" />
@@ -102,7 +101,7 @@
     remark, evaluate, trade_time, payment_time, finish_time, end_time, shipments_time, 
     freight_charge, order_no, current_state, child_amount, child_count, child_point, 
     sku_name, price, picture_url, spec_value, spec_name, shop_name, full_site, address, 
-    consignee, mobile, is_default, shop_id, sku_id, total_coin, present_coin
+    consignee, mobile, shop_id, sku_id, total_coin, present_coin
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.OrderDetailExample" resultMap="BaseResultMap">
     select
@@ -161,8 +160,8 @@
       price, picture_url, spec_value, 
       spec_name, shop_name, full_site, 
       address, consignee, mobile, 
-      is_default, shop_id, sku_id, 
-      total_coin, present_coin)
+      shop_id, sku_id, total_coin, 
+      present_coin)
     values (#{tradeNo,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, #{currentStatus,jdbcType=TINYINT}, 
       #{payWay,jdbcType=TINYINT}, #{totalAmount,jdbcType=REAL}, #{totalCount,jdbcType=INTEGER}, 
       #{totalPoint,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{evaluate,jdbcType=BIT}, 
@@ -172,9 +171,9 @@
       #{childCount,jdbcType=INTEGER}, #{childPoint,jdbcType=INTEGER}, #{skuName,jdbcType=VARCHAR}, 
       #{price,jdbcType=DECIMAL}, #{pictureUrl,jdbcType=VARCHAR}, #{specValue,jdbcType=VARCHAR}, 
       #{specName,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{fullSite,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{consignee,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, 
-      #{isDefault,jdbcType=BIT}, #{shopId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, 
-      #{totalCoin,jdbcType=INTEGER}, #{presentCoin,jdbcType=INTEGER})
+      #{address,jdbcType=VARCHAR}, #{consignee,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{shopId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{totalCoin,jdbcType=INTEGER}, 
+      #{presentCoin,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.OrderDetail">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -271,9 +270,6 @@
       </if>
       <if test="mobile != null">
         mobile,
-      </if>
-      <if test="isDefault != null">
-        is_default,
       </if>
       <if test="shopId != null">
         shop_id,
@@ -377,10 +373,7 @@
         #{consignee,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null">
-        #{mobile,jdbcType=CHAR},
-      </if>
-      <if test="isDefault != null">
-        #{isDefault,jdbcType=BIT},
+        #{mobile,jdbcType=VARCHAR},
       </if>
       <if test="shopId != null">
         #{shopId,jdbcType=BIGINT},
@@ -496,10 +489,7 @@
         consignee = #{record.consignee,jdbcType=VARCHAR},
       </if>
       <if test="record.mobile != null">
-        mobile = #{record.mobile,jdbcType=CHAR},
-      </if>
-      <if test="record.isDefault != null">
-        is_default = #{record.isDefault,jdbcType=BIT},
+        mobile = #{record.mobile,jdbcType=VARCHAR},
       </if>
       <if test="record.shopId != null">
         shop_id = #{record.shopId,jdbcType=BIGINT},
@@ -550,8 +540,7 @@
       full_site = #{record.fullSite,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
       consignee = #{record.consignee,jdbcType=VARCHAR},
-      mobile = #{record.mobile,jdbcType=CHAR},
-      is_default = #{record.isDefault,jdbcType=BIT},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
       shop_id = #{record.shopId,jdbcType=BIGINT},
       sku_id = #{record.skuId,jdbcType=BIGINT},
       total_coin = #{record.totalCoin,jdbcType=INTEGER},

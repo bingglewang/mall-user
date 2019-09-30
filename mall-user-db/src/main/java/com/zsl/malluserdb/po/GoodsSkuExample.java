@@ -1613,6 +1613,276 @@ public class GoodsSkuExample {
             addCriterion("sku_picture not between", value1, value2, "skuPicture");
             return (Criteria) this;
         }
+
+        public Criteria andGiftMoneyIsNull() {
+            addCriterion("gift_money is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyIsNotNull() {
+            addCriterion("gift_money is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyEqualTo(BigDecimal value) {
+            addCriterion("gift_money =", value, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("gift_money = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyNotEqualTo(BigDecimal value) {
+            addCriterion("gift_money <>", value, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyNotEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("gift_money <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyGreaterThan(BigDecimal value) {
+            addCriterion("gift_money >", value, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyGreaterThanColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("gift_money > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("gift_money >=", value, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyGreaterThanOrEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("gift_money >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyLessThan(BigDecimal value) {
+            addCriterion("gift_money <", value, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyLessThanColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("gift_money < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("gift_money <=", value, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyLessThanOrEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("gift_money <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyIn(List<BigDecimal> values) {
+            addCriterion("gift_money in", values, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyNotIn(List<BigDecimal> values) {
+            addCriterion("gift_money not in", values, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("gift_money between", value1, value2, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGiftMoneyNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("gift_money not between", value1, value2, "giftMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyIsNull() {
+            addCriterion("father_money is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyIsNotNull() {
+            addCriterion("father_money is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyEqualTo(BigDecimal value) {
+            addCriterion("father_money =", value, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("father_money = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyNotEqualTo(BigDecimal value) {
+            addCriterion("father_money <>", value, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyNotEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("father_money <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyGreaterThan(BigDecimal value) {
+            addCriterion("father_money >", value, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyGreaterThanColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("father_money > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("father_money >=", value, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyGreaterThanOrEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("father_money >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyLessThan(BigDecimal value) {
+            addCriterion("father_money <", value, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyLessThanColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("father_money < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("father_money <=", value, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyLessThanOrEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("father_money <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyIn(List<BigDecimal> values) {
+            addCriterion("father_money in", values, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyNotIn(List<BigDecimal> values) {
+            addCriterion("father_money not in", values, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("father_money between", value1, value2, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherMoneyNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("father_money not between", value1, value2, "fatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyIsNull() {
+            addCriterion("grandfather_money is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyIsNotNull() {
+            addCriterion("grandfather_money is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyEqualTo(BigDecimal value) {
+            addCriterion("grandfather_money =", value, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("grandfather_money = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyNotEqualTo(BigDecimal value) {
+            addCriterion("grandfather_money <>", value, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyNotEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("grandfather_money <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyGreaterThan(BigDecimal value) {
+            addCriterion("grandfather_money >", value, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyGreaterThanColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("grandfather_money > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("grandfather_money >=", value, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyGreaterThanOrEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("grandfather_money >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyLessThan(BigDecimal value) {
+            addCriterion("grandfather_money <", value, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyLessThanColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("grandfather_money < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("grandfather_money <=", value, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyLessThanOrEqualToColumn(GoodsSku.Column column) {
+            addCriterion(new StringBuilder("grandfather_money <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyIn(List<BigDecimal> values) {
+            addCriterion("grandfather_money in", values, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyNotIn(List<BigDecimal> values) {
+            addCriterion("grandfather_money not in", values, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("grandfather_money between", value1, value2, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherMoneyNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("grandfather_money not between", value1, value2, "grandfatherMoney");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

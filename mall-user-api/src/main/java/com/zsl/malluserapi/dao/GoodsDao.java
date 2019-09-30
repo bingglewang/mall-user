@@ -18,5 +18,5 @@ public interface GoodsDao {
  BigDecimal selectMinPrice(@Param("id") Long id);
  BigDecimal selectMinActivityPrice(@Param("id") Long id);
  BigDecimal selectMinGiftPoint(@Param("id") Long id);
- int selectTotalSal(@Param("id") Long id);
+ Integer selectTotalSal(@Param("id") Long id);
  }

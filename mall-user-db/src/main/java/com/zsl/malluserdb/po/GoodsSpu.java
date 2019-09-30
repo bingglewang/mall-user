@@ -29,6 +29,10 @@ public class GoodsSpu implements Serializable {
 
     private Long shopId;
 
+    private Boolean superior;
+
+    private Boolean status;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -119,6 +123,22 @@ public class GoodsSpu implements Serializable {
         this.shopId = shopId;
     }
 
+    public Boolean getSuperior() {
+        return superior;
+    }
+
+    public void setSuperior(Boolean superior) {
+        this.superior = superior;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -136,6 +156,8 @@ public class GoodsSpu implements Serializable {
         sb.append(", updateTime=").append(updateTime);
         sb.append(", freight=").append(freight);
         sb.append(", shopId=").append(shopId);
+        sb.append(", superior=").append(superior);
+        sb.append(", status=").append(status);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -163,7 +185,9 @@ public class GoodsSpu implements Serializable {
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getFreight() == null ? other.getFreight() == null : this.getFreight().equals(other.getFreight()))
-            && (this.getShopId() == null ? other.getShopId() == null : this.getShopId().equals(other.getShopId()));
+            && (this.getShopId() == null ? other.getShopId() == null : this.getShopId().equals(other.getShopId()))
+            && (this.getSuperior() == null ? other.getSuperior() == null : this.getSuperior().equals(other.getSuperior()))
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
     }
 
     @Override
@@ -181,6 +205,8 @@ public class GoodsSpu implements Serializable {
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getFreight() == null) ? 0 : getFreight().hashCode());
         result = prime * result + ((getShopId() == null) ? 0 : getShopId().hashCode());
+        result = prime * result + ((getSuperior() == null) ? 0 : getSuperior().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         return result;
     }
 
@@ -195,7 +221,9 @@ public class GoodsSpu implements Serializable {
         createTime("create_time", "createTime", "TIMESTAMP", false),
         updateTime("update_time", "updateTime", "TIMESTAMP", false),
         freight("freight", "freight", "DECIMAL", false),
-        shopId("shop_id", "shopId", "BIGINT", false);
+        shopId("shop_id", "shopId", "BIGINT", false),
+        superior("superior", "superior", "BIT", false),
+        status("status", "status", "BIT", true);
 
         private static final String BEGINNING_DELIMITER = "`";
 

@@ -1,5 +1,6 @@
 package com.zsl.malluserapi.util;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -16,6 +17,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +67,18 @@ public class HttpClientUtil {
     public static String doGet(String url) {
         return doGet(url, null);
     }
+
+    public static void main(String[] args) {
+        String url = "https://zs.cntracechain.com/trace-api/trace/relationMqSubCode";
+        String json = "{\"fromNumber\":1,\"goodsId\":17753,\"stallId\":-1,\"toNumber\":99980,\"traceCodeNumber\":\"zs1568948165643000575812172\"}";
+        Map<String,String> param = new HashMap<>();
+        param.put("mqJsonStr",json);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("mqJsonStr",json);
+        String result =  HttpClientUtil.doPostJson(url,jsonObject.toJSONString());
+        System.out.println("结果："+result);
+    }
+
 
     public static String doPost(String url, Map<String, String> param) {
         // 创建Httpclient对象

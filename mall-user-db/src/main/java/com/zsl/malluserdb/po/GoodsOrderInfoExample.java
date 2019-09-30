@@ -701,6 +701,286 @@ public class GoodsOrderInfoExample {
             addCriterion("current_state not between", value1, value2, "currentState");
             return (Criteria) this;
         }
+
+        public Criteria andTrackingCompanyIdIsNull() {
+            addCriterion("tracking_company_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdIsNotNull() {
+            addCriterion("tracking_company_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdEqualTo(Integer value) {
+            addCriterion("tracking_company_id =", value, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_company_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdNotEqualTo(Integer value) {
+            addCriterion("tracking_company_id <>", value, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdNotEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_company_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdGreaterThan(Integer value) {
+            addCriterion("tracking_company_id >", value, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdGreaterThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_company_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("tracking_company_id >=", value, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdGreaterThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_company_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdLessThan(Integer value) {
+            addCriterion("tracking_company_id <", value, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdLessThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_company_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdLessThanOrEqualTo(Integer value) {
+            addCriterion("tracking_company_id <=", value, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdLessThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_company_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdIn(List<Integer> values) {
+            addCriterion("tracking_company_id in", values, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdNotIn(List<Integer> values) {
+            addCriterion("tracking_company_id not in", values, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdBetween(Integer value1, Integer value2) {
+            addCriterion("tracking_company_id between", value1, value2, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingCompanyIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("tracking_company_id not between", value1, value2, "trackingCompanyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberIsNull() {
+            addCriterion("tracking_number is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberIsNotNull() {
+            addCriterion("tracking_number is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberEqualTo(String value) {
+            addCriterion("tracking_number =", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_number = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberNotEqualTo(String value) {
+            addCriterion("tracking_number <>", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberNotEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_number <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberGreaterThan(String value) {
+            addCriterion("tracking_number >", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberGreaterThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_number > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("tracking_number >=", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberGreaterThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_number >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberLessThan(String value) {
+            addCriterion("tracking_number <", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberLessThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_number < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberLessThanOrEqualTo(String value) {
+            addCriterion("tracking_number <=", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberLessThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("tracking_number <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberLike(String value) {
+            addCriterion("tracking_number like", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberNotLike(String value) {
+            addCriterion("tracking_number not like", value, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberIn(List<String> values) {
+            addCriterion("tracking_number in", values, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberNotIn(List<String> values) {
+            addCriterion("tracking_number not in", values, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberBetween(String value1, String value2) {
+            addCriterion("tracking_number between", value1, value2, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrackingNumberNotBetween(String value1, String value2) {
+            addCriterion("tracking_number not between", value1, value2, "trackingNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateIsNull() {
+            addCriterion("order_evaluate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateIsNotNull() {
+            addCriterion("order_evaluate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateEqualTo(Boolean value) {
+            addCriterion("order_evaluate =", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("order_evaluate = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotEqualTo(Boolean value) {
+            addCriterion("order_evaluate <>", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("order_evaluate <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThan(Boolean value) {
+            addCriterion("order_evaluate >", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("order_evaluate > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("order_evaluate >=", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("order_evaluate >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThan(Boolean value) {
+            addCriterion("order_evaluate <", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("order_evaluate < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThanOrEqualTo(Boolean value) {
+            addCriterion("order_evaluate <=", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("order_evaluate <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateIn(List<Boolean> values) {
+            addCriterion("order_evaluate in", values, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotIn(List<Boolean> values) {
+            addCriterion("order_evaluate not in", values, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateBetween(Boolean value1, Boolean value2) {
+            addCriterion("order_evaluate between", value1, value2, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("order_evaluate not between", value1, value2, "orderEvaluate");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

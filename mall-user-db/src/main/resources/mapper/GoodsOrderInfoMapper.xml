@@ -8,6 +8,9 @@
     <result column="shop_id" jdbcType="BIGINT" property="shopId" />
     <result column="pre_state" jdbcType="BIT" property="preState" />
     <result column="current_state" jdbcType="BIT" property="currentState" />
+    <result column="tracking_company_id" jdbcType="INTEGER" property="trackingCompanyId" />
+    <result column="tracking_number" jdbcType="VARCHAR" property="trackingNumber" />
+    <result column="order_evaluate" jdbcType="BIT" property="orderEvaluate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, order_no, trade_no, shop_id, pre_state, current_state
+    id, order_no, trade_no, shop_id, pre_state, current_state, tracking_company_id, tracking_number, 
+    order_evaluate
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderInfoExample" resultMap="BaseResultMap">
     select
@@ -143,9 +147,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into goods_order_info (order_no, trade_no, shop_id, 
-      pre_state, current_state)
+      pre_state, current_state, tracking_company_id, 
+      tracking_number, order_evaluate)
     values (#{orderNo,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, #{shopId,jdbcType=BIGINT}, 
-      #{preState,jdbcType=BIT}, #{currentState,jdbcType=BIT})
+      #{preState,jdbcType=BIT}, #{currentState,jdbcType=BIT}, #{trackingCompanyId,jdbcType=INTEGER}, 
+      #{trackingNumber,jdbcType=VARCHAR}, #{orderEvaluate,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsOrderInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -168,6 +174,15 @@
       <if test="currentState != null">
         current_state,
       </if>
+      <if test="trackingCompanyId != null">
+        tracking_company_id,
+      </if>
+      <if test="trackingNumber != null">
+        tracking_number,
+      </if>
+      <if test="orderEvaluate != null">
+        order_evaluate,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="orderNo != null">
@@ -184,6 +199,15 @@
       </if>
       <if test="currentState != null">
         #{currentState,jdbcType=BIT},
+      </if>
+      <if test="trackingCompanyId != null">
+        #{trackingCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="trackingNumber != null">
+        #{trackingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderEvaluate != null">
+        #{orderEvaluate,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -214,6 +238,15 @@
       <if test="record.currentState != null">
         current_state = #{record.currentState,jdbcType=BIT},
       </if>
+      <if test="record.trackingCompanyId != null">
+        tracking_company_id = #{record.trackingCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackingNumber != null">
+        tracking_number = #{record.trackingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderEvaluate != null">
+        order_evaluate = #{record.orderEvaluate,jdbcType=BIT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +259,10 @@
       trade_no = #{record.tradeNo,jdbcType=VARCHAR},
       shop_id = #{record.shopId,jdbcType=BIGINT},
       pre_state = #{record.preState,jdbcType=BIT},
-      current_state = #{record.currentState,jdbcType=BIT}
+      current_state = #{record.currentState,jdbcType=BIT},
+      tracking_company_id = #{record.trackingCompanyId,jdbcType=INTEGER},
+      tracking_number = #{record.trackingNumber,jdbcType=VARCHAR},
+      order_evaluate = #{record.orderEvaluate,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -249,6 +285,15 @@
       <if test="currentState != null">
         current_state = #{currentState,jdbcType=BIT},
       </if>
+      <if test="trackingCompanyId != null">
+        tracking_company_id = #{trackingCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="trackingNumber != null">
+        tracking_number = #{trackingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderEvaluate != null">
+        order_evaluate = #{orderEvaluate,jdbcType=BIT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -258,7 +303,10 @@
       trade_no = #{tradeNo,jdbcType=VARCHAR},
       shop_id = #{shopId,jdbcType=BIGINT},
       pre_state = #{preState,jdbcType=BIT},
-      current_state = #{currentState,jdbcType=BIT}
+      current_state = #{currentState,jdbcType=BIT},
+      tracking_company_id = #{trackingCompanyId,jdbcType=INTEGER},
+      tracking_number = #{trackingNumber,jdbcType=VARCHAR},
+      order_evaluate = #{orderEvaluate,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderInfoExample" resultMap="BaseResultMap">

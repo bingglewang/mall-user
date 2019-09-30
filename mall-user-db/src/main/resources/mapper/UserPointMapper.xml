@@ -9,6 +9,7 @@
     <result column="point_source" jdbcType="INTEGER" property="pointSource" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="status" jdbcType="BIT" property="status" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, member_id, point_count, `type`, point_source, create_time, `status`
+    id, member_id, point_count, `type`, point_source, create_time, `status`, `describe`
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.UserPointExample" resultMap="BaseResultMap">
     select
@@ -144,11 +145,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user_point (member_id, point_count, `type`, 
-      point_source, create_time, `status`
-      )
+      point_source, create_time, `status`, 
+      `describe`)
     values (#{memberId,jdbcType=INTEGER}, #{pointCount,jdbcType=INTEGER}, #{type,jdbcType=BIT}, 
-      #{pointSource,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BIT}
-      )
+      #{pointSource,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BIT}, 
+      #{describe,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.UserPoint">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -174,6 +175,9 @@
       <if test="status != null">
         `status`,
       </if>
+      <if test="describe != null">
+        `describe`,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="memberId != null">
@@ -193,6 +197,9 @@
       </if>
       <if test="status != null">
         #{status,jdbcType=BIT},
+      </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -226,6 +233,9 @@
       <if test="record.status != null">
         `status` = #{record.status,jdbcType=BIT},
       </if>
+      <if test="record.describe != null">
+        `describe` = #{record.describe,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -239,7 +249,8 @@
       `type` = #{record.type,jdbcType=BIT},
       point_source = #{record.pointSource,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      `status` = #{record.status,jdbcType=BIT}
+      `status` = #{record.status,jdbcType=BIT},
+      `describe` = #{record.describe,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -265,6 +276,9 @@
       <if test="status != null">
         `status` = #{status,jdbcType=BIT},
       </if>
+      <if test="describe != null">
+        `describe` = #{describe,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -275,7 +289,8 @@
       `type` = #{type,jdbcType=BIT},
       point_source = #{pointSource,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      `status` = #{status,jdbcType=BIT}
+      `status` = #{status,jdbcType=BIT},
+      `describe` = #{describe,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.UserPointExample" resultMap="BaseResultMap">

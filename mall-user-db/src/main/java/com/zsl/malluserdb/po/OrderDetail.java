@@ -69,8 +69,6 @@ public class OrderDetail implements Serializable {
 
     private String mobile;
 
-    private Boolean isDefault;
-
     private Long shopId;
 
     private Long skuId;
@@ -329,14 +327,6 @@ public class OrderDetail implements Serializable {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public Boolean getIsDefault() {
-        return isDefault;
-    }
-
-    public void setIsDefault(Boolean isDefault) {
-        this.isDefault = isDefault;
-    }
-
     public Long getShopId() {
         return shopId;
     }
@@ -406,7 +396,6 @@ public class OrderDetail implements Serializable {
         sb.append(", address=").append(address);
         sb.append(", consignee=").append(consignee);
         sb.append(", mobile=").append(mobile);
-        sb.append(", isDefault=").append(isDefault);
         sb.append(", shopId=").append(shopId);
         sb.append(", skuId=").append(skuId);
         sb.append(", totalCoin=").append(totalCoin);
@@ -459,7 +448,6 @@ public class OrderDetail implements Serializable {
             && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getConsignee() == null ? other.getConsignee() == null : this.getConsignee().equals(other.getConsignee()))
             && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
-            && (this.getIsDefault() == null ? other.getIsDefault() == null : this.getIsDefault().equals(other.getIsDefault()))
             && (this.getShopId() == null ? other.getShopId() == null : this.getShopId().equals(other.getShopId()))
             && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
             && (this.getTotalCoin() == null ? other.getTotalCoin() == null : this.getTotalCoin().equals(other.getTotalCoin()))
@@ -501,7 +489,6 @@ public class OrderDetail implements Serializable {
         result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getConsignee() == null) ? 0 : getConsignee().hashCode());
         result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
-        result = prime * result + ((getIsDefault() == null) ? 0 : getIsDefault().hashCode());
         result = prime * result + ((getShopId() == null) ? 0 : getShopId().hashCode());
         result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
         result = prime * result + ((getTotalCoin() == null) ? 0 : getTotalCoin().hashCode());
@@ -540,8 +527,7 @@ public class OrderDetail implements Serializable {
         fullSite("full_site", "fullSite", "VARCHAR", false),
         address("address", "address", "VARCHAR", false),
         consignee("consignee", "consignee", "VARCHAR", false),
-        mobile("mobile", "mobile", "CHAR", false),
-        isDefault("is_default", "isDefault", "BIT", false),
+        mobile("mobile", "mobile", "VARCHAR", false),
         shopId("shop_id", "shopId", "BIGINT", false),
         skuId("sku_id", "skuId", "BIGINT", false),
         totalCoin("total_coin", "totalCoin", "INTEGER", false),

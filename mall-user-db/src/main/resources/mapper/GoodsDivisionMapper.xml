@@ -4,12 +4,12 @@
   <resultMap id="BaseResultMap" type="com.zsl.malluserdb.po.GoodsDivision">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="division_id" jdbcType="INTEGER" property="divisionId" />
-    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
     <result column="topic_name" jdbcType="VARCHAR" property="topicName" />
     <result column="vice_name" jdbcType="VARCHAR" property="viceName" />
     <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="goods_picture" jdbcType="VARCHAR" property="goodsPicture" />
     <result column="goods_price" jdbcType="DECIMAL" property="goodsPrice" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, division_id, sku_id, topic_name, vice_name, goods_name, goods_picture, goods_price
+    id, division_id, topic_name, vice_name, goods_name, goods_picture, goods_price, spu_id
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsDivisionExample" resultMap="BaseResultMap">
     select
@@ -144,12 +144,12 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into goods_division (division_id, sku_id, topic_name, 
-      vice_name, goods_name, goods_picture, 
-      goods_price)
-    values (#{divisionId,jdbcType=INTEGER}, #{skuId,jdbcType=BIGINT}, #{topicName,jdbcType=VARCHAR}, 
-      #{viceName,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsPicture,jdbcType=VARCHAR}, 
-      #{goodsPrice,jdbcType=DECIMAL})
+    insert into goods_division (division_id, topic_name, vice_name, 
+      goods_name, goods_picture, goods_price, 
+      spu_id)
+    values (#{divisionId,jdbcType=INTEGER}, #{topicName,jdbcType=VARCHAR}, #{viceName,jdbcType=VARCHAR}, 
+      #{goodsName,jdbcType=VARCHAR}, #{goodsPicture,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, 
+      #{spuId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsDivision">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -159,9 +159,6 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="divisionId != null">
         division_id,
-      </if>
-      <if test="skuId != null">
-        sku_id,
       </if>
       <if test="topicName != null">
         topic_name,
@@ -178,13 +175,13 @@
       <if test="goodsPrice != null">
         goods_price,
       </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="divisionId != null">
         #{divisionId,jdbcType=INTEGER},
-      </if>
-      <if test="skuId != null">
-        #{skuId,jdbcType=BIGINT},
       </if>
       <if test="topicName != null">
         #{topicName,jdbcType=VARCHAR},
@@ -200,6 +197,9 @@
       </if>
       <if test="goodsPrice != null">
         #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -218,9 +218,6 @@
       <if test="record.divisionId != null">
         division_id = #{record.divisionId,jdbcType=INTEGER},
       </if>
-      <if test="record.skuId != null">
-        sku_id = #{record.skuId,jdbcType=BIGINT},
-      </if>
       <if test="record.topicName != null">
         topic_name = #{record.topicName,jdbcType=VARCHAR},
       </if>
@@ -236,6 +233,9 @@
       <if test="record.goodsPrice != null">
         goods_price = #{record.goodsPrice,jdbcType=DECIMAL},
       </if>
+      <if test="record.spuId != null">
+        spu_id = #{record.spuId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -245,12 +245,12 @@
     update goods_division
     set id = #{record.id,jdbcType=INTEGER},
       division_id = #{record.divisionId,jdbcType=INTEGER},
-      sku_id = #{record.skuId,jdbcType=BIGINT},
       topic_name = #{record.topicName,jdbcType=VARCHAR},
       vice_name = #{record.viceName,jdbcType=VARCHAR},
       goods_name = #{record.goodsName,jdbcType=VARCHAR},
       goods_picture = #{record.goodsPicture,jdbcType=VARCHAR},
-      goods_price = #{record.goodsPrice,jdbcType=DECIMAL}
+      goods_price = #{record.goodsPrice,jdbcType=DECIMAL},
+      spu_id = #{record.spuId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -260,9 +260,6 @@
     <set>
       <if test="divisionId != null">
         division_id = #{divisionId,jdbcType=INTEGER},
-      </if>
-      <if test="skuId != null">
-        sku_id = #{skuId,jdbcType=BIGINT},
       </if>
       <if test="topicName != null">
         topic_name = #{topicName,jdbcType=VARCHAR},
@@ -279,18 +276,21 @@
       <if test="goodsPrice != null">
         goods_price = #{goodsPrice,jdbcType=DECIMAL},
       </if>
+      <if test="spuId != null">
+        spu_id = #{spuId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zsl.malluserdb.po.GoodsDivision">
     update goods_division
     set division_id = #{divisionId,jdbcType=INTEGER},
-      sku_id = #{skuId,jdbcType=BIGINT},
       topic_name = #{topicName,jdbcType=VARCHAR},
       vice_name = #{viceName,jdbcType=VARCHAR},
       goods_name = #{goodsName,jdbcType=VARCHAR},
       goods_picture = #{goodsPicture,jdbcType=VARCHAR},
-      goods_price = #{goodsPrice,jdbcType=DECIMAL}
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      spu_id = #{spuId,jdbcType=BIGINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsDivisionExample" resultMap="BaseResultMap">

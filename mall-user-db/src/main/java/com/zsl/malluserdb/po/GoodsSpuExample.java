@@ -1163,6 +1163,186 @@ public class GoodsSpuExample {
             addCriterion("shop_id not between", value1, value2, "shopId");
             return (Criteria) this;
         }
+
+        public Criteria andSuperiorIsNull() {
+            addCriterion("superior is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorIsNotNull() {
+            addCriterion("superior is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorEqualTo(Boolean value) {
+            addCriterion("superior =", value, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("superior = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorNotEqualTo(Boolean value) {
+            addCriterion("superior <>", value, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorNotEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("superior <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorGreaterThan(Boolean value) {
+            addCriterion("superior >", value, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorGreaterThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("superior > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("superior >=", value, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorGreaterThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("superior >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorLessThan(Boolean value) {
+            addCriterion("superior <", value, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorLessThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("superior < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorLessThanOrEqualTo(Boolean value) {
+            addCriterion("superior <=", value, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorLessThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("superior <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorIn(List<Boolean> values) {
+            addCriterion("superior in", values, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorNotIn(List<Boolean> values) {
+            addCriterion("superior not in", values, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorBetween(Boolean value1, Boolean value2) {
+            addCriterion("superior between", value1, value2, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperiorNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("superior not between", value1, value2, "superior");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("`status` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("`status` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(Boolean value) {
+            addCriterion("`status` =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("`status` = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(Boolean value) {
+            addCriterion("`status` <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("`status` <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(Boolean value) {
+            addCriterion("`status` >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("`status` > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("`status` >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("`status` >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(Boolean value) {
+            addCriterion("`status` <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("`status` < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(Boolean value) {
+            addCriterion("`status` <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("`status` <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<Boolean> values) {
+            addCriterion("`status` in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<Boolean> values) {
+            addCriterion("`status` not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(Boolean value1, Boolean value2) {
+            addCriterion("`status` between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("`status` not between", value1, value2, "status");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

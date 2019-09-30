@@ -19,6 +19,8 @@ public class GoodsTradeInfo implements Serializable {
 
     private Byte payWay;
 
+    private Boolean source;
+
     private Byte currentStatus;
 
     private Byte preStatus;
@@ -46,6 +48,22 @@ public class GoodsTradeInfo implements Serializable {
     private Date endTime;
 
     private Date shipmentsTime;
+
+    private Boolean hidden;
+
+    private String recipients;
+
+    private String recipientsPhone;
+
+    private String shippingAddress;
+
+    private String shippingAddressDetail;
+
+    private BigDecimal presentMoney;
+
+    private BigDecimal fatherMoney;
+
+    private BigDecimal grandfatherMoney;
 
     private static final long serialVersionUID = 1L;
 
@@ -95,6 +113,14 @@ public class GoodsTradeInfo implements Serializable {
 
     public void setPayWay(Byte payWay) {
         this.payWay = payWay;
+    }
+
+    public Boolean getSource() {
+        return source;
+    }
+
+    public void setSource(Boolean source) {
+        this.source = source;
     }
 
     public Byte getCurrentStatus() {
@@ -209,6 +235,70 @@ public class GoodsTradeInfo implements Serializable {
         this.shipmentsTime = shipmentsTime;
     }
 
+    public Boolean getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public String getRecipients() {
+        return recipients;
+    }
+
+    public void setRecipients(String recipients) {
+        this.recipients = recipients == null ? null : recipients.trim();
+    }
+
+    public String getRecipientsPhone() {
+        return recipientsPhone;
+    }
+
+    public void setRecipientsPhone(String recipientsPhone) {
+        this.recipientsPhone = recipientsPhone == null ? null : recipientsPhone.trim();
+    }
+
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress == null ? null : shippingAddress.trim();
+    }
+
+    public String getShippingAddressDetail() {
+        return shippingAddressDetail;
+    }
+
+    public void setShippingAddressDetail(String shippingAddressDetail) {
+        this.shippingAddressDetail = shippingAddressDetail == null ? null : shippingAddressDetail.trim();
+    }
+
+    public BigDecimal getPresentMoney() {
+        return presentMoney;
+    }
+
+    public void setPresentMoney(BigDecimal presentMoney) {
+        this.presentMoney = presentMoney;
+    }
+
+    public BigDecimal getFatherMoney() {
+        return fatherMoney;
+    }
+
+    public void setFatherMoney(BigDecimal fatherMoney) {
+        this.fatherMoney = fatherMoney;
+    }
+
+    public BigDecimal getGrandfatherMoney() {
+        return grandfatherMoney;
+    }
+
+    public void setGrandfatherMoney(BigDecimal grandfatherMoney) {
+        this.grandfatherMoney = grandfatherMoney;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -221,6 +311,7 @@ public class GoodsTradeInfo implements Serializable {
         sb.append(", memberId=").append(memberId);
         sb.append(", addressId=").append(addressId);
         sb.append(", payWay=").append(payWay);
+        sb.append(", source=").append(source);
         sb.append(", currentStatus=").append(currentStatus);
         sb.append(", preStatus=").append(preStatus);
         sb.append(", evaluate=").append(evaluate);
@@ -235,6 +326,14 @@ public class GoodsTradeInfo implements Serializable {
         sb.append(", finishTime=").append(finishTime);
         sb.append(", endTime=").append(endTime);
         sb.append(", shipmentsTime=").append(shipmentsTime);
+        sb.append(", hidden=").append(hidden);
+        sb.append(", recipients=").append(recipients);
+        sb.append(", recipientsPhone=").append(recipientsPhone);
+        sb.append(", shippingAddress=").append(shippingAddress);
+        sb.append(", shippingAddressDetail=").append(shippingAddressDetail);
+        sb.append(", presentMoney=").append(presentMoney);
+        sb.append(", fatherMoney=").append(fatherMoney);
+        sb.append(", grandfatherMoney=").append(grandfatherMoney);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -258,6 +357,7 @@ public class GoodsTradeInfo implements Serializable {
             && (this.getMemberId() == null ? other.getMemberId() == null : this.getMemberId().equals(other.getMemberId()))
             && (this.getAddressId() == null ? other.getAddressId() == null : this.getAddressId().equals(other.getAddressId()))
             && (this.getPayWay() == null ? other.getPayWay() == null : this.getPayWay().equals(other.getPayWay()))
+            && (this.getSource() == null ? other.getSource() == null : this.getSource().equals(other.getSource()))
             && (this.getCurrentStatus() == null ? other.getCurrentStatus() == null : this.getCurrentStatus().equals(other.getCurrentStatus()))
             && (this.getPreStatus() == null ? other.getPreStatus() == null : this.getPreStatus().equals(other.getPreStatus()))
             && (this.getEvaluate() == null ? other.getEvaluate() == null : this.getEvaluate().equals(other.getEvaluate()))
@@ -271,7 +371,15 @@ public class GoodsTradeInfo implements Serializable {
             && (this.getPaymentTime() == null ? other.getPaymentTime() == null : this.getPaymentTime().equals(other.getPaymentTime()))
             && (this.getFinishTime() == null ? other.getFinishTime() == null : this.getFinishTime().equals(other.getFinishTime()))
             && (this.getEndTime() == null ? other.getEndTime() == null : this.getEndTime().equals(other.getEndTime()))
-            && (this.getShipmentsTime() == null ? other.getShipmentsTime() == null : this.getShipmentsTime().equals(other.getShipmentsTime()));
+            && (this.getShipmentsTime() == null ? other.getShipmentsTime() == null : this.getShipmentsTime().equals(other.getShipmentsTime()))
+            && (this.getHidden() == null ? other.getHidden() == null : this.getHidden().equals(other.getHidden()))
+            && (this.getRecipients() == null ? other.getRecipients() == null : this.getRecipients().equals(other.getRecipients()))
+            && (this.getRecipientsPhone() == null ? other.getRecipientsPhone() == null : this.getRecipientsPhone().equals(other.getRecipientsPhone()))
+            && (this.getShippingAddress() == null ? other.getShippingAddress() == null : this.getShippingAddress().equals(other.getShippingAddress()))
+            && (this.getShippingAddressDetail() == null ? other.getShippingAddressDetail() == null : this.getShippingAddressDetail().equals(other.getShippingAddressDetail()))
+            && (this.getPresentMoney() == null ? other.getPresentMoney() == null : this.getPresentMoney().equals(other.getPresentMoney()))
+            && (this.getFatherMoney() == null ? other.getFatherMoney() == null : this.getFatherMoney().equals(other.getFatherMoney()))
+            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()));
     }
 
     @Override
@@ -284,6 +392,7 @@ public class GoodsTradeInfo implements Serializable {
         result = prime * result + ((getMemberId() == null) ? 0 : getMemberId().hashCode());
         result = prime * result + ((getAddressId() == null) ? 0 : getAddressId().hashCode());
         result = prime * result + ((getPayWay() == null) ? 0 : getPayWay().hashCode());
+        result = prime * result + ((getSource() == null) ? 0 : getSource().hashCode());
         result = prime * result + ((getCurrentStatus() == null) ? 0 : getCurrentStatus().hashCode());
         result = prime * result + ((getPreStatus() == null) ? 0 : getPreStatus().hashCode());
         result = prime * result + ((getEvaluate() == null) ? 0 : getEvaluate().hashCode());
@@ -298,6 +407,14 @@ public class GoodsTradeInfo implements Serializable {
         result = prime * result + ((getFinishTime() == null) ? 0 : getFinishTime().hashCode());
         result = prime * result + ((getEndTime() == null) ? 0 : getEndTime().hashCode());
         result = prime * result + ((getShipmentsTime() == null) ? 0 : getShipmentsTime().hashCode());
+        result = prime * result + ((getHidden() == null) ? 0 : getHidden().hashCode());
+        result = prime * result + ((getRecipients() == null) ? 0 : getRecipients().hashCode());
+        result = prime * result + ((getRecipientsPhone() == null) ? 0 : getRecipientsPhone().hashCode());
+        result = prime * result + ((getShippingAddress() == null) ? 0 : getShippingAddress().hashCode());
+        result = prime * result + ((getShippingAddressDetail() == null) ? 0 : getShippingAddressDetail().hashCode());
+        result = prime * result + ((getPresentMoney() == null) ? 0 : getPresentMoney().hashCode());
+        result = prime * result + ((getFatherMoney() == null) ? 0 : getFatherMoney().hashCode());
+        result = prime * result + ((getGrandfatherMoney() == null) ? 0 : getGrandfatherMoney().hashCode());
         return result;
     }
 
@@ -308,6 +425,7 @@ public class GoodsTradeInfo implements Serializable {
         memberId("member_id", "memberId", "INTEGER", false),
         addressId("address_id", "addressId", "INTEGER", false),
         payWay("pay_way", "payWay", "TINYINT", false),
+        source("source", "source", "BIT", true),
         currentStatus("current_status", "currentStatus", "TINYINT", false),
         preStatus("pre_status", "preStatus", "TINYINT", false),
         evaluate("evaluate", "evaluate", "BIT", false),
@@ -321,7 +439,15 @@ public class GoodsTradeInfo implements Serializable {
         paymentTime("payment_time", "paymentTime", "TIMESTAMP", false),
         finishTime("finish_time", "finishTime", "TIMESTAMP", false),
         endTime("end_time", "endTime", "TIMESTAMP", false),
-        shipmentsTime("shipments_time", "shipmentsTime", "TIMESTAMP", false);
+        shipmentsTime("shipments_time", "shipmentsTime", "TIMESTAMP", false),
+        hidden("hidden", "hidden", "BIT", false),
+        recipients("recipients", "recipients", "VARCHAR", false),
+        recipientsPhone("recipients_phone", "recipientsPhone", "VARCHAR", false),
+        shippingAddress("shipping_address", "shippingAddress", "VARCHAR", false),
+        shippingAddressDetail("shipping_address_detail", "shippingAddressDetail", "VARCHAR", false),
+        presentMoney("present_money", "presentMoney", "DECIMAL", false),
+        fatherMoney("father_money", "fatherMoney", "DECIMAL", false),
+        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

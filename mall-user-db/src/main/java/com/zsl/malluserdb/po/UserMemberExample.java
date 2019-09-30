@@ -1819,6 +1819,186 @@ public class UserMemberExample {
             addCriterion("country not between", value1, value2, "country");
             return (Criteria) this;
         }
+
+        public Criteria andBalanceIsNull() {
+            addCriterion("balance is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceIsNotNull() {
+            addCriterion("balance is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceEqualTo(Double value) {
+            addCriterion("balance =", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("balance = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotEqualTo(Double value) {
+            addCriterion("balance <>", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("balance <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceGreaterThan(Double value) {
+            addCriterion("balance >", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceGreaterThanColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("balance > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceGreaterThanOrEqualTo(Double value) {
+            addCriterion("balance >=", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceGreaterThanOrEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("balance >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceLessThan(Double value) {
+            addCriterion("balance <", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceLessThanColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("balance < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceLessThanOrEqualTo(Double value) {
+            addCriterion("balance <=", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceLessThanOrEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("balance <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceIn(List<Double> values) {
+            addCriterion("balance in", values, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotIn(List<Double> values) {
+            addCriterion("balance not in", values, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceBetween(Double value1, Double value2) {
+            addCriterion("balance between", value1, value2, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotBetween(Double value1, Double value2) {
+            addCriterion("balance not between", value1, value2, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIsNull() {
+            addCriterion("node is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIsNotNull() {
+            addCriterion("node is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeEqualTo(Integer value) {
+            addCriterion("node =", value, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("node = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeNotEqualTo(Integer value) {
+            addCriterion("node <>", value, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeNotEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("node <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeGreaterThan(Integer value) {
+            addCriterion("node >", value, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeGreaterThanColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("node > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("node >=", value, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeGreaterThanOrEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("node >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeLessThan(Integer value) {
+            addCriterion("node <", value, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeLessThanColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("node < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeLessThanOrEqualTo(Integer value) {
+            addCriterion("node <=", value, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeLessThanOrEqualToColumn(UserMember.Column column) {
+            addCriterion(new StringBuilder("node <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIn(List<Integer> values) {
+            addCriterion("node in", values, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeNotIn(List<Integer> values) {
+            addCriterion("node not in", values, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeBetween(Integer value1, Integer value2) {
+            addCriterion("node between", value1, value2, "node");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeNotBetween(Integer value1, Integer value2) {
+            addCriterion("node not between", value1, value2, "node");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

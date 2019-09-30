@@ -53,11 +53,11 @@ public class GoodsController {
             @Sort(accepts = {"create_time", "price", "sku_name"}) @RequestParam(defaultValue = "create_time") String sort,
             @Order @RequestParam(defaultValue = "desc") String order
     ){
-        List<GoodsSku>  goodsSkuList = goodsService.getGoodsList(goodsName,page,limit,sort,order);
+        List<GoodsSpu>  goodsSkuList = goodsService.getGoodsList(goodsName,page,limit,sort,order);
         Set<Long> spuIdSet = new HashSet<>();
         List<GoodsOutVO> result = new ArrayList<>();
-        for(GoodsSku goodsSku1 : goodsSkuList){
-            spuIdSet.add(goodsSku1.getSpuId());
+        for(GoodsSpu goodsSku1 : goodsSkuList){
+            spuIdSet.add(goodsSku1.getId());
         }
         for(Long spuid : spuIdSet){
             GoodsSpu goodsSpu = goodsSpuMapper.selectByPrimaryKey(spuid);
@@ -68,6 +68,8 @@ public class GoodsController {
                 goodsOutVO.setGoodsSubName(goodsSpu.getGoodsSubName());
                 BigDecimal max = goodsDao.selectMaxPrice(goodsSpu.getId());
                 BigDecimal min = goodsDao.selectMinPrice(goodsSpu.getId());
+                max = max == null ? new BigDecimal(0) :max;
+                min = min == null ? new BigDecimal(0) :min;
                 if(max.compareTo(min) == 0){
                     goodsOutVO.setPrice(min+"");
                 }else{
@@ -75,7 +77,9 @@ public class GoodsController {
                 }
                 goodsOutVO.setMaxPrice(goodsDao.selectMaxPrice(goodsSpu.getId()));
                 goodsOutVO.setMinPrice(goodsDao.selectMinPrice(goodsSpu.getId()));
-                goodsOutVO.setTotalSal(new Long(goodsDao.selectTotalSal(goodsSpu.getId())));
+                Integer totalsal = goodsDao.selectTotalSal(goodsSpu.getId());
+                totalsal = totalsal  == null ? 0 : totalsal;
+                goodsOutVO.setTotalSal(new Long(totalsal));
                 GoodsImageExample goodsImageExample = new GoodsImageExample();
                 goodsImageExample.or().andSpuIdEqualTo(spuid).andIndexEqualTo(0);
                 List<GoodsImage> goodsSpuList = goodsImageMapper.selectByExample(goodsImageExample);

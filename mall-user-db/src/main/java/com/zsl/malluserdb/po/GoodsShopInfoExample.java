@@ -512,6 +512,206 @@ public class GoodsShopInfoExample {
             addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
+
+        public Criteria andShopSiteIsNull() {
+            addCriterion("shop_site is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteIsNotNull() {
+            addCriterion("shop_site is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteEqualTo(String value) {
+            addCriterion("shop_site =", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteNotEqualTo(String value) {
+            addCriterion("shop_site <>", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteNotEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteGreaterThan(String value) {
+            addCriterion("shop_site >", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteGreaterThanColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteGreaterThanOrEqualTo(String value) {
+            addCriterion("shop_site >=", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteGreaterThanOrEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteLessThan(String value) {
+            addCriterion("shop_site <", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteLessThanColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteLessThanOrEqualTo(String value) {
+            addCriterion("shop_site <=", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteLessThanOrEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteLike(String value) {
+            addCriterion("shop_site like", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteNotLike(String value) {
+            addCriterion("shop_site not like", value, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteIn(List<String> values) {
+            addCriterion("shop_site in", values, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteNotIn(List<String> values) {
+            addCriterion("shop_site not in", values, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteBetween(String value1, String value2) {
+            addCriterion("shop_site between", value1, value2, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteNotBetween(String value1, String value2) {
+            addCriterion("shop_site not between", value1, value2, "shopSite");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailIsNull() {
+            addCriterion("shop_site_detail is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailIsNotNull() {
+            addCriterion("shop_site_detail is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailEqualTo(String value) {
+            addCriterion("shop_site_detail =", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site_detail = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailNotEqualTo(String value) {
+            addCriterion("shop_site_detail <>", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailNotEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site_detail <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailGreaterThan(String value) {
+            addCriterion("shop_site_detail >", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailGreaterThanColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site_detail > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailGreaterThanOrEqualTo(String value) {
+            addCriterion("shop_site_detail >=", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailGreaterThanOrEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site_detail >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailLessThan(String value) {
+            addCriterion("shop_site_detail <", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailLessThanColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site_detail < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailLessThanOrEqualTo(String value) {
+            addCriterion("shop_site_detail <=", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailLessThanOrEqualToColumn(GoodsShopInfo.Column column) {
+            addCriterion(new StringBuilder("shop_site_detail <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailLike(String value) {
+            addCriterion("shop_site_detail like", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailNotLike(String value) {
+            addCriterion("shop_site_detail not like", value, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailIn(List<String> values) {
+            addCriterion("shop_site_detail in", values, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailNotIn(List<String> values) {
+            addCriterion("shop_site_detail not in", values, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailBetween(String value1, String value2) {
+            addCriterion("shop_site_detail between", value1, value2, "shopSiteDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopSiteDetailNotBetween(String value1, String value2) {
+            addCriterion("shop_site_detail not between", value1, value2, "shopSiteDetail");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

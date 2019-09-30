@@ -20,6 +20,8 @@ public class UserPoint implements Serializable {
 
     private Boolean status;
 
+    private String describe;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -78,6 +80,14 @@ public class UserPoint implements Serializable {
         this.status = status;
     }
 
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe == null ? null : describe.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -91,6 +101,7 @@ public class UserPoint implements Serializable {
         sb.append(", pointSource=").append(pointSource);
         sb.append(", createTime=").append(createTime);
         sb.append(", status=").append(status);
+        sb.append(", describe=").append(describe);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -114,7 +125,8 @@ public class UserPoint implements Serializable {
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
             && (this.getPointSource() == null ? other.getPointSource() == null : this.getPointSource().equals(other.getPointSource()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getDescribe() == null ? other.getDescribe() == null : this.getDescribe().equals(other.getDescribe()));
     }
 
     @Override
@@ -128,6 +140,7 @@ public class UserPoint implements Serializable {
         result = prime * result + ((getPointSource() == null) ? 0 : getPointSource().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getDescribe() == null) ? 0 : getDescribe().hashCode());
         return result;
     }
 
@@ -138,7 +151,8 @@ public class UserPoint implements Serializable {
         type("type", "type", "BIT", true),
         pointSource("point_source", "pointSource", "INTEGER", false),
         createTime("create_time", "createTime", "TIMESTAMP", false),
-        status("status", "status", "BIT", true);
+        status("status", "status", "BIT", true),
+        describe("describe", "describe", "VARCHAR", true);
 
         private static final String BEGINNING_DELIMITER = "`";
 

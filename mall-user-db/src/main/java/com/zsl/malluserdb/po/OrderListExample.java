@@ -1244,6 +1244,96 @@ public class OrderListExample {
             return (Criteria) this;
         }
 
+        public Criteria andOrderEvaluateIsNull() {
+            addCriterion("order_evaluate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateIsNotNull() {
+            addCriterion("order_evaluate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateEqualTo(Boolean value) {
+            addCriterion("order_evaluate =", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateEqualToColumn(OrderList.Column column) {
+            addCriterion(new StringBuilder("order_evaluate = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotEqualTo(Boolean value) {
+            addCriterion("order_evaluate <>", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotEqualToColumn(OrderList.Column column) {
+            addCriterion(new StringBuilder("order_evaluate <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThan(Boolean value) {
+            addCriterion("order_evaluate >", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThanColumn(OrderList.Column column) {
+            addCriterion(new StringBuilder("order_evaluate > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("order_evaluate >=", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateGreaterThanOrEqualToColumn(OrderList.Column column) {
+            addCriterion(new StringBuilder("order_evaluate >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThan(Boolean value) {
+            addCriterion("order_evaluate <", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThanColumn(OrderList.Column column) {
+            addCriterion(new StringBuilder("order_evaluate < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThanOrEqualTo(Boolean value) {
+            addCriterion("order_evaluate <=", value, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateLessThanOrEqualToColumn(OrderList.Column column) {
+            addCriterion(new StringBuilder("order_evaluate <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateIn(List<Boolean> values) {
+            addCriterion("order_evaluate in", values, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotIn(List<Boolean> values) {
+            addCriterion("order_evaluate not in", values, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateBetween(Boolean value1, Boolean value2) {
+            addCriterion("order_evaluate between", value1, value2, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEvaluateNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("order_evaluate not between", value1, value2, "orderEvaluate");
+            return (Criteria) this;
+        }
+
         public Criteria andCurrentStateIsNull() {
             addCriterion("current_state is null");
             return (Criteria) this;
