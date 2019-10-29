@@ -10,6 +10,8 @@ public class UserRegisterParam {
     private String mobile; //手机号码
     @NotEmpty(message = "密码不能为空")
     private String password; //密码
-    @NotEmpty(message = "验证码不能为空")
+   // @NotEmpty(message = "验证码不能为空")
     private String code; //短信验证码
+   // @NotEmpty(message = "前缀不能为空")
+    private String prefixMessage;//短信前缀
 }

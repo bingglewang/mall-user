@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.zsl.malluserapi.dto.user.in.UserRegisterParam;
 import com.zsl.malluserapi.dto.wx.in.WebUrlParam;
+import com.zsl.malluserapi.service.RedisService;
 import com.zsl.malluserapi.service.UserService;
 import com.zsl.malluserapi.service.WxService;
 import com.zsl.malluserapi.util.DigestUtil;
@@ -26,10 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.ResponseWrapper;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("wx")
@@ -46,6 +44,9 @@ public class WxController {
 
     @Autowired
     private UserMemberMapper userMemberMapper;
+
+    @Autowired
+    private RedisService redisService;
 
     @Value("${weixin.appID}")
     private String appID;
@@ -67,6 +68,21 @@ public class WxController {
         String openid = request.getParameter("openid");
         String phone = request.getParameter("phone");
         String shareLinkId = request.getParameter("shareId");
+       /* String code = request.getParameter("code");
+        String prefixMessage = request.getParameter("prefixMessage");
+        if(StringUtils.isBlank(prefixMessage)){
+            return CommonResult.failed("前缀不能为空");
+        }
+        if(StringUtils.isBlank(code)){
+            return CommonResult.failed("验证码不能为空");
+        }
+        // 判断验证码是否正确
+        StringJoiner joiner = new StringJoiner("_","[","]");
+        String key = joiner.add(prefixMessage).add(phone).toString();
+        String redisCode = redisService.get(key);
+        if(!(code).equals(redisCode)){
+            return CommonResult.failed("验证码错误");
+        }*/
         //根据手机号查询用户表里面有没有
         UserMemberExample userMemberExample = new UserMemberExample();
         UserMemberExample.Criteria criteria = userMemberExample.createCriteria();

@@ -69,8 +69,8 @@ public class HttpClientUtil {
     }
 
     public static void main(String[] args) {
-        String url = "https://zs.cntracechain.com/trace-api/trace/relationMqSubCode";
-        String json = "{\"fromNumber\":1,\"goodsId\":17753,\"stallId\":-1,\"toNumber\":99980,\"traceCodeNumber\":\"zs1568948165643000575812172\"}";
+        String url = "http://localhost:8088/trace-api/trace/testTraceUpdate";
+        String json = "{\"fromNumber\":1501,\"goodsId\":17649,\"stallId\":-1,\"toNumber\":2000,\"traceCodeNumber\":\"zs1570760290854000575514165\"}";
         Map<String,String> param = new HashMap<>();
         param.put("mqJsonStr",json);
         JSONObject jsonObject = new JSONObject();

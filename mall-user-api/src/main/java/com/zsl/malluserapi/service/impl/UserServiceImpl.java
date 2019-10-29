@@ -1,9 +1,11 @@
 package com.zsl.malluserapi.service.impl;
 
 import com.zsl.malluserapi.dao.UserDao;
+import com.zsl.malluserapi.dto.user.UserMemberVo;
 import com.zsl.malluserapi.dto.user.in.UserLoginParam;
 import com.zsl.malluserapi.dto.user.in.UserRegisterParam;
 import com.zsl.malluserapi.dto.user.in.UserUpdateParam;
+import com.zsl.malluserapi.service.RedisService;
 import com.zsl.malluserapi.service.UserService;
 import com.zsl.malluserapi.util.DigestUtil;
 import com.zsl.malluserdb.mapper.UserFriendMapper;
@@ -23,12 +25,13 @@ import org.springframework.util.CollectionUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
-//    @Autowired
-//    private RedisService redisService;
+    @Autowired
+    private RedisService redisService;
 
     @Autowired
     private UserMemberMapper userMemberMapper;
@@ -38,8 +41,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
-
-    private final String REDIS_PREFIX = "message";
 
     @Override
     public int register(UserRegisterParam registerParam) {
@@ -51,10 +52,12 @@ public class UserServiceImpl implements UserService {
             return -1; //该手机号已经被注册
         }
         // 判断验证码是否正确
-//        String redisCode = redisService.get(REDIS_PREFIX+registerParam.getMobile());
-//        if(!(registerParam.getCode()).equals(redisCode)){
-//           return -2; //验证码错误
-//        }
+       /* StringJoiner joiner = new StringJoiner("_","[","]");
+        String key = joiner.add(registerParam.getPrefixMessage()).add(registerParam.getMobile()).toString();
+        String redisCode = redisService.get(key);
+        if(!(registerParam.getCode()).equals(redisCode)){
+           return -2; //验证码错误
+        }*/
         //插入用户
         UserMember insert = new UserMember();
         BeanUtils.copyProperties(registerParam, insert);
@@ -95,10 +98,12 @@ public class UserServiceImpl implements UserService {
             return -1; //该手机号已经被注册
         }
         // 判断验证码是否正确
-//          String redisCode = redisService.get(REDIS_PREFIX + registerParam.getMobile());
-//          if (!(registerParam.getCode()).equals(redisCode)) {
-//              return -2; //验证码错误
-//          }
+       /* StringJoiner joiner = new StringJoiner("_","[","]");
+        String key = joiner.add(registerParam.getPrefixMessage()).add(registerParam.getMobile()).toString();
+        String redisCode = redisService.get(key);
+          if (!(registerParam.getCode()).equals(redisCode)) {
+              return -2; //验证码错误
+          }*/
         //判断分享人是否存在
         UserMemberExample shareMemberExample = new UserMemberExample();
         shareMemberExample.or().andShareIdEqualTo(shareId);
@@ -170,6 +175,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean isUserExistByPhone(String phone){
+        //判断手机号是否被注册过
+        UserMemberExample userMemberExample = new UserMemberExample();
+        userMemberExample.or().andMobileEqualTo(phone);
+        UserMember userMember = userMemberMapper.selectOneByExample(userMemberExample);
+        if (userMember == null) {
+            return false; //用户不存在
+        }else{
+            return true; //用户存在
+        }
+    }
+
+    @Override
     public int reset(UserRegisterParam registerParam) {
         //判断手机号是否被注册过
         UserMemberExample userMemberExample = new UserMemberExample();
@@ -179,10 +197,12 @@ public class UserServiceImpl implements UserService {
             return -1; //用户不存在
         }
         // 判断验证码是否正确
-//        String redisCode = redisService.get(REDIS_PREFIX+registerParam.getMobile());
-//        if(!(registerParam.getCode()).equals(redisCode)){
-//            return -2; //验证码错误
-//        }
+       /* StringJoiner joiner = new StringJoiner("_","[","]");
+        String key = joiner.add(registerParam.getPrefixMessage()).add(registerParam.getMobile()).toString();
+        String redisCode = redisService.get(key);
+        if(!(registerParam.getCode()).equals(redisCode)){
+            return -2; //验证码错误
+        }*/
         //重置用户密码
         UserMember insert = new UserMember();
         //密码加密处理

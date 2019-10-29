@@ -23,6 +23,14 @@ public interface UserService {
      */
     int shareRegister(String shareId,UserRegisterParam registerParam,HttpServletRequest request);
 
+
+    /**
+     * 根据手机号判断用户是否存在
+     * @param phone
+     * @return
+     */
+    boolean isUserExistByPhone(String phone);
+
     /**
      * 用户登录
      * @param loginParam

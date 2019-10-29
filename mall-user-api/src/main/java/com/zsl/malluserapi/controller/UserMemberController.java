@@ -129,13 +129,30 @@ public class UserMemberController {
     }
 
     /**
+     * 根据手机号判断用户是否存在
+     * @param phone
+     * @return
+     */
+    @GetMapping("isUserExistByPhone")
+    public CommonResult isUserExistByPhone(String phone){
+        boolean result = userService.isUserExistByPhone(phone);
+        return CommonResult.success(result);
+    }
+
+
+    /**
      * 用户详情
      * @param userId
      * @return
      */
     @GetMapping("userDetail")
     public CommonResult userDetail(Integer userId){
-        return CommonResult.success(userService.userDetail(userId));
+        UserMemberVo result = new UserMemberVo();
+        UserMember userMember = userService.userDetail(userId);
+        if(userMember != null){
+            BeanUtils.copyProperties(userMember,result);
+        }
+        return CommonResult.success(result);
     }
 
     @PostMapping("update")
