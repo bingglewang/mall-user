@@ -133,6 +133,15 @@ public class GoodsServiceImpl implements GoodsService {
         activityPrice = activityPrice == null ? new BigDecimal(-1) : activityPrice;
         result.put("activityPrice",activityPrice);
         result.put("goodsInfo", goodsInfo);
+
+        //商品促销活动
+        String goodsPromotion =  goodsDao.selectSpuPromotion(goodsSpu.getId());
+        if(StringUtils.isEmpty(goodsPromotion)){
+            result.put("goodsPromotion", "");
+        }else{
+            result.put("goodsPromotion", goodsPromotion);
+        }
+
         //商品组图
         List<String> goodsPic = new ArrayList<>();
         GoodsImageExample goodsImageExample = new GoodsImageExample();

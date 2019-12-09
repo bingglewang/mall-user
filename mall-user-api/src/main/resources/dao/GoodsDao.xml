@@ -25,6 +25,7 @@
         select min(price)  from goods_activity where sku_id in
         (select id from goods_sku where spu_id = #{id})
         and activity_open = 1
+        and activity_stock > sold
         and (NOW() BETWEEN start_time and end_time)
     </select>
     <select id="selectMinPrice" resultType="java.math.BigDecimal">
@@ -36,4 +37,19 @@
     <select id="selectMinGiftPoint" resultType="java.math.BigDecimal">
         select min(gift_point) from goods_sku where spu_id = #{id}
     </select>
+
+    <!--判断商品是否有满减活动-->
+    <select id="selectSpuPromotion" resultType="java.lang.String">
+        SELECT
+          CONCAT('促销：','满',di.condition_amount,'减',di.deduction_amount) promotion
+        FROM
+            goods_spu spu
+        LEFT JOIN division_spu dis ON spu.id = dis.goods_id
+        LEFT JOIN divisions di ON dis.division_id = di.division_id
+        where di.open_reduction = 1
+        and (now() BETWEEN di.start_time and di.end_time)
+        and spu.id = #{id}
+    </select>
+
+
 </mapper>
