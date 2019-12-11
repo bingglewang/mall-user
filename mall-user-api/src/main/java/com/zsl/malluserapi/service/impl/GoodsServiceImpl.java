@@ -123,24 +123,32 @@ public class GoodsServiceImpl implements GoodsService {
         goodsInfo.setMinPrice(goodsDao.selectMinPrice(goodsSpu.getId()));
         Integer totalsal = goodsDao.selectTotalSal(goodsSpu.getId());
         totalsal = totalsal  == null ? 0 : totalsal;
-        if(getMinGifgPointBySpuId(goodsSpu.getId()) > 0){
-            goodsInfo.setTotalSal(totalsal+"  赠送"+getMinGifgPointBySpuId(goodsSpu.getId())+"积分");
+
+        //赠送积分
+        Integer activityPoint = goodsDao.selectMinActivityPoint(goodsSpu.getId());
+        if(activityPoint != null && activityPoint > 0){
+            goodsInfo.setTotalSal(totalsal+"  赠送"+activityPoint+"积分");
         }else{
-            goodsInfo.setTotalSal(totalsal+"");
+            if(getMinGifgPointBySpuId(goodsSpu.getId()) > 0){
+                goodsInfo.setTotalSal(totalsal+"  赠送"+getMinGifgPointBySpuId(goodsSpu.getId())+"积分");
+            }else{
+                goodsInfo.setTotalSal(totalsal+"");
+            }
         }
+
         //活动价格
         BigDecimal activityPrice = goodsDao.selectMinActivityPrice(goodsSpu.getId());
         activityPrice = activityPrice == null ? new BigDecimal(-1) : activityPrice;
         result.put("activityPrice",activityPrice);
         result.put("goodsInfo", goodsInfo);
 
-        //商品促销活动
-        String goodsPromotion =  goodsDao.selectSpuPromotion(goodsSpu.getId());
+        //商品促销活动(暂时不用)
+       /* String goodsPromotion =  goodsDao.selectSpuPromotion(goodsSpu.getId());
         if(StringUtils.isEmpty(goodsPromotion)){
             result.put("goodsPromotion", "");
         }else{
             result.put("goodsPromotion", goodsPromotion);
-        }
+        }*/
 
         //商品组图
         List<String> goodsPic = new ArrayList<>();

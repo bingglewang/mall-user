@@ -48,8 +48,18 @@
         LEFT JOIN divisions di ON dis.division_id = di.division_id
         where di.open_reduction = 1
         and (now() BETWEEN di.start_time and di.end_time)
+        and di.show_type = 1
         and spu.id = #{id}
     </select>
 
+    <!--赠送积分-->
+    <select id="selectMinActivityPoint" resultType="java.lang.Integer">
+        SELECT IFNULL(min(act.present_coin),min(sku.gift_point))
+        FROM goods_spu spu
+        LEFT JOIN goods_sku sku ON spu.id = sku.spu_id
+        LEFT JOIN goods_activity act ON act.sku_id = sku.id AND activity_open = 1 AND NOW() BETWEEN act.start_time AND act.end_time AND activity_stock > sold
+        WHERE spu.id = #{id}
+        GROUP BY spu.id
+    </select>
 
 </mapper>
