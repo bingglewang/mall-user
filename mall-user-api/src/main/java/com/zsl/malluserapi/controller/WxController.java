@@ -253,6 +253,11 @@ public class WxController {
                 result_user.put("openid",wx_openid);
                 return CommonResult.success(result_user);
             }else{
+                //更新最近登录时间
+                UserMember updateLoginTime = new UserMember();
+                updateLoginTime.setId(userMemberList.get(0).getId());
+                updateLoginTime.setLastLoginTime(new Date());
+                userMemberMapper.updateByPrimaryKeySelective(updateLoginTime);
                 //绑定
                 result_user.put("bindstatus",0);
                 result_user.put("userInfo",userMemberList.get(0));

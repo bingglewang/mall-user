@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @RestController
 @RequestMapping("user")
@@ -96,6 +97,12 @@ public class UserMemberController {
             return CommonResult.failed("密码错误");
         }else{
             UserMember userMember = userMemberMapper.selectByPrimaryKey(i);
+            //更新最近登录时间
+            UserMember updateLoginTime = new UserMember();
+            updateLoginTime.setId(i);
+            updateLoginTime.setLastLoginTime(new Date());
+            userMemberMapper.updateByPrimaryKeySelective(updateLoginTime);
+
             UserMemberVo loginUser = new UserMemberVo();
             BeanUtils.copyProperties(userMember,loginUser);
             Integer rank = userDao.selectSuperiorByUserId(userMember.getId());
