@@ -3,6 +3,7 @@
 <mapper namespace="com.zsl.malluserdb.mapper.GoodsSpuMapper">
   <resultMap id="BaseResultMap" type="com.zsl.malluserdb.po.GoodsSpu">
     <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
     <result column="spu_no" jdbcType="VARCHAR" property="spuNo" />
     <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="goods_sub_name" jdbcType="VARCHAR" property="goodsSubName" />
@@ -15,6 +16,9 @@
     <result column="shop_id" jdbcType="BIGINT" property="shopId" />
     <result column="superior" jdbcType="BIT" property="superior" />
     <result column="status" jdbcType="BIT" property="status" />
+    <result column="original_price" jdbcType="DECIMAL" property="originalPrice" />
+    <result column="template_id" jdbcType="INTEGER" property="templateId" />
+    <result column="show_sales" jdbcType="INTEGER" property="showSales" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,8 +79,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, spu_no, goods_name, goods_sub_name, low_price, category_id, brand_id, create_time, 
-    update_time, freight, shop_id, superior, `status`
+    id, goods_id, spu_no, goods_name, goods_sub_name, low_price, category_id, brand_id, 
+    create_time, update_time, freight, shop_id, superior, `status`, original_price, template_id, 
+    show_sales
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsSpuExample" resultMap="BaseResultMap">
     select
@@ -150,14 +155,18 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into goods_spu (spu_no, goods_name, goods_sub_name, 
-      low_price, category_id, brand_id, 
-      create_time, update_time, freight, 
-      shop_id, superior, `status`)
-    values (#{spuNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsSubName,jdbcType=VARCHAR}, 
-      #{lowPrice,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, #{brandId,jdbcType=BIGINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{freight,jdbcType=DECIMAL}, 
-      #{shopId,jdbcType=BIGINT}, #{superior,jdbcType=BIT}, #{status,jdbcType=BIT})
+    insert into goods_spu (goods_id, spu_no, goods_name, 
+      goods_sub_name, low_price, category_id, 
+      brand_id, create_time, update_time, 
+      freight, shop_id, superior, 
+      `status`, original_price, template_id, 
+      show_sales)
+    values (#{goodsId,jdbcType=INTEGER}, #{spuNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, 
+      #{goodsSubName,jdbcType=VARCHAR}, #{lowPrice,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, 
+      #{brandId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{freight,jdbcType=DECIMAL}, #{shopId,jdbcType=BIGINT}, #{superior,jdbcType=BIT}, 
+      #{status,jdbcType=BIT}, #{originalPrice,jdbcType=DECIMAL}, #{templateId,jdbcType=INTEGER}, 
+      #{showSales,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsSpu">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -165,6 +174,9 @@
     </selectKey>
     insert into goods_spu
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
       <if test="spuNo != null">
         spu_no,
       </if>
@@ -201,8 +213,20 @@
       <if test="status != null">
         `status`,
       </if>
+      <if test="originalPrice != null">
+        original_price,
+      </if>
+      <if test="templateId != null">
+        template_id,
+      </if>
+      <if test="showSales != null">
+        show_sales,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
       <if test="spuNo != null">
         #{spuNo,jdbcType=VARCHAR},
       </if>
@@ -239,6 +263,15 @@
       <if test="status != null">
         #{status,jdbcType=BIT},
       </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="templateId != null">
+        #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="showSales != null">
+        #{showSales,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.zsl.malluserdb.po.GoodsSpuExample" resultType="java.lang.Long">
@@ -252,6 +285,9 @@
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.goodsId != null">
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
       </if>
       <if test="record.spuNo != null">
         spu_no = #{record.spuNo,jdbcType=VARCHAR},
@@ -289,6 +325,15 @@
       <if test="record.status != null">
         `status` = #{record.status,jdbcType=BIT},
       </if>
+      <if test="record.originalPrice != null">
+        original_price = #{record.originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.templateId != null">
+        template_id = #{record.templateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.showSales != null">
+        show_sales = #{record.showSales,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -297,6 +342,7 @@
   <update id="updateByExample" parameterType="map">
     update goods_spu
     set id = #{record.id,jdbcType=BIGINT},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
       spu_no = #{record.spuNo,jdbcType=VARCHAR},
       goods_name = #{record.goodsName,jdbcType=VARCHAR},
       goods_sub_name = #{record.goodsSubName,jdbcType=VARCHAR},
@@ -308,7 +354,10 @@
       freight = #{record.freight,jdbcType=DECIMAL},
       shop_id = #{record.shopId,jdbcType=BIGINT},
       superior = #{record.superior,jdbcType=BIT},
-      `status` = #{record.status,jdbcType=BIT}
+      `status` = #{record.status,jdbcType=BIT},
+      original_price = #{record.originalPrice,jdbcType=DECIMAL},
+      template_id = #{record.templateId,jdbcType=INTEGER},
+      show_sales = #{record.showSales,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -316,6 +365,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.zsl.malluserdb.po.GoodsSpu">
     update goods_spu
     <set>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
       <if test="spuNo != null">
         spu_no = #{spuNo,jdbcType=VARCHAR},
       </if>
@@ -352,12 +404,22 @@
       <if test="status != null">
         `status` = #{status,jdbcType=BIT},
       </if>
+      <if test="originalPrice != null">
+        original_price = #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="templateId != null">
+        template_id = #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="showSales != null">
+        show_sales = #{showSales,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zsl.malluserdb.po.GoodsSpu">
     update goods_spu
-    set spu_no = #{spuNo,jdbcType=VARCHAR},
+    set goods_id = #{goodsId,jdbcType=INTEGER},
+      spu_no = #{spuNo,jdbcType=VARCHAR},
       goods_name = #{goodsName,jdbcType=VARCHAR},
       goods_sub_name = #{goodsSubName,jdbcType=VARCHAR},
       low_price = #{lowPrice,jdbcType=DECIMAL},
@@ -368,7 +430,10 @@
       freight = #{freight,jdbcType=DECIMAL},
       shop_id = #{shopId,jdbcType=BIGINT},
       superior = #{superior,jdbcType=BIT},
-      `status` = #{status,jdbcType=BIT}
+      `status` = #{status,jdbcType=BIT},
+      original_price = #{originalPrice,jdbcType=DECIMAL},
+      template_id = #{templateId,jdbcType=INTEGER},
+      show_sales = #{showSales,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsSpuExample" resultMap="BaseResultMap">

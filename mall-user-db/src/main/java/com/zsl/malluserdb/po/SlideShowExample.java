@@ -232,6 +232,96 @@ public class SlideShowExample {
             return (Criteria) this;
         }
 
+        public Criteria andIndexIsNull() {
+            addCriterion("`index` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexIsNotNull() {
+            addCriterion("`index` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexEqualTo(Integer value) {
+            addCriterion("`index` =", value, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("`index` = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexNotEqualTo(Integer value) {
+            addCriterion("`index` <>", value, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexNotEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("`index` <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexGreaterThan(Integer value) {
+            addCriterion("`index` >", value, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexGreaterThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("`index` > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexGreaterThanOrEqualTo(Integer value) {
+            addCriterion("`index` >=", value, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexGreaterThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("`index` >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexLessThan(Integer value) {
+            addCriterion("`index` <", value, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexLessThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("`index` < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexLessThanOrEqualTo(Integer value) {
+            addCriterion("`index` <=", value, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexLessThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("`index` <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexIn(List<Integer> values) {
+            addCriterion("`index` in", values, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexNotIn(List<Integer> values) {
+            addCriterion("`index` not in", values, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexBetween(Integer value1, Integer value2) {
+            addCriterion("`index` between", value1, value2, "index");
+            return (Criteria) this;
+        }
+
+        public Criteria andIndexNotBetween(Integer value1, Integer value2) {
+            addCriterion("`index` not between", value1, value2, "index");
+            return (Criteria) this;
+        }
+
         public Criteria andSlideShowUrlIsNull() {
             addCriterion("slide_show_url is null");
             return (Criteria) this;
@@ -332,93 +422,93 @@ public class SlideShowExample {
             return (Criteria) this;
         }
 
-        public Criteria andIndexIsNull() {
-            addCriterion("`index` is null");
+        public Criteria andShowTypeIsNull() {
+            addCriterion("show_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andIndexIsNotNull() {
-            addCriterion("`index` is not null");
+        public Criteria andShowTypeIsNotNull() {
+            addCriterion("show_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIndexEqualTo(Integer value) {
-            addCriterion("`index` =", value, "index");
+        public Criteria andShowTypeEqualTo(Byte value) {
+            addCriterion("show_type =", value, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexEqualToColumn(SlideShow.Column column) {
-            addCriterion(new StringBuilder("`index` = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andShowTypeEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("show_type = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andIndexNotEqualTo(Integer value) {
-            addCriterion("`index` <>", value, "index");
+        public Criteria andShowTypeNotEqualTo(Byte value) {
+            addCriterion("show_type <>", value, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexNotEqualToColumn(SlideShow.Column column) {
-            addCriterion(new StringBuilder("`index` <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andShowTypeNotEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("show_type <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andIndexGreaterThan(Integer value) {
-            addCriterion("`index` >", value, "index");
+        public Criteria andShowTypeGreaterThan(Byte value) {
+            addCriterion("show_type >", value, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexGreaterThanColumn(SlideShow.Column column) {
-            addCriterion(new StringBuilder("`index` > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andShowTypeGreaterThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("show_type > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andIndexGreaterThanOrEqualTo(Integer value) {
-            addCriterion("`index` >=", value, "index");
+        public Criteria andShowTypeGreaterThanOrEqualTo(Byte value) {
+            addCriterion("show_type >=", value, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexGreaterThanOrEqualToColumn(SlideShow.Column column) {
-            addCriterion(new StringBuilder("`index` >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andShowTypeGreaterThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("show_type >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andIndexLessThan(Integer value) {
-            addCriterion("`index` <", value, "index");
+        public Criteria andShowTypeLessThan(Byte value) {
+            addCriterion("show_type <", value, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexLessThanColumn(SlideShow.Column column) {
-            addCriterion(new StringBuilder("`index` < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andShowTypeLessThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("show_type < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andIndexLessThanOrEqualTo(Integer value) {
-            addCriterion("`index` <=", value, "index");
+        public Criteria andShowTypeLessThanOrEqualTo(Byte value) {
+            addCriterion("show_type <=", value, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexLessThanOrEqualToColumn(SlideShow.Column column) {
-            addCriterion(new StringBuilder("`index` <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andShowTypeLessThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("show_type <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andIndexIn(List<Integer> values) {
-            addCriterion("`index` in", values, "index");
+        public Criteria andShowTypeIn(List<Byte> values) {
+            addCriterion("show_type in", values, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexNotIn(List<Integer> values) {
-            addCriterion("`index` not in", values, "index");
+        public Criteria andShowTypeNotIn(List<Byte> values) {
+            addCriterion("show_type not in", values, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexBetween(Integer value1, Integer value2) {
-            addCriterion("`index` between", value1, value2, "index");
+        public Criteria andShowTypeBetween(Byte value1, Byte value2) {
+            addCriterion("show_type between", value1, value2, "showType");
             return (Criteria) this;
         }
 
-        public Criteria andIndexNotBetween(Integer value1, Integer value2) {
-            addCriterion("`index` not between", value1, value2, "index");
+        public Criteria andShowTypeNotBetween(Byte value1, Byte value2) {
+            addCriterion("show_type not between", value1, value2, "showType");
             return (Criteria) this;
         }
 
@@ -509,6 +599,286 @@ public class SlideShowExample {
 
         public Criteria andGoodsIdNotBetween(Long value1, Long value2) {
             addCriterion("goods_id not between", value1, value2, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdIsNull() {
+            addCriterion("shop_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdIsNotNull() {
+            addCriterion("shop_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdEqualTo(Long value) {
+            addCriterion("shop_id =", value, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("shop_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdNotEqualTo(Long value) {
+            addCriterion("shop_id <>", value, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdNotEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("shop_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdGreaterThan(Long value) {
+            addCriterion("shop_id >", value, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdGreaterThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("shop_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("shop_id >=", value, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdGreaterThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("shop_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdLessThan(Long value) {
+            addCriterion("shop_id <", value, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdLessThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("shop_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdLessThanOrEqualTo(Long value) {
+            addCriterion("shop_id <=", value, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdLessThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("shop_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdIn(List<Long> values) {
+            addCriterion("shop_id in", values, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdNotIn(List<Long> values) {
+            addCriterion("shop_id not in", values, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdBetween(Long value1, Long value2) {
+            addCriterion("shop_id between", value1, value2, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopIdNotBetween(Long value1, Long value2) {
+            addCriterion("shop_id not between", value1, value2, "shopId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdIsNull() {
+            addCriterion("category_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdIsNotNull() {
+            addCriterion("category_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdEqualTo(Long value) {
+            addCriterion("category_id =", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("category_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotEqualTo(Long value) {
+            addCriterion("category_id <>", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("category_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdGreaterThan(Long value) {
+            addCriterion("category_id >", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdGreaterThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("category_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("category_id >=", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdGreaterThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("category_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLessThan(Long value) {
+            addCriterion("category_id <", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLessThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("category_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLessThanOrEqualTo(Long value) {
+            addCriterion("category_id <=", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLessThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("category_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdIn(List<Long> values) {
+            addCriterion("category_id in", values, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotIn(List<Long> values) {
+            addCriterion("category_id not in", values, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdBetween(Long value1, Long value2) {
+            addCriterion("category_id between", value1, value2, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotBetween(Long value1, Long value2) {
+            addCriterion("category_id not between", value1, value2, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkIsNull() {
+            addCriterion("external_link is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkIsNotNull() {
+            addCriterion("external_link is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkEqualTo(String value) {
+            addCriterion("external_link =", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("external_link = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkNotEqualTo(String value) {
+            addCriterion("external_link <>", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkNotEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("external_link <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkGreaterThan(String value) {
+            addCriterion("external_link >", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkGreaterThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("external_link > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkGreaterThanOrEqualTo(String value) {
+            addCriterion("external_link >=", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkGreaterThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("external_link >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkLessThan(String value) {
+            addCriterion("external_link <", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkLessThanColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("external_link < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkLessThanOrEqualTo(String value) {
+            addCriterion("external_link <=", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkLessThanOrEqualToColumn(SlideShow.Column column) {
+            addCriterion(new StringBuilder("external_link <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkLike(String value) {
+            addCriterion("external_link like", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkNotLike(String value) {
+            addCriterion("external_link not like", value, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkIn(List<String> values) {
+            addCriterion("external_link in", values, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkNotIn(List<String> values) {
+            addCriterion("external_link not in", values, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkBetween(String value1, String value2) {
+            addCriterion("external_link between", value1, value2, "externalLink");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternalLinkNotBetween(String value1, String value2) {
+            addCriterion("external_link not between", value1, value2, "externalLink");
             return (Criteria) this;
         }
     }

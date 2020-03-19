@@ -4,7 +4,8 @@
   <resultMap id="BaseResultMap" type="com.zsl.malluserdb.po.Miner">
     <id column="miner_id" jdbcType="INTEGER" property="minerId" />
     <result column="pre_make_integral" jdbcType="INTEGER" property="preMakeIntegral" />
-    <result column="trade_id" jdbcType="INTEGER" property="tradeId" />
+    <result column="source_type" jdbcType="VARCHAR" property="sourceType" />
+    <result column="source_id" jdbcType="INTEGER" property="sourceId" />
     <result column="produced_integral" jdbcType="INTEGER" property="producedIntegral" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="received_integral" jdbcType="INTEGER" property="receivedIntegral" />
@@ -70,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    miner_id, pre_make_integral, trade_id, produced_integral, user_id, received_integral, 
-    `status`, create_time
+    miner_id, pre_make_integral, source_type, source_id, produced_integral, user_id, 
+    received_integral, `status`, create_time
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.MinerExample" resultMap="BaseResultMap">
     select
@@ -142,12 +143,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.zsl.malluserdb.po.Miner">
-    insert into miner (miner_id, pre_make_integral, trade_id, 
-      produced_integral, user_id, received_integral, 
-      `status`, create_time)
-    values (#{minerId,jdbcType=INTEGER}, #{preMakeIntegral,jdbcType=INTEGER}, #{tradeId,jdbcType=INTEGER}, 
-      #{producedIntegral,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{receivedIntegral,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+    insert into miner (miner_id, pre_make_integral, source_type, 
+      source_id, produced_integral, user_id, 
+      received_integral, `status`, create_time
+      )
+    values (#{minerId,jdbcType=INTEGER}, #{preMakeIntegral,jdbcType=INTEGER}, #{sourceType,jdbcType=VARCHAR}, 
+      #{sourceId,jdbcType=INTEGER}, #{producedIntegral,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{receivedIntegral,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.Miner">
     insert into miner
@@ -158,8 +161,11 @@
       <if test="preMakeIntegral != null">
         pre_make_integral,
       </if>
-      <if test="tradeId != null">
-        trade_id,
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="sourceId != null">
+        source_id,
       </if>
       <if test="producedIntegral != null">
         produced_integral,
@@ -184,8 +190,11 @@
       <if test="preMakeIntegral != null">
         #{preMakeIntegral,jdbcType=INTEGER},
       </if>
-      <if test="tradeId != null">
-        #{tradeId,jdbcType=INTEGER},
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=INTEGER},
       </if>
       <if test="producedIntegral != null">
         #{producedIntegral,jdbcType=INTEGER},
@@ -219,8 +228,11 @@
       <if test="record.preMakeIntegral != null">
         pre_make_integral = #{record.preMakeIntegral,jdbcType=INTEGER},
       </if>
-      <if test="record.tradeId != null">
-        trade_id = #{record.tradeId,jdbcType=INTEGER},
+      <if test="record.sourceType != null">
+        source_type = #{record.sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceId != null">
+        source_id = #{record.sourceId,jdbcType=INTEGER},
       </if>
       <if test="record.producedIntegral != null">
         produced_integral = #{record.producedIntegral,jdbcType=INTEGER},
@@ -246,7 +258,8 @@
     update miner
     set miner_id = #{record.minerId,jdbcType=INTEGER},
       pre_make_integral = #{record.preMakeIntegral,jdbcType=INTEGER},
-      trade_id = #{record.tradeId,jdbcType=INTEGER},
+      source_type = #{record.sourceType,jdbcType=VARCHAR},
+      source_id = #{record.sourceId,jdbcType=INTEGER},
       produced_integral = #{record.producedIntegral,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=INTEGER},
       received_integral = #{record.receivedIntegral,jdbcType=INTEGER},
@@ -262,8 +275,11 @@
       <if test="preMakeIntegral != null">
         pre_make_integral = #{preMakeIntegral,jdbcType=INTEGER},
       </if>
-      <if test="tradeId != null">
-        trade_id = #{tradeId,jdbcType=INTEGER},
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceId != null">
+        source_id = #{sourceId,jdbcType=INTEGER},
       </if>
       <if test="producedIntegral != null">
         produced_integral = #{producedIntegral,jdbcType=INTEGER},
@@ -286,7 +302,8 @@
   <update id="updateByPrimaryKey" parameterType="com.zsl.malluserdb.po.Miner">
     update miner
     set pre_make_integral = #{preMakeIntegral,jdbcType=INTEGER},
-      trade_id = #{tradeId,jdbcType=INTEGER},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      source_id = #{sourceId,jdbcType=INTEGER},
       produced_integral = #{producedIntegral,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},
       received_integral = #{receivedIntegral,jdbcType=INTEGER},

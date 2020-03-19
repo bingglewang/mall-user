@@ -10,6 +10,8 @@ public class GoodsSpec implements Serializable {
 
     private String specNo;
 
+    private Long spuId;
+
     private String specName;
 
     private Date createTime;
@@ -32,6 +34,14 @@ public class GoodsSpec implements Serializable {
 
     public void setSpecNo(String specNo) {
         this.specNo = specNo == null ? null : specNo.trim();
+    }
+
+    public Long getSpuId() {
+        return spuId;
+    }
+
+    public void setSpuId(Long spuId) {
+        this.spuId = spuId;
     }
 
     public String getSpecName() {
@@ -66,6 +76,7 @@ public class GoodsSpec implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", specNo=").append(specNo);
+        sb.append(", spuId=").append(spuId);
         sb.append(", specName=").append(specName);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
@@ -88,6 +99,7 @@ public class GoodsSpec implements Serializable {
         GoodsSpec other = (GoodsSpec) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getSpecNo() == null ? other.getSpecNo() == null : this.getSpecNo().equals(other.getSpecNo()))
+            && (this.getSpuId() == null ? other.getSpuId() == null : this.getSpuId().equals(other.getSpuId()))
             && (this.getSpecName() == null ? other.getSpecName() == null : this.getSpecName().equals(other.getSpecName()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
@@ -99,6 +111,7 @@ public class GoodsSpec implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getSpecNo() == null) ? 0 : getSpecNo().hashCode());
+        result = prime * result + ((getSpuId() == null) ? 0 : getSpuId().hashCode());
         result = prime * result + ((getSpecName() == null) ? 0 : getSpecName().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
@@ -108,6 +121,7 @@ public class GoodsSpec implements Serializable {
     public enum Column {
         id("id", "id", "BIGINT", false),
         specNo("spec_no", "specNo", "VARCHAR", false),
+        spuId("spu_id", "spuId", "BIGINT", false),
         specName("spec_name", "specName", "VARCHAR", false),
         createTime("create_time", "createTime", "TIMESTAMP", false),
         updateTime("update_time", "updateTime", "TIMESTAMP", false);

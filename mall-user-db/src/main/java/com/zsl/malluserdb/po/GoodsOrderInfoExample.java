@@ -1,6 +1,8 @@
 package com.zsl.malluserdb.po;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GoodsOrderInfoExample {
@@ -892,6 +894,96 @@ public class GoodsOrderInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andShippingTimeIsNull() {
+            addCriterion("shipping_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeIsNotNull() {
+            addCriterion("shipping_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeEqualTo(Date value) {
+            addCriterion("shipping_time =", value, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shipping_time = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeNotEqualTo(Date value) {
+            addCriterion("shipping_time <>", value, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeNotEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shipping_time <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeGreaterThan(Date value) {
+            addCriterion("shipping_time >", value, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeGreaterThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shipping_time > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("shipping_time >=", value, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeGreaterThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shipping_time >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeLessThan(Date value) {
+            addCriterion("shipping_time <", value, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeLessThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shipping_time < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeLessThanOrEqualTo(Date value) {
+            addCriterion("shipping_time <=", value, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeLessThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shipping_time <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeIn(List<Date> values) {
+            addCriterion("shipping_time in", values, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeNotIn(List<Date> values) {
+            addCriterion("shipping_time not in", values, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeBetween(Date value1, Date value2) {
+            addCriterion("shipping_time between", value1, value2, "shippingTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShippingTimeNotBetween(Date value1, Date value2) {
+            addCriterion("shipping_time not between", value1, value2, "shippingTime");
+            return (Criteria) this;
+        }
+
         public Criteria andOrderEvaluateIsNull() {
             addCriterion("order_evaluate is null");
             return (Criteria) this;
@@ -979,6 +1071,186 @@ public class GoodsOrderInfoExample {
 
         public Criteria andOrderEvaluateNotBetween(Boolean value1, Boolean value2) {
             addCriterion("order_evaluate not between", value1, value2, "orderEvaluate");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightIsNull() {
+            addCriterion("shop_freight is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightIsNotNull() {
+            addCriterion("shop_freight is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightEqualTo(BigDecimal value) {
+            addCriterion("shop_freight =", value, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shop_freight = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightNotEqualTo(BigDecimal value) {
+            addCriterion("shop_freight <>", value, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightNotEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shop_freight <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightGreaterThan(BigDecimal value) {
+            addCriterion("shop_freight >", value, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightGreaterThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shop_freight > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("shop_freight >=", value, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightGreaterThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shop_freight >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightLessThan(BigDecimal value) {
+            addCriterion("shop_freight <", value, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightLessThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shop_freight < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("shop_freight <=", value, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightLessThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("shop_freight <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightIn(List<BigDecimal> values) {
+            addCriterion("shop_freight in", values, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightNotIn(List<BigDecimal> values) {
+            addCriterion("shop_freight not in", values, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("shop_freight between", value1, value2, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andShopFreightNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("shop_freight not between", value1, value2, "shopFreight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeIsNull() {
+            addCriterion("freight_template_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeIsNotNull() {
+            addCriterion("freight_template_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeEqualTo(Integer value) {
+            addCriterion("freight_template_type =", value, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("freight_template_type = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeNotEqualTo(Integer value) {
+            addCriterion("freight_template_type <>", value, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeNotEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("freight_template_type <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeGreaterThan(Integer value) {
+            addCriterion("freight_template_type >", value, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeGreaterThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("freight_template_type > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("freight_template_type >=", value, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeGreaterThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("freight_template_type >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeLessThan(Integer value) {
+            addCriterion("freight_template_type <", value, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeLessThanColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("freight_template_type < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("freight_template_type <=", value, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeLessThanOrEqualToColumn(GoodsOrderInfo.Column column) {
+            addCriterion(new StringBuilder("freight_template_type <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeIn(List<Integer> values) {
+            addCriterion("freight_template_type in", values, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeNotIn(List<Integer> values) {
+            addCriterion("freight_template_type not in", values, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeBetween(Integer value1, Integer value2) {
+            addCriterion("freight_template_type between", value1, value2, "freightTemplateType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightTemplateTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("freight_template_type not between", value1, value2, "freightTemplateType");
             return (Criteria) this;
         }
     }

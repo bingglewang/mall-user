@@ -323,93 +323,193 @@ public class MinerExample {
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdIsNull() {
-            addCriterion("trade_id is null");
+        public Criteria andSourceTypeIsNull() {
+            addCriterion("source_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdIsNotNull() {
-            addCriterion("trade_id is not null");
+        public Criteria andSourceTypeIsNotNull() {
+            addCriterion("source_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdEqualTo(Integer value) {
-            addCriterion("trade_id =", value, "tradeId");
+        public Criteria andSourceTypeEqualTo(String value) {
+            addCriterion("source_type =", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdEqualToColumn(Miner.Column column) {
-            addCriterion(new StringBuilder("trade_id = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andSourceTypeEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_type = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdNotEqualTo(Integer value) {
-            addCriterion("trade_id <>", value, "tradeId");
+        public Criteria andSourceTypeNotEqualTo(String value) {
+            addCriterion("source_type <>", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdNotEqualToColumn(Miner.Column column) {
-            addCriterion(new StringBuilder("trade_id <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andSourceTypeNotEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_type <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdGreaterThan(Integer value) {
-            addCriterion("trade_id >", value, "tradeId");
+        public Criteria andSourceTypeGreaterThan(String value) {
+            addCriterion("source_type >", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdGreaterThanColumn(Miner.Column column) {
-            addCriterion(new StringBuilder("trade_id > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andSourceTypeGreaterThanColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_type > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("trade_id >=", value, "tradeId");
+        public Criteria andSourceTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("source_type >=", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdGreaterThanOrEqualToColumn(Miner.Column column) {
-            addCriterion(new StringBuilder("trade_id >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andSourceTypeGreaterThanOrEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_type >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdLessThan(Integer value) {
-            addCriterion("trade_id <", value, "tradeId");
+        public Criteria andSourceTypeLessThan(String value) {
+            addCriterion("source_type <", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdLessThanColumn(Miner.Column column) {
-            addCriterion(new StringBuilder("trade_id < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andSourceTypeLessThanColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_type < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("trade_id <=", value, "tradeId");
+        public Criteria andSourceTypeLessThanOrEqualTo(String value) {
+            addCriterion("source_type <=", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdLessThanOrEqualToColumn(Miner.Column column) {
-            addCriterion(new StringBuilder("trade_id <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andSourceTypeLessThanOrEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_type <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdIn(List<Integer> values) {
-            addCriterion("trade_id in", values, "tradeId");
+        public Criteria andSourceTypeLike(String value) {
+            addCriterion("source_type like", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdNotIn(List<Integer> values) {
-            addCriterion("trade_id not in", values, "tradeId");
+        public Criteria andSourceTypeNotLike(String value) {
+            addCriterion("source_type not like", value, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdBetween(Integer value1, Integer value2) {
-            addCriterion("trade_id between", value1, value2, "tradeId");
+        public Criteria andSourceTypeIn(List<String> values) {
+            addCriterion("source_type in", values, "sourceType");
             return (Criteria) this;
         }
 
-        public Criteria andTradeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("trade_id not between", value1, value2, "tradeId");
+        public Criteria andSourceTypeNotIn(List<String> values) {
+            addCriterion("source_type not in", values, "sourceType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceTypeBetween(String value1, String value2) {
+            addCriterion("source_type between", value1, value2, "sourceType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceTypeNotBetween(String value1, String value2) {
+            addCriterion("source_type not between", value1, value2, "sourceType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdIsNull() {
+            addCriterion("source_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdIsNotNull() {
+            addCriterion("source_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdEqualTo(Integer value) {
+            addCriterion("source_id =", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotEqualTo(Integer value) {
+            addCriterion("source_id <>", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdGreaterThan(Integer value) {
+            addCriterion("source_id >", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdGreaterThanColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("source_id >=", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdGreaterThanOrEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdLessThan(Integer value) {
+            addCriterion("source_id <", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdLessThanColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdLessThanOrEqualTo(Integer value) {
+            addCriterion("source_id <=", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdLessThanOrEqualToColumn(Miner.Column column) {
+            addCriterion(new StringBuilder("source_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdIn(List<Integer> values) {
+            addCriterion("source_id in", values, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotIn(List<Integer> values) {
+            addCriterion("source_id not in", values, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdBetween(Integer value1, Integer value2) {
+            addCriterion("source_id between", value1, value2, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("source_id not between", value1, value2, "sourceId");
             return (Criteria) this;
         }
 

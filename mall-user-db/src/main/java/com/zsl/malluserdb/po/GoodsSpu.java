@@ -9,6 +9,8 @@ import java.util.Date;
 public class GoodsSpu implements Serializable {
     private Long id;
 
+    private Integer goodsId;
+
     private String spuNo;
 
     private String goodsName;
@@ -33,6 +35,12 @@ public class GoodsSpu implements Serializable {
 
     private Boolean status;
 
+    private BigDecimal originalPrice;
+
+    private Integer templateId;
+
+    private Integer showSales;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -41,6 +49,14 @@ public class GoodsSpu implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public String getSpuNo() {
@@ -139,6 +155,30 @@ public class GoodsSpu implements Serializable {
         this.status = status;
     }
 
+    public BigDecimal getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void setOriginalPrice(BigDecimal originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public Integer getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(Integer templateId) {
+        this.templateId = templateId;
+    }
+
+    public Integer getShowSales() {
+        return showSales;
+    }
+
+    public void setShowSales(Integer showSales) {
+        this.showSales = showSales;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -146,6 +186,7 @@ public class GoodsSpu implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", goodsId=").append(goodsId);
         sb.append(", spuNo=").append(spuNo);
         sb.append(", goodsName=").append(goodsName);
         sb.append(", goodsSubName=").append(goodsSubName);
@@ -158,6 +199,9 @@ public class GoodsSpu implements Serializable {
         sb.append(", shopId=").append(shopId);
         sb.append(", superior=").append(superior);
         sb.append(", status=").append(status);
+        sb.append(", originalPrice=").append(originalPrice);
+        sb.append(", templateId=").append(templateId);
+        sb.append(", showSales=").append(showSales);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -176,6 +220,7 @@ public class GoodsSpu implements Serializable {
         }
         GoodsSpu other = (GoodsSpu) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getGoodsId() == null ? other.getGoodsId() == null : this.getGoodsId().equals(other.getGoodsId()))
             && (this.getSpuNo() == null ? other.getSpuNo() == null : this.getSpuNo().equals(other.getSpuNo()))
             && (this.getGoodsName() == null ? other.getGoodsName() == null : this.getGoodsName().equals(other.getGoodsName()))
             && (this.getGoodsSubName() == null ? other.getGoodsSubName() == null : this.getGoodsSubName().equals(other.getGoodsSubName()))
@@ -187,7 +232,10 @@ public class GoodsSpu implements Serializable {
             && (this.getFreight() == null ? other.getFreight() == null : this.getFreight().equals(other.getFreight()))
             && (this.getShopId() == null ? other.getShopId() == null : this.getShopId().equals(other.getShopId()))
             && (this.getSuperior() == null ? other.getSuperior() == null : this.getSuperior().equals(other.getSuperior()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getOriginalPrice() == null ? other.getOriginalPrice() == null : this.getOriginalPrice().equals(other.getOriginalPrice()))
+            && (this.getTemplateId() == null ? other.getTemplateId() == null : this.getTemplateId().equals(other.getTemplateId()))
+            && (this.getShowSales() == null ? other.getShowSales() == null : this.getShowSales().equals(other.getShowSales()));
     }
 
     @Override
@@ -195,6 +243,7 @@ public class GoodsSpu implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getGoodsId() == null) ? 0 : getGoodsId().hashCode());
         result = prime * result + ((getSpuNo() == null) ? 0 : getSpuNo().hashCode());
         result = prime * result + ((getGoodsName() == null) ? 0 : getGoodsName().hashCode());
         result = prime * result + ((getGoodsSubName() == null) ? 0 : getGoodsSubName().hashCode());
@@ -207,11 +256,15 @@ public class GoodsSpu implements Serializable {
         result = prime * result + ((getShopId() == null) ? 0 : getShopId().hashCode());
         result = prime * result + ((getSuperior() == null) ? 0 : getSuperior().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getOriginalPrice() == null) ? 0 : getOriginalPrice().hashCode());
+        result = prime * result + ((getTemplateId() == null) ? 0 : getTemplateId().hashCode());
+        result = prime * result + ((getShowSales() == null) ? 0 : getShowSales().hashCode());
         return result;
     }
 
     public enum Column {
         id("id", "id", "BIGINT", false),
+        goodsId("goods_id", "goodsId", "INTEGER", false),
         spuNo("spu_no", "spuNo", "VARCHAR", false),
         goodsName("goods_name", "goodsName", "VARCHAR", false),
         goodsSubName("goods_sub_name", "goodsSubName", "VARCHAR", false),
@@ -223,7 +276,10 @@ public class GoodsSpu implements Serializable {
         freight("freight", "freight", "DECIMAL", false),
         shopId("shop_id", "shopId", "BIGINT", false),
         superior("superior", "superior", "BIT", false),
-        status("status", "status", "BIT", true);
+        status("status", "status", "BIT", true),
+        originalPrice("original_price", "originalPrice", "DECIMAL", false),
+        templateId("template_id", "templateId", "INTEGER", false),
+        showSales("show_sales", "showSales", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

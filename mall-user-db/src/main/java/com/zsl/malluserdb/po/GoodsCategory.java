@@ -26,6 +26,8 @@ public class GoodsCategory implements Serializable {
 
     private Date updateTime;
 
+    private String fullName;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -108,6 +110,14 @@ public class GoodsCategory implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName == null ? null : fullName.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -124,6 +134,7 @@ public class GoodsCategory implements Serializable {
         sb.append(", isShow=").append(isShow);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
+        sb.append(", fullName=").append(fullName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -150,7 +161,8 @@ public class GoodsCategory implements Serializable {
             && (this.getCategoryLogo() == null ? other.getCategoryLogo() == null : this.getCategoryLogo().equals(other.getCategoryLogo()))
             && (this.getIsShow() == null ? other.getIsShow() == null : this.getIsShow().equals(other.getIsShow()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getFullName() == null ? other.getFullName() == null : this.getFullName().equals(other.getFullName()));
     }
 
     @Override
@@ -167,6 +179,7 @@ public class GoodsCategory implements Serializable {
         result = prime * result + ((getIsShow() == null) ? 0 : getIsShow().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
+        result = prime * result + ((getFullName() == null) ? 0 : getFullName().hashCode());
         return result;
     }
 
@@ -180,7 +193,8 @@ public class GoodsCategory implements Serializable {
         categoryLogo("category_logo", "categoryLogo", "VARCHAR", false),
         isShow("is_show", "isShow", "BIT", false),
         createTime("create_time", "createTime", "TIMESTAMP", false),
-        updateTime("update_time", "updateTime", "TIMESTAMP", false);
+        updateTime("update_time", "updateTime", "TIMESTAMP", false),
+        fullName("full_name", "fullName", "VARCHAR", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

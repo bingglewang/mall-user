@@ -783,6 +783,106 @@ public class GoodsOrderDetailExample {
             return (Criteria) this;
         }
 
+        public Criteria andFreightInfoIsNull() {
+            addCriterion("freight_info is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoIsNotNull() {
+            addCriterion("freight_info is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoEqualTo(String value) {
+            addCriterion("freight_info =", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("freight_info = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoNotEqualTo(String value) {
+            addCriterion("freight_info <>", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoNotEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("freight_info <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoGreaterThan(String value) {
+            addCriterion("freight_info >", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoGreaterThanColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("freight_info > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoGreaterThanOrEqualTo(String value) {
+            addCriterion("freight_info >=", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoGreaterThanOrEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("freight_info >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoLessThan(String value) {
+            addCriterion("freight_info <", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoLessThanColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("freight_info < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoLessThanOrEqualTo(String value) {
+            addCriterion("freight_info <=", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoLessThanOrEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("freight_info <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoLike(String value) {
+            addCriterion("freight_info like", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoNotLike(String value) {
+            addCriterion("freight_info not like", value, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoIn(List<String> values) {
+            addCriterion("freight_info in", values, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoNotIn(List<String> values) {
+            addCriterion("freight_info not in", values, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoBetween(String value1, String value2) {
+            addCriterion("freight_info between", value1, value2, "freightInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightInfoNotBetween(String value1, String value2) {
+            addCriterion("freight_info not between", value1, value2, "freightInfo");
+            return (Criteria) this;
+        }
+
         public Criteria andPresentCoinIsNull() {
             addCriterion("present_coin is null");
             return (Criteria) this;
@@ -1620,6 +1720,186 @@ public class GoodsOrderDetailExample {
 
         public Criteria andGrandfatherMoneyNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("grandfather_money not between", value1, value2, "grandfatherMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionIsNull() {
+            addCriterion("deduction is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionIsNotNull() {
+            addCriterion("deduction is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionEqualTo(BigDecimal value) {
+            addCriterion("deduction =", value, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionNotEqualTo(BigDecimal value) {
+            addCriterion("deduction <>", value, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionNotEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGreaterThan(BigDecimal value) {
+            addCriterion("deduction >", value, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGreaterThanColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("deduction >=", value, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGreaterThanOrEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionLessThan(BigDecimal value) {
+            addCriterion("deduction <", value, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionLessThanColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("deduction <=", value, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionLessThanOrEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionIn(List<BigDecimal> values) {
+            addCriterion("deduction in", values, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionNotIn(List<BigDecimal> values) {
+            addCriterion("deduction not in", values, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("deduction between", value1, value2, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("deduction not between", value1, value2, "deduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountIsNull() {
+            addCriterion("deduction_goods_amount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountIsNotNull() {
+            addCriterion("deduction_goods_amount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountEqualTo(BigDecimal value) {
+            addCriterion("deduction_goods_amount =", value, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction_goods_amount = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountNotEqualTo(BigDecimal value) {
+            addCriterion("deduction_goods_amount <>", value, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountNotEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction_goods_amount <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountGreaterThan(BigDecimal value) {
+            addCriterion("deduction_goods_amount >", value, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountGreaterThanColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction_goods_amount > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("deduction_goods_amount >=", value, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountGreaterThanOrEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction_goods_amount >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountLessThan(BigDecimal value) {
+            addCriterion("deduction_goods_amount <", value, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountLessThanColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction_goods_amount < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("deduction_goods_amount <=", value, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountLessThanOrEqualToColumn(GoodsOrderDetail.Column column) {
+            addCriterion(new StringBuilder("deduction_goods_amount <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountIn(List<BigDecimal> values) {
+            addCriterion("deduction_goods_amount in", values, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountNotIn(List<BigDecimal> values) {
+            addCriterion("deduction_goods_amount not in", values, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("deduction_goods_amount between", value1, value2, "deductionGoodsAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductionGoodsAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("deduction_goods_amount not between", value1, value2, "deductionGoodsAmount");
             return (Criteria) this;
         }
     }

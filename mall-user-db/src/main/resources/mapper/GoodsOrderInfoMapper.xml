@@ -10,7 +10,10 @@
     <result column="current_state" jdbcType="BIT" property="currentState" />
     <result column="tracking_company_id" jdbcType="INTEGER" property="trackingCompanyId" />
     <result column="tracking_number" jdbcType="VARCHAR" property="trackingNumber" />
+    <result column="shipping_time" jdbcType="TIMESTAMP" property="shippingTime" />
     <result column="order_evaluate" jdbcType="BIT" property="orderEvaluate" />
+    <result column="shop_freight" jdbcType="DECIMAL" property="shopFreight" />
+    <result column="freight_template_type" jdbcType="INTEGER" property="freightTemplateType" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, order_no, trade_no, shop_id, pre_state, current_state, tracking_company_id, tracking_number, 
-    order_evaluate
+    shipping_time, order_evaluate, shop_freight, freight_template_type
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderInfoExample" resultMap="BaseResultMap">
     select
@@ -148,10 +151,12 @@
     </selectKey>
     insert into goods_order_info (order_no, trade_no, shop_id, 
       pre_state, current_state, tracking_company_id, 
-      tracking_number, order_evaluate)
+      tracking_number, shipping_time, order_evaluate, 
+      shop_freight, freight_template_type)
     values (#{orderNo,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, #{shopId,jdbcType=BIGINT}, 
       #{preState,jdbcType=BIT}, #{currentState,jdbcType=BIT}, #{trackingCompanyId,jdbcType=INTEGER}, 
-      #{trackingNumber,jdbcType=VARCHAR}, #{orderEvaluate,jdbcType=BIT})
+      #{trackingNumber,jdbcType=VARCHAR}, #{shippingTime,jdbcType=TIMESTAMP}, #{orderEvaluate,jdbcType=BIT}, 
+      #{shopFreight,jdbcType=DECIMAL}, #{freightTemplateType,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsOrderInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -180,8 +185,17 @@
       <if test="trackingNumber != null">
         tracking_number,
       </if>
+      <if test="shippingTime != null">
+        shipping_time,
+      </if>
       <if test="orderEvaluate != null">
         order_evaluate,
+      </if>
+      <if test="shopFreight != null">
+        shop_freight,
+      </if>
+      <if test="freightTemplateType != null">
+        freight_template_type,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -206,8 +220,17 @@
       <if test="trackingNumber != null">
         #{trackingNumber,jdbcType=VARCHAR},
       </if>
+      <if test="shippingTime != null">
+        #{shippingTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="orderEvaluate != null">
         #{orderEvaluate,jdbcType=BIT},
+      </if>
+      <if test="shopFreight != null">
+        #{shopFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="freightTemplateType != null">
+        #{freightTemplateType,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -244,8 +267,17 @@
       <if test="record.trackingNumber != null">
         tracking_number = #{record.trackingNumber,jdbcType=VARCHAR},
       </if>
+      <if test="record.shippingTime != null">
+        shipping_time = #{record.shippingTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.orderEvaluate != null">
         order_evaluate = #{record.orderEvaluate,jdbcType=BIT},
+      </if>
+      <if test="record.shopFreight != null">
+        shop_freight = #{record.shopFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.freightTemplateType != null">
+        freight_template_type = #{record.freightTemplateType,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -262,7 +294,10 @@
       current_state = #{record.currentState,jdbcType=BIT},
       tracking_company_id = #{record.trackingCompanyId,jdbcType=INTEGER},
       tracking_number = #{record.trackingNumber,jdbcType=VARCHAR},
-      order_evaluate = #{record.orderEvaluate,jdbcType=BIT}
+      shipping_time = #{record.shippingTime,jdbcType=TIMESTAMP},
+      order_evaluate = #{record.orderEvaluate,jdbcType=BIT},
+      shop_freight = #{record.shopFreight,jdbcType=DECIMAL},
+      freight_template_type = #{record.freightTemplateType,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -291,8 +326,17 @@
       <if test="trackingNumber != null">
         tracking_number = #{trackingNumber,jdbcType=VARCHAR},
       </if>
+      <if test="shippingTime != null">
+        shipping_time = #{shippingTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="orderEvaluate != null">
         order_evaluate = #{orderEvaluate,jdbcType=BIT},
+      </if>
+      <if test="shopFreight != null">
+        shop_freight = #{shopFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="freightTemplateType != null">
+        freight_template_type = #{freightTemplateType,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -306,7 +350,10 @@
       current_state = #{currentState,jdbcType=BIT},
       tracking_company_id = #{trackingCompanyId,jdbcType=INTEGER},
       tracking_number = #{trackingNumber,jdbcType=VARCHAR},
-      order_evaluate = #{orderEvaluate,jdbcType=BIT}
+      shipping_time = #{shippingTime,jdbcType=TIMESTAMP},
+      order_evaluate = #{orderEvaluate,jdbcType=BIT},
+      shop_freight = #{shopFreight,jdbcType=DECIMAL},
+      freight_template_type = #{freightTemplateType,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderInfoExample" resultMap="BaseResultMap">

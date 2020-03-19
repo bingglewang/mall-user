@@ -10,7 +10,9 @@ public class Miner implements Serializable {
 
     private Integer preMakeIntegral;
 
-    private Integer tradeId;
+    private String sourceType;
+
+    private Integer sourceId;
 
     private Integer producedIntegral;
 
@@ -40,12 +42,20 @@ public class Miner implements Serializable {
         this.preMakeIntegral = preMakeIntegral;
     }
 
-    public Integer getTradeId() {
-        return tradeId;
+    public String getSourceType() {
+        return sourceType;
     }
 
-    public void setTradeId(Integer tradeId) {
-        this.tradeId = tradeId;
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType == null ? null : sourceType.trim();
+    }
+
+    public Integer getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(Integer sourceId) {
+        this.sourceId = sourceId;
     }
 
     public Integer getProducedIntegral() {
@@ -96,7 +106,8 @@ public class Miner implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", minerId=").append(minerId);
         sb.append(", preMakeIntegral=").append(preMakeIntegral);
-        sb.append(", tradeId=").append(tradeId);
+        sb.append(", sourceType=").append(sourceType);
+        sb.append(", sourceId=").append(sourceId);
         sb.append(", producedIntegral=").append(producedIntegral);
         sb.append(", userId=").append(userId);
         sb.append(", receivedIntegral=").append(receivedIntegral);
@@ -121,7 +132,8 @@ public class Miner implements Serializable {
         Miner other = (Miner) that;
         return (this.getMinerId() == null ? other.getMinerId() == null : this.getMinerId().equals(other.getMinerId()))
             && (this.getPreMakeIntegral() == null ? other.getPreMakeIntegral() == null : this.getPreMakeIntegral().equals(other.getPreMakeIntegral()))
-            && (this.getTradeId() == null ? other.getTradeId() == null : this.getTradeId().equals(other.getTradeId()))
+            && (this.getSourceType() == null ? other.getSourceType() == null : this.getSourceType().equals(other.getSourceType()))
+            && (this.getSourceId() == null ? other.getSourceId() == null : this.getSourceId().equals(other.getSourceId()))
             && (this.getProducedIntegral() == null ? other.getProducedIntegral() == null : this.getProducedIntegral().equals(other.getProducedIntegral()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getReceivedIntegral() == null ? other.getReceivedIntegral() == null : this.getReceivedIntegral().equals(other.getReceivedIntegral()))
@@ -135,7 +147,8 @@ public class Miner implements Serializable {
         int result = 1;
         result = prime * result + ((getMinerId() == null) ? 0 : getMinerId().hashCode());
         result = prime * result + ((getPreMakeIntegral() == null) ? 0 : getPreMakeIntegral().hashCode());
-        result = prime * result + ((getTradeId() == null) ? 0 : getTradeId().hashCode());
+        result = prime * result + ((getSourceType() == null) ? 0 : getSourceType().hashCode());
+        result = prime * result + ((getSourceId() == null) ? 0 : getSourceId().hashCode());
         result = prime * result + ((getProducedIntegral() == null) ? 0 : getProducedIntegral().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getReceivedIntegral() == null) ? 0 : getReceivedIntegral().hashCode());
@@ -147,7 +160,8 @@ public class Miner implements Serializable {
     public enum Column {
         minerId("miner_id", "minerId", "INTEGER", false),
         preMakeIntegral("pre_make_integral", "preMakeIntegral", "INTEGER", false),
-        tradeId("trade_id", "tradeId", "INTEGER", false),
+        sourceType("source_type", "sourceType", "VARCHAR", false),
+        sourceId("source_id", "sourceId", "INTEGER", false),
         producedIntegral("produced_integral", "producedIntegral", "INTEGER", false),
         userId("user_id", "userId", "INTEGER", false),
         receivedIntegral("received_integral", "receivedIntegral", "INTEGER", false),

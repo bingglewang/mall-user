@@ -723,6 +723,96 @@ public class UserAddressExample {
             return (Criteria) this;
         }
 
+        public Criteria andAreaIdIsNull() {
+            addCriterion("area_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdIsNotNull() {
+            addCriterion("area_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdEqualTo(Integer value) {
+            addCriterion("area_id =", value, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdEqualToColumn(UserAddress.Column column) {
+            addCriterion(new StringBuilder("area_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdNotEqualTo(Integer value) {
+            addCriterion("area_id <>", value, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdNotEqualToColumn(UserAddress.Column column) {
+            addCriterion(new StringBuilder("area_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdGreaterThan(Integer value) {
+            addCriterion("area_id >", value, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdGreaterThanColumn(UserAddress.Column column) {
+            addCriterion(new StringBuilder("area_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("area_id >=", value, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdGreaterThanOrEqualToColumn(UserAddress.Column column) {
+            addCriterion(new StringBuilder("area_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdLessThan(Integer value) {
+            addCriterion("area_id <", value, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdLessThanColumn(UserAddress.Column column) {
+            addCriterion(new StringBuilder("area_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdLessThanOrEqualTo(Integer value) {
+            addCriterion("area_id <=", value, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdLessThanOrEqualToColumn(UserAddress.Column column) {
+            addCriterion(new StringBuilder("area_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdIn(List<Integer> values) {
+            addCriterion("area_id in", values, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdNotIn(List<Integer> values) {
+            addCriterion("area_id not in", values, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdBetween(Integer value1, Integer value2) {
+            addCriterion("area_id between", value1, value2, "areaId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("area_id not between", value1, value2, "areaId");
+            return (Criteria) this;
+        }
+
         public Criteria andAddressIsNull() {
             addCriterion("address is null");
             return (Criteria) this;

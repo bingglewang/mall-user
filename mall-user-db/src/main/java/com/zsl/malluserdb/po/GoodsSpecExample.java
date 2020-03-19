@@ -333,6 +333,96 @@ public class GoodsSpecExample {
             return (Criteria) this;
         }
 
+        public Criteria andSpuIdIsNull() {
+            addCriterion("spu_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdIsNotNull() {
+            addCriterion("spu_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdEqualTo(Long value) {
+            addCriterion("spu_id =", value, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdEqualToColumn(GoodsSpec.Column column) {
+            addCriterion(new StringBuilder("spu_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdNotEqualTo(Long value) {
+            addCriterion("spu_id <>", value, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdNotEqualToColumn(GoodsSpec.Column column) {
+            addCriterion(new StringBuilder("spu_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdGreaterThan(Long value) {
+            addCriterion("spu_id >", value, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdGreaterThanColumn(GoodsSpec.Column column) {
+            addCriterion(new StringBuilder("spu_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("spu_id >=", value, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdGreaterThanOrEqualToColumn(GoodsSpec.Column column) {
+            addCriterion(new StringBuilder("spu_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdLessThan(Long value) {
+            addCriterion("spu_id <", value, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdLessThanColumn(GoodsSpec.Column column) {
+            addCriterion(new StringBuilder("spu_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdLessThanOrEqualTo(Long value) {
+            addCriterion("spu_id <=", value, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdLessThanOrEqualToColumn(GoodsSpec.Column column) {
+            addCriterion(new StringBuilder("spu_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdIn(List<Long> values) {
+            addCriterion("spu_id in", values, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdNotIn(List<Long> values) {
+            addCriterion("spu_id not in", values, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdBetween(Long value1, Long value2) {
+            addCriterion("spu_id between", value1, value2, "spuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpuIdNotBetween(Long value1, Long value2) {
+            addCriterion("spu_id not between", value1, value2, "spuId");
+            return (Criteria) this;
+        }
+
         public Criteria andSpecNameIsNull() {
             addCriterion("spec_name is null");
             return (Criteria) this;

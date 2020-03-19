@@ -3,9 +3,13 @@
 <mapper namespace="com.zsl.malluserdb.mapper.SlideShowMapper">
   <resultMap id="BaseResultMap" type="com.zsl.malluserdb.po.SlideShow">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="slide_show_url" jdbcType="VARCHAR" property="slideShowUrl" />
     <result column="index" jdbcType="INTEGER" property="index" />
+    <result column="slide_show_url" jdbcType="VARCHAR" property="slideShowUrl" />
+    <result column="show_type" jdbcType="TINYINT" property="showType" />
     <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
+    <result column="external_link" jdbcType="VARCHAR" property="externalLink" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, slide_show_url, `index`, goods_id
+    id, `index`, slide_show_url, show_type, goods_id, shop_id, category_id, external_link
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.SlideShowExample" resultMap="BaseResultMap">
     select
@@ -140,10 +144,12 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into slide_show (slide_show_url, `index`, goods_id
-      )
-    values (#{slideShowUrl,jdbcType=VARCHAR}, #{index,jdbcType=INTEGER}, #{goodsId,jdbcType=BIGINT}
-      )
+    insert into slide_show (`index`, slide_show_url, show_type, 
+      goods_id, shop_id, category_id, 
+      external_link)
+    values (#{index,jdbcType=INTEGER}, #{slideShowUrl,jdbcType=VARCHAR}, #{showType,jdbcType=TINYINT}, 
+      #{goodsId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}, 
+      #{externalLink,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.SlideShow">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -151,25 +157,49 @@
     </selectKey>
     insert into slide_show
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        `index`,
+      </if>
       <if test="slideShowUrl != null">
         slide_show_url,
       </if>
-      <if test="index != null">
-        `index`,
+      <if test="showType != null">
+        show_type,
       </if>
       <if test="goodsId != null">
         goods_id,
       </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="externalLink != null">
+        external_link,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="slideShowUrl != null">
-        #{slideShowUrl,jdbcType=VARCHAR},
-      </if>
       <if test="index != null">
         #{index,jdbcType=INTEGER},
       </if>
+      <if test="slideShowUrl != null">
+        #{slideShowUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        #{showType,jdbcType=TINYINT},
+      </if>
       <if test="goodsId != null">
         #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="externalLink != null">
+        #{externalLink,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -185,14 +215,26 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.slideShowUrl != null">
-        slide_show_url = #{record.slideShowUrl,jdbcType=VARCHAR},
-      </if>
       <if test="record.index != null">
         `index` = #{record.index,jdbcType=INTEGER},
       </if>
+      <if test="record.slideShowUrl != null">
+        slide_show_url = #{record.slideShowUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showType != null">
+        show_type = #{record.showType,jdbcType=TINYINT},
+      </if>
       <if test="record.goodsId != null">
         goods_id = #{record.goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="record.shopId != null">
+        shop_id = #{record.shopId,jdbcType=BIGINT},
+      </if>
+      <if test="record.categoryId != null">
+        category_id = #{record.categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="record.externalLink != null">
+        external_link = #{record.externalLink,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -202,9 +244,13 @@
   <update id="updateByExample" parameterType="map">
     update slide_show
     set id = #{record.id,jdbcType=INTEGER},
-      slide_show_url = #{record.slideShowUrl,jdbcType=VARCHAR},
       `index` = #{record.index,jdbcType=INTEGER},
-      goods_id = #{record.goodsId,jdbcType=BIGINT}
+      slide_show_url = #{record.slideShowUrl,jdbcType=VARCHAR},
+      show_type = #{record.showType,jdbcType=TINYINT},
+      goods_id = #{record.goodsId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      category_id = #{record.categoryId,jdbcType=BIGINT},
+      external_link = #{record.externalLink,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -212,23 +258,39 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.zsl.malluserdb.po.SlideShow">
     update slide_show
     <set>
-      <if test="slideShowUrl != null">
-        slide_show_url = #{slideShowUrl,jdbcType=VARCHAR},
-      </if>
       <if test="index != null">
         `index` = #{index,jdbcType=INTEGER},
       </if>
+      <if test="slideShowUrl != null">
+        slide_show_url = #{slideShowUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        show_type = #{showType,jdbcType=TINYINT},
+      </if>
       <if test="goodsId != null">
         goods_id = #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="externalLink != null">
+        external_link = #{externalLink,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zsl.malluserdb.po.SlideShow">
     update slide_show
-    set slide_show_url = #{slideShowUrl,jdbcType=VARCHAR},
-      `index` = #{index,jdbcType=INTEGER},
-      goods_id = #{goodsId,jdbcType=BIGINT}
+    set `index` = #{index,jdbcType=INTEGER},
+      slide_show_url = #{slideShowUrl,jdbcType=VARCHAR},
+      show_type = #{showType,jdbcType=TINYINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      category_id = #{categoryId,jdbcType=BIGINT},
+      external_link = #{externalLink,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.SlideShowExample" resultMap="BaseResultMap">

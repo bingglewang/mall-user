@@ -18,11 +18,17 @@ public interface OrderListMapper {
 
     OrderList selectOneByExampleSelective(@Param("example") OrderListExample example, @Param("selective") OrderList.Column ... selective);
 
+    OrderList selectOneByExampleWithBLOBs(OrderListExample example);
+
     List<OrderList> selectByExampleSelective(@Param("example") OrderListExample example, @Param("selective") OrderList.Column ... selective);
+
+    List<OrderList> selectByExampleWithBLOBs(OrderListExample example);
 
     List<OrderList> selectByExample(OrderListExample example);
 
     int updateByExampleSelective(@Param("record") OrderList record, @Param("example") OrderListExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") OrderList record, @Param("example") OrderListExample example);
 
     int updateByExample(@Param("record") OrderList record, @Param("example") OrderListExample example);
 }

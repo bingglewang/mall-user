@@ -44,6 +44,8 @@ public class UserMember implements Serializable {
 
     private Integer node;
 
+    private Integer gold;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -198,6 +200,14 @@ public class UserMember implements Serializable {
         this.node = node;
     }
 
+    public Integer getGold() {
+        return gold;
+    }
+
+    public void setGold(Integer gold) {
+        this.gold = gold;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -223,6 +233,7 @@ public class UserMember implements Serializable {
         sb.append(", country=").append(country);
         sb.append(", balance=").append(balance);
         sb.append(", node=").append(node);
+        sb.append(", gold=").append(gold);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -258,7 +269,8 @@ public class UserMember implements Serializable {
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getBalance() == null ? other.getBalance() == null : this.getBalance().equals(other.getBalance()))
-            && (this.getNode() == null ? other.getNode() == null : this.getNode().equals(other.getNode()));
+            && (this.getNode() == null ? other.getNode() == null : this.getNode().equals(other.getNode()))
+            && (this.getGold() == null ? other.getGold() == null : this.getGold().equals(other.getGold()));
     }
 
     @Override
@@ -284,6 +296,7 @@ public class UserMember implements Serializable {
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getBalance() == null) ? 0 : getBalance().hashCode());
         result = prime * result + ((getNode() == null) ? 0 : getNode().hashCode());
+        result = prime * result + ((getGold() == null) ? 0 : getGold().hashCode());
         return result;
     }
 
@@ -306,7 +319,8 @@ public class UserMember implements Serializable {
         city("city", "city", "VARCHAR", false),
         country("country", "country", "VARCHAR", false),
         balance("balance", "balance", "DOUBLE", false),
-        node("node", "node", "INTEGER", false);
+        node("node", "node", "INTEGER", false),
+        gold("gold", "gold", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

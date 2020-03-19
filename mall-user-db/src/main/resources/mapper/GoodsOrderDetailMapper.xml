@@ -9,6 +9,7 @@
     <result column="total_count" jdbcType="INTEGER" property="totalCount" />
     <result column="total_point" jdbcType="INTEGER" property="totalPoint" />
     <result column="total_freight" jdbcType="DECIMAL" property="totalFreight" />
+    <result column="freight_info" jdbcType="VARCHAR" property="freightInfo" />
     <result column="present_coin" jdbcType="INTEGER" property="presentCoin" />
     <result column="returned" jdbcType="BIT" property="returned" />
     <result column="surplus_valid_count" jdbcType="INTEGER" property="surplusValidCount" />
@@ -18,6 +19,8 @@
     <result column="present_money" jdbcType="DECIMAL" property="presentMoney" />
     <result column="father_money" jdbcType="DECIMAL" property="fatherMoney" />
     <result column="grandfather_money" jdbcType="DECIMAL" property="grandfatherMoney" />
+    <result column="deduction" jdbcType="DECIMAL" property="deduction" />
+    <result column="deduction_goods_amount" jdbcType="DECIMAL" property="deductionGoodsAmount" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -78,9 +81,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, sku_id, order_no, total_amount, total_count, total_point, total_freight, present_coin, 
-    returned, surplus_valid_count, goods_name, goods_picture, goods_spec, present_money, 
-    father_money, grandfather_money
+    id, sku_id, order_no, total_amount, total_count, total_point, total_freight, freight_info, 
+    present_coin, returned, surplus_valid_count, goods_name, goods_picture, goods_spec, 
+    present_money, father_money, grandfather_money, deduction, deduction_goods_amount
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderDetailExample" resultMap="BaseResultMap">
     select
@@ -156,15 +159,17 @@
     </selectKey>
     insert into goods_order_detail (sku_id, order_no, total_amount, 
       total_count, total_point, total_freight, 
-      present_coin, returned, surplus_valid_count, 
-      goods_name, goods_picture, goods_spec, 
-      present_money, father_money, grandfather_money
+      freight_info, present_coin, returned, 
+      surplus_valid_count, goods_name, goods_picture, 
+      goods_spec, present_money, father_money, 
+      grandfather_money, deduction, deduction_goods_amount
       )
     values (#{skuId,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{totalAmount,jdbcType=DECIMAL}, 
       #{totalCount,jdbcType=INTEGER}, #{totalPoint,jdbcType=INTEGER}, #{totalFreight,jdbcType=DECIMAL}, 
-      #{presentCoin,jdbcType=INTEGER}, #{returned,jdbcType=BIT}, #{surplusValidCount,jdbcType=INTEGER}, 
-      #{goodsName,jdbcType=VARCHAR}, #{goodsPicture,jdbcType=VARCHAR}, #{goodsSpec,jdbcType=VARCHAR}, 
-      #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, #{grandfatherMoney,jdbcType=DECIMAL}
+      #{freightInfo,jdbcType=VARCHAR}, #{presentCoin,jdbcType=INTEGER}, #{returned,jdbcType=BIT}, 
+      #{surplusValidCount,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsPicture,jdbcType=VARCHAR}, 
+      #{goodsSpec,jdbcType=VARCHAR}, #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, 
+      #{grandfatherMoney,jdbcType=DECIMAL}, #{deduction,jdbcType=DECIMAL}, #{deductionGoodsAmount,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsOrderDetail">
@@ -190,6 +195,9 @@
       </if>
       <if test="totalFreight != null">
         total_freight,
+      </if>
+      <if test="freightInfo != null">
+        freight_info,
       </if>
       <if test="presentCoin != null">
         present_coin,
@@ -218,6 +226,12 @@
       <if test="grandfatherMoney != null">
         grandfather_money,
       </if>
+      <if test="deduction != null">
+        deduction,
+      </if>
+      <if test="deductionGoodsAmount != null">
+        deduction_goods_amount,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="skuId != null">
@@ -237,6 +251,9 @@
       </if>
       <if test="totalFreight != null">
         #{totalFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="freightInfo != null">
+        #{freightInfo,jdbcType=VARCHAR},
       </if>
       <if test="presentCoin != null">
         #{presentCoin,jdbcType=INTEGER},
@@ -264,6 +281,12 @@
       </if>
       <if test="grandfatherMoney != null">
         #{grandfatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="deduction != null">
+        #{deduction,jdbcType=DECIMAL},
+      </if>
+      <if test="deductionGoodsAmount != null">
+        #{deductionGoodsAmount,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -297,6 +320,9 @@
       <if test="record.totalFreight != null">
         total_freight = #{record.totalFreight,jdbcType=DECIMAL},
       </if>
+      <if test="record.freightInfo != null">
+        freight_info = #{record.freightInfo,jdbcType=VARCHAR},
+      </if>
       <if test="record.presentCoin != null">
         present_coin = #{record.presentCoin,jdbcType=INTEGER},
       </if>
@@ -324,6 +350,12 @@
       <if test="record.grandfatherMoney != null">
         grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
       </if>
+      <if test="record.deduction != null">
+        deduction = #{record.deduction,jdbcType=DECIMAL},
+      </if>
+      <if test="record.deductionGoodsAmount != null">
+        deduction_goods_amount = #{record.deductionGoodsAmount,jdbcType=DECIMAL},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -338,6 +370,7 @@
       total_count = #{record.totalCount,jdbcType=INTEGER},
       total_point = #{record.totalPoint,jdbcType=INTEGER},
       total_freight = #{record.totalFreight,jdbcType=DECIMAL},
+      freight_info = #{record.freightInfo,jdbcType=VARCHAR},
       present_coin = #{record.presentCoin,jdbcType=INTEGER},
       returned = #{record.returned,jdbcType=BIT},
       surplus_valid_count = #{record.surplusValidCount,jdbcType=INTEGER},
@@ -346,7 +379,9 @@
       goods_spec = #{record.goodsSpec,jdbcType=VARCHAR},
       present_money = #{record.presentMoney,jdbcType=DECIMAL},
       father_money = #{record.fatherMoney,jdbcType=DECIMAL},
-      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL}
+      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
+      deduction = #{record.deduction,jdbcType=DECIMAL},
+      deduction_goods_amount = #{record.deductionGoodsAmount,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -371,6 +406,9 @@
       </if>
       <if test="totalFreight != null">
         total_freight = #{totalFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="freightInfo != null">
+        freight_info = #{freightInfo,jdbcType=VARCHAR},
       </if>
       <if test="presentCoin != null">
         present_coin = #{presentCoin,jdbcType=INTEGER},
@@ -399,6 +437,12 @@
       <if test="grandfatherMoney != null">
         grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
       </if>
+      <if test="deduction != null">
+        deduction = #{deduction,jdbcType=DECIMAL},
+      </if>
+      <if test="deductionGoodsAmount != null">
+        deduction_goods_amount = #{deductionGoodsAmount,jdbcType=DECIMAL},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -410,6 +454,7 @@
       total_count = #{totalCount,jdbcType=INTEGER},
       total_point = #{totalPoint,jdbcType=INTEGER},
       total_freight = #{totalFreight,jdbcType=DECIMAL},
+      freight_info = #{freightInfo,jdbcType=VARCHAR},
       present_coin = #{presentCoin,jdbcType=INTEGER},
       returned = #{returned,jdbcType=BIT},
       surplus_valid_count = #{surplusValidCount,jdbcType=INTEGER},
@@ -418,7 +463,9 @@
       goods_spec = #{goodsSpec,jdbcType=VARCHAR},
       present_money = #{presentMoney,jdbcType=DECIMAL},
       father_money = #{fatherMoney,jdbcType=DECIMAL},
-      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL}
+      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
+      deduction = #{deduction,jdbcType=DECIMAL},
+      deduction_goods_amount = #{deductionGoodsAmount,jdbcType=DECIMAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsOrderDetailExample" resultMap="BaseResultMap">

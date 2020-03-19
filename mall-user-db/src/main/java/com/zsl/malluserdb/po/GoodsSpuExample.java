@@ -234,6 +234,96 @@ public class GoodsSpuExample {
             return (Criteria) this;
         }
 
+        public Criteria andGoodsIdIsNull() {
+            addCriterion("goods_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdIsNotNull() {
+            addCriterion("goods_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdEqualTo(Integer value) {
+            addCriterion("goods_id =", value, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("goods_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdNotEqualTo(Integer value) {
+            addCriterion("goods_id <>", value, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdNotEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("goods_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdGreaterThan(Integer value) {
+            addCriterion("goods_id >", value, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdGreaterThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("goods_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("goods_id >=", value, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdGreaterThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("goods_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdLessThan(Integer value) {
+            addCriterion("goods_id <", value, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdLessThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("goods_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdLessThanOrEqualTo(Integer value) {
+            addCriterion("goods_id <=", value, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdLessThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("goods_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdIn(List<Integer> values) {
+            addCriterion("goods_id in", values, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdNotIn(List<Integer> values) {
+            addCriterion("goods_id not in", values, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdBetween(Integer value1, Integer value2) {
+            addCriterion("goods_id between", value1, value2, "goodsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodsIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("goods_id not between", value1, value2, "goodsId");
+            return (Criteria) this;
+        }
+
         public Criteria andSpuNoIsNull() {
             addCriterion("spu_no is null");
             return (Criteria) this;
@@ -1341,6 +1431,276 @@ public class GoodsSpuExample {
 
         public Criteria andStatusNotBetween(Boolean value1, Boolean value2) {
             addCriterion("`status` not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceIsNull() {
+            addCriterion("original_price is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceIsNotNull() {
+            addCriterion("original_price is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceEqualTo(BigDecimal value) {
+            addCriterion("original_price =", value, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("original_price = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceNotEqualTo(BigDecimal value) {
+            addCriterion("original_price <>", value, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceNotEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("original_price <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceGreaterThan(BigDecimal value) {
+            addCriterion("original_price >", value, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceGreaterThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("original_price > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("original_price >=", value, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceGreaterThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("original_price >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceLessThan(BigDecimal value) {
+            addCriterion("original_price <", value, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceLessThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("original_price < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("original_price <=", value, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceLessThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("original_price <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceIn(List<BigDecimal> values) {
+            addCriterion("original_price in", values, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceNotIn(List<BigDecimal> values) {
+            addCriterion("original_price not in", values, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("original_price between", value1, value2, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andOriginalPriceNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("original_price not between", value1, value2, "originalPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdIsNull() {
+            addCriterion("template_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdIsNotNull() {
+            addCriterion("template_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdEqualTo(Integer value) {
+            addCriterion("template_id =", value, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("template_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdNotEqualTo(Integer value) {
+            addCriterion("template_id <>", value, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdNotEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("template_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdGreaterThan(Integer value) {
+            addCriterion("template_id >", value, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdGreaterThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("template_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("template_id >=", value, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdGreaterThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("template_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdLessThan(Integer value) {
+            addCriterion("template_id <", value, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdLessThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("template_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdLessThanOrEqualTo(Integer value) {
+            addCriterion("template_id <=", value, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdLessThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("template_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdIn(List<Integer> values) {
+            addCriterion("template_id in", values, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdNotIn(List<Integer> values) {
+            addCriterion("template_id not in", values, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdBetween(Integer value1, Integer value2) {
+            addCriterion("template_id between", value1, value2, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTemplateIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("template_id not between", value1, value2, "templateId");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesIsNull() {
+            addCriterion("show_sales is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesIsNotNull() {
+            addCriterion("show_sales is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesEqualTo(Integer value) {
+            addCriterion("show_sales =", value, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("show_sales = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesNotEqualTo(Integer value) {
+            addCriterion("show_sales <>", value, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesNotEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("show_sales <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesGreaterThan(Integer value) {
+            addCriterion("show_sales >", value, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesGreaterThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("show_sales > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesGreaterThanOrEqualTo(Integer value) {
+            addCriterion("show_sales >=", value, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesGreaterThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("show_sales >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesLessThan(Integer value) {
+            addCriterion("show_sales <", value, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesLessThanColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("show_sales < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesLessThanOrEqualTo(Integer value) {
+            addCriterion("show_sales <=", value, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesLessThanOrEqualToColumn(GoodsSpu.Column column) {
+            addCriterion(new StringBuilder("show_sales <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesIn(List<Integer> values) {
+            addCriterion("show_sales in", values, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesNotIn(List<Integer> values) {
+            addCriterion("show_sales not in", values, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesBetween(Integer value1, Integer value2) {
+            addCriterion("show_sales between", value1, value2, "showSales");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowSalesNotBetween(Integer value1, Integer value2) {
+            addCriterion("show_sales not between", value1, value2, "showSales");
             return (Criteria) this;
         }
     }

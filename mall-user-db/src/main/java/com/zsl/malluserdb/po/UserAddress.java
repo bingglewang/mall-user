@@ -18,6 +18,8 @@ public class UserAddress implements Serializable {
 
     private String districtId;
 
+    private Integer areaId;
+
     private String address;
 
     private String consignee;
@@ -82,6 +84,14 @@ public class UserAddress implements Serializable {
 
     public void setDistrictId(String districtId) {
         this.districtId = districtId == null ? null : districtId.trim();
+    }
+
+    public Integer getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
     }
 
     public String getAddress() {
@@ -160,6 +170,7 @@ public class UserAddress implements Serializable {
         sb.append(", provinceId=").append(provinceId);
         sb.append(", cityId=").append(cityId);
         sb.append(", districtId=").append(districtId);
+        sb.append(", areaId=").append(areaId);
         sb.append(", address=").append(address);
         sb.append(", consignee=").append(consignee);
         sb.append(", mobile=").append(mobile);
@@ -191,6 +202,7 @@ public class UserAddress implements Serializable {
             && (this.getProvinceId() == null ? other.getProvinceId() == null : this.getProvinceId().equals(other.getProvinceId()))
             && (this.getCityId() == null ? other.getCityId() == null : this.getCityId().equals(other.getCityId()))
             && (this.getDistrictId() == null ? other.getDistrictId() == null : this.getDistrictId().equals(other.getDistrictId()))
+            && (this.getAreaId() == null ? other.getAreaId() == null : this.getAreaId().equals(other.getAreaId()))
             && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getConsignee() == null ? other.getConsignee() == null : this.getConsignee().equals(other.getConsignee()))
             && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
@@ -211,6 +223,7 @@ public class UserAddress implements Serializable {
         result = prime * result + ((getProvinceId() == null) ? 0 : getProvinceId().hashCode());
         result = prime * result + ((getCityId() == null) ? 0 : getCityId().hashCode());
         result = prime * result + ((getDistrictId() == null) ? 0 : getDistrictId().hashCode());
+        result = prime * result + ((getAreaId() == null) ? 0 : getAreaId().hashCode());
         result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getConsignee() == null) ? 0 : getConsignee().hashCode());
         result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
@@ -229,6 +242,7 @@ public class UserAddress implements Serializable {
         provinceId("province_id", "provinceId", "VARCHAR", false),
         cityId("city_id", "cityId", "VARCHAR", false),
         districtId("district_id", "districtId", "VARCHAR", false),
+        areaId("area_id", "areaId", "INTEGER", false),
         address("address", "address", "VARCHAR", false),
         consignee("consignee", "consignee", "VARCHAR", false),
         mobile("mobile", "mobile", "CHAR", false),

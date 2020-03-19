@@ -21,6 +21,7 @@
     <result column="country" jdbcType="VARCHAR" property="country" />
     <result column="balance" jdbcType="DOUBLE" property="balance" />
     <result column="node" jdbcType="INTEGER" property="node" />
+    <result column="gold" jdbcType="INTEGER" property="gold" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -83,7 +84,7 @@
   <sql id="Base_Column_List">
     id, login_name, open_id, `password`, realname, nickname, brithday, pic_url, mobile, 
     cteate_time, last_login_time, share_id, total_point, sex, province, city, country, 
-    balance, node
+    balance, node, gold
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.UserMemberExample" resultMap="BaseResultMap">
     select
@@ -162,13 +163,13 @@
       pic_url, mobile, cteate_time, 
       last_login_time, share_id, total_point, 
       sex, province, city, country, 
-      balance, node)
+      balance, node, gold)
     values (#{loginName,jdbcType=CHAR}, #{openId,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, 
       #{realname,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{brithday,jdbcType=DATE}, 
       #{picUrl,jdbcType=CHAR}, #{mobile,jdbcType=CHAR}, #{cteateTime,jdbcType=TIMESTAMP}, 
       #{lastLoginTime,jdbcType=TIMESTAMP}, #{shareId,jdbcType=VARCHAR}, #{totalPoint,jdbcType=BIGINT}, 
       #{sex,jdbcType=CHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
-      #{balance,jdbcType=DOUBLE}, #{node,jdbcType=INTEGER})
+      #{balance,jdbcType=DOUBLE}, #{node,jdbcType=INTEGER}, #{gold,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.UserMember">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -230,6 +231,9 @@
       <if test="node != null">
         node,
       </if>
+      <if test="gold != null">
+        gold,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="loginName != null">
@@ -285,6 +289,9 @@
       </if>
       <if test="node != null">
         #{node,jdbcType=INTEGER},
+      </if>
+      <if test="gold != null">
+        #{gold,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -354,6 +361,9 @@
       <if test="record.node != null">
         node = #{record.node,jdbcType=INTEGER},
       </if>
+      <if test="record.gold != null">
+        gold = #{record.gold,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -379,7 +389,8 @@
       city = #{record.city,jdbcType=VARCHAR},
       country = #{record.country,jdbcType=VARCHAR},
       balance = #{record.balance,jdbcType=DOUBLE},
-      node = #{record.node,jdbcType=INTEGER}
+      node = #{record.node,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -441,6 +452,9 @@
       <if test="node != null">
         node = #{node,jdbcType=INTEGER},
       </if>
+      <if test="gold != null">
+        gold = #{gold,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -463,7 +477,8 @@
       city = #{city,jdbcType=VARCHAR},
       country = #{country,jdbcType=VARCHAR},
       balance = #{balance,jdbcType=DOUBLE},
-      node = #{node,jdbcType=INTEGER}
+      node = #{node,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.UserMemberExample" resultMap="BaseResultMap">

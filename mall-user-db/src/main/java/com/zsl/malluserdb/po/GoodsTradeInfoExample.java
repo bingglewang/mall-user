@@ -794,96 +794,6 @@ public class GoodsTradeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCurrentStatusIsNull() {
-            addCriterion("current_status is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusIsNotNull() {
-            addCriterion("current_status is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusEqualTo(Byte value) {
-            addCriterion("current_status =", value, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("current_status = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusNotEqualTo(Byte value) {
-            addCriterion("current_status <>", value, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusNotEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("current_status <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusGreaterThan(Byte value) {
-            addCriterion("current_status >", value, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusGreaterThanColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("current_status > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusGreaterThanOrEqualTo(Byte value) {
-            addCriterion("current_status >=", value, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("current_status >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusLessThan(Byte value) {
-            addCriterion("current_status <", value, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusLessThanColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("current_status < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusLessThanOrEqualTo(Byte value) {
-            addCriterion("current_status <=", value, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("current_status <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusIn(List<Byte> values) {
-            addCriterion("current_status in", values, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusNotIn(List<Byte> values) {
-            addCriterion("current_status not in", values, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusBetween(Byte value1, Byte value2) {
-            addCriterion("current_status between", value1, value2, "currentStatus");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrentStatusNotBetween(Byte value1, Byte value2) {
-            addCriterion("current_status not between", value1, value2, "currentStatus");
-            return (Criteria) this;
-        }
-
         public Criteria andPreStatusIsNull() {
             addCriterion("pre_status is null");
             return (Criteria) this;
@@ -971,6 +881,96 @@ public class GoodsTradeInfoExample {
 
         public Criteria andPreStatusNotBetween(Byte value1, Byte value2) {
             addCriterion("pre_status not between", value1, value2, "preStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusIsNull() {
+            addCriterion("current_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusIsNotNull() {
+            addCriterion("current_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusEqualTo(Byte value) {
+            addCriterion("current_status =", value, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("current_status = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusNotEqualTo(Byte value) {
+            addCriterion("current_status <>", value, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusNotEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("current_status <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusGreaterThan(Byte value) {
+            addCriterion("current_status >", value, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusGreaterThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("current_status > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusGreaterThanOrEqualTo(Byte value) {
+            addCriterion("current_status >=", value, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("current_status >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusLessThan(Byte value) {
+            addCriterion("current_status <", value, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusLessThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("current_status < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusLessThanOrEqualTo(Byte value) {
+            addCriterion("current_status <=", value, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("current_status <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusIn(List<Byte> values) {
+            addCriterion("current_status in", values, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusNotIn(List<Byte> values) {
+            addCriterion("current_status not in", values, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusBetween(Byte value1, Byte value2) {
+            addCriterion("current_status between", value1, value2, "currentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrentStatusNotBetween(Byte value1, Byte value2) {
+            addCriterion("current_status not between", value1, value2, "currentStatus");
             return (Criteria) this;
         }
 
@@ -1151,6 +1151,276 @@ public class GoodsTradeInfoExample {
 
         public Criteria andTotalAmountNotBetween(Float value1, Float value2) {
             addCriterion("total_amount not between", value1, value2, "totalAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeIsNull() {
+            addCriterion("freight_charge is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeIsNotNull() {
+            addCriterion("freight_charge is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeEqualTo(BigDecimal value) {
+            addCriterion("freight_charge =", value, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("freight_charge = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeNotEqualTo(BigDecimal value) {
+            addCriterion("freight_charge <>", value, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeNotEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("freight_charge <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeGreaterThan(BigDecimal value) {
+            addCriterion("freight_charge >", value, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeGreaterThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("freight_charge > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("freight_charge >=", value, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("freight_charge >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeLessThan(BigDecimal value) {
+            addCriterion("freight_charge <", value, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeLessThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("freight_charge < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("freight_charge <=", value, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("freight_charge <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeIn(List<BigDecimal> values) {
+            addCriterion("freight_charge in", values, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeNotIn(List<BigDecimal> values) {
+            addCriterion("freight_charge not in", values, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("freight_charge between", value1, value2, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightChargeNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("freight_charge not between", value1, value2, "freightCharge");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffIsNull() {
+            addCriterion("money_off is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffIsNotNull() {
+            addCriterion("money_off is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffEqualTo(BigDecimal value) {
+            addCriterion("money_off =", value, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("money_off = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffNotEqualTo(BigDecimal value) {
+            addCriterion("money_off <>", value, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffNotEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("money_off <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffGreaterThan(BigDecimal value) {
+            addCriterion("money_off >", value, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffGreaterThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("money_off > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("money_off >=", value, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("money_off >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffLessThan(BigDecimal value) {
+            addCriterion("money_off <", value, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffLessThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("money_off < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("money_off <=", value, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("money_off <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffIn(List<BigDecimal> values) {
+            addCriterion("money_off in", values, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffNotIn(List<BigDecimal> values) {
+            addCriterion("money_off not in", values, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("money_off between", value1, value2, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andMoneyOffNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("money_off not between", value1, value2, "moneyOff");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionIsNull() {
+            addCriterion("total_deduction is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionIsNotNull() {
+            addCriterion("total_deduction is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionEqualTo(BigDecimal value) {
+            addCriterion("total_deduction =", value, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("total_deduction = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionNotEqualTo(BigDecimal value) {
+            addCriterion("total_deduction <>", value, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionNotEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("total_deduction <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionGreaterThan(BigDecimal value) {
+            addCriterion("total_deduction >", value, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionGreaterThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("total_deduction > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("total_deduction >=", value, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("total_deduction >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionLessThan(BigDecimal value) {
+            addCriterion("total_deduction <", value, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionLessThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("total_deduction < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("total_deduction <=", value, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("total_deduction <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionIn(List<BigDecimal> values) {
+            addCriterion("total_deduction in", values, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionNotIn(List<BigDecimal> values) {
+            addCriterion("total_deduction not in", values, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("total_deduction between", value1, value2, "totalDeduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalDeductionNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("total_deduction not between", value1, value2, "totalDeduction");
             return (Criteria) this;
         }
 
@@ -1421,96 +1691,6 @@ public class GoodsTradeInfoExample {
 
         public Criteria andTotalCoinNotBetween(Integer value1, Integer value2) {
             addCriterion("total_coin not between", value1, value2, "totalCoin");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeIsNull() {
-            addCriterion("freight_charge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeIsNotNull() {
-            addCriterion("freight_charge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeEqualTo(BigDecimal value) {
-            addCriterion("freight_charge =", value, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("freight_charge = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeNotEqualTo(BigDecimal value) {
-            addCriterion("freight_charge <>", value, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeNotEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("freight_charge <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeGreaterThan(BigDecimal value) {
-            addCriterion("freight_charge >", value, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeGreaterThanColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("freight_charge > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("freight_charge >=", value, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("freight_charge >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeLessThan(BigDecimal value) {
-            addCriterion("freight_charge <", value, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeLessThanColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("freight_charge < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("freight_charge <=", value, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
-            addCriterion(new StringBuilder("freight_charge <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeIn(List<BigDecimal> values) {
-            addCriterion("freight_charge in", values, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeNotIn(List<BigDecimal> values) {
-            addCriterion("freight_charge not in", values, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("freight_charge between", value1, value2, "freightCharge");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightChargeNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("freight_charge not between", value1, value2, "freightCharge");
             return (Criteria) this;
         }
 

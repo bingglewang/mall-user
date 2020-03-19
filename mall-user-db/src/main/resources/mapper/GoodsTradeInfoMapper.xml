@@ -9,14 +9,16 @@
     <result column="address_id" jdbcType="INTEGER" property="addressId" />
     <result column="pay_way" jdbcType="TINYINT" property="payWay" />
     <result column="source" jdbcType="BIT" property="source" />
-    <result column="current_status" jdbcType="TINYINT" property="currentStatus" />
     <result column="pre_status" jdbcType="TINYINT" property="preStatus" />
+    <result column="current_status" jdbcType="TINYINT" property="currentStatus" />
     <result column="evaluate" jdbcType="BIT" property="evaluate" />
     <result column="total_amount" jdbcType="REAL" property="totalAmount" />
+    <result column="freight_charge" jdbcType="DECIMAL" property="freightCharge" />
+    <result column="money_off" jdbcType="DECIMAL" property="moneyOff" />
+    <result column="total_deduction" jdbcType="DECIMAL" property="totalDeduction" />
     <result column="total_count" jdbcType="INTEGER" property="totalCount" />
     <result column="total_point" jdbcType="INTEGER" property="totalPoint" />
     <result column="total_coin" jdbcType="INTEGER" property="totalCoin" />
-    <result column="freight_charge" jdbcType="DECIMAL" property="freightCharge" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="trade_time" jdbcType="TIMESTAMP" property="tradeTime" />
     <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
@@ -91,11 +93,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, trade_no, out_trade_no, member_id, address_id, pay_way, `source`, current_status, 
-    pre_status, evaluate, total_amount, total_count, total_point, total_coin, freight_charge, 
-    remark, trade_time, payment_time, finish_time, end_time, shipments_time, hidden, 
-    recipients, recipients_phone, shipping_address, shipping_address_detail, present_money, 
-    father_money, grandfather_money
+    id, trade_no, out_trade_no, member_id, address_id, pay_way, `source`, pre_status, 
+    current_status, evaluate, total_amount, freight_charge, money_off, total_deduction, 
+    total_count, total_point, total_coin, remark, trade_time, payment_time, finish_time, 
+    end_time, shipments_time, hidden, recipients, recipients_phone, shipping_address, 
+    shipping_address_detail, present_money, father_money, grandfather_money
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsTradeInfoExample" resultMap="BaseResultMap">
     select
@@ -171,24 +173,26 @@
     </selectKey>
     insert into goods_trade_info (trade_no, out_trade_no, member_id, 
       address_id, pay_way, `source`, 
-      current_status, pre_status, evaluate, 
-      total_amount, total_count, total_point, 
-      total_coin, freight_charge, remark, 
-      trade_time, payment_time, finish_time, 
-      end_time, shipments_time, hidden, 
-      recipients, recipients_phone, shipping_address, 
-      shipping_address_detail, present_money, father_money, 
-      grandfather_money)
+      pre_status, current_status, evaluate, 
+      total_amount, freight_charge, money_off, 
+      total_deduction, total_count, total_point, 
+      total_coin, remark, trade_time, 
+      payment_time, finish_time, end_time, 
+      shipments_time, hidden, recipients, 
+      recipients_phone, shipping_address, shipping_address_detail, 
+      present_money, father_money, grandfather_money
+      )
     values (#{tradeNo,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
       #{addressId,jdbcType=INTEGER}, #{payWay,jdbcType=TINYINT}, #{source,jdbcType=BIT}, 
-      #{currentStatus,jdbcType=TINYINT}, #{preStatus,jdbcType=TINYINT}, #{evaluate,jdbcType=BIT}, 
-      #{totalAmount,jdbcType=REAL}, #{totalCount,jdbcType=INTEGER}, #{totalPoint,jdbcType=INTEGER}, 
-      #{totalCoin,jdbcType=INTEGER}, #{freightCharge,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
-      #{tradeTime,jdbcType=TIMESTAMP}, #{paymentTime,jdbcType=TIMESTAMP}, #{finishTime,jdbcType=TIMESTAMP}, 
-      #{endTime,jdbcType=TIMESTAMP}, #{shipmentsTime,jdbcType=TIMESTAMP}, #{hidden,jdbcType=BIT}, 
-      #{recipients,jdbcType=VARCHAR}, #{recipientsPhone,jdbcType=VARCHAR}, #{shippingAddress,jdbcType=VARCHAR}, 
-      #{shippingAddressDetail,jdbcType=VARCHAR}, #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, 
-      #{grandfatherMoney,jdbcType=DECIMAL})
+      #{preStatus,jdbcType=TINYINT}, #{currentStatus,jdbcType=TINYINT}, #{evaluate,jdbcType=BIT}, 
+      #{totalAmount,jdbcType=REAL}, #{freightCharge,jdbcType=DECIMAL}, #{moneyOff,jdbcType=DECIMAL}, 
+      #{totalDeduction,jdbcType=DECIMAL}, #{totalCount,jdbcType=INTEGER}, #{totalPoint,jdbcType=INTEGER}, 
+      #{totalCoin,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{tradeTime,jdbcType=TIMESTAMP}, 
+      #{paymentTime,jdbcType=TIMESTAMP}, #{finishTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{shipmentsTime,jdbcType=TIMESTAMP}, #{hidden,jdbcType=BIT}, #{recipients,jdbcType=VARCHAR}, 
+      #{recipientsPhone,jdbcType=VARCHAR}, #{shippingAddress,jdbcType=VARCHAR}, #{shippingAddressDetail,jdbcType=VARCHAR}, 
+      #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, #{grandfatherMoney,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsTradeInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -214,17 +218,26 @@
       <if test="source != null">
         `source`,
       </if>
-      <if test="currentStatus != null">
-        current_status,
-      </if>
       <if test="preStatus != null">
         pre_status,
+      </if>
+      <if test="currentStatus != null">
+        current_status,
       </if>
       <if test="evaluate != null">
         evaluate,
       </if>
       <if test="totalAmount != null">
         total_amount,
+      </if>
+      <if test="freightCharge != null">
+        freight_charge,
+      </if>
+      <if test="moneyOff != null">
+        money_off,
+      </if>
+      <if test="totalDeduction != null">
+        total_deduction,
       </if>
       <if test="totalCount != null">
         total_count,
@@ -234,9 +247,6 @@
       </if>
       <if test="totalCoin != null">
         total_coin,
-      </if>
-      <if test="freightCharge != null">
-        freight_charge,
       </if>
       <if test="remark != null">
         remark,
@@ -300,17 +310,26 @@
       <if test="source != null">
         #{source,jdbcType=BIT},
       </if>
-      <if test="currentStatus != null">
-        #{currentStatus,jdbcType=TINYINT},
-      </if>
       <if test="preStatus != null">
         #{preStatus,jdbcType=TINYINT},
+      </if>
+      <if test="currentStatus != null">
+        #{currentStatus,jdbcType=TINYINT},
       </if>
       <if test="evaluate != null">
         #{evaluate,jdbcType=BIT},
       </if>
       <if test="totalAmount != null">
         #{totalAmount,jdbcType=REAL},
+      </if>
+      <if test="freightCharge != null">
+        #{freightCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyOff != null">
+        #{moneyOff,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDeduction != null">
+        #{totalDeduction,jdbcType=DECIMAL},
       </if>
       <if test="totalCount != null">
         #{totalCount,jdbcType=INTEGER},
@@ -320,9 +339,6 @@
       </if>
       <if test="totalCoin != null">
         #{totalCoin,jdbcType=INTEGER},
-      </if>
-      <if test="freightCharge != null">
-        #{freightCharge,jdbcType=DECIMAL},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
@@ -398,17 +414,26 @@
       <if test="record.source != null">
         `source` = #{record.source,jdbcType=BIT},
       </if>
-      <if test="record.currentStatus != null">
-        current_status = #{record.currentStatus,jdbcType=TINYINT},
-      </if>
       <if test="record.preStatus != null">
         pre_status = #{record.preStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.currentStatus != null">
+        current_status = #{record.currentStatus,jdbcType=TINYINT},
       </if>
       <if test="record.evaluate != null">
         evaluate = #{record.evaluate,jdbcType=BIT},
       </if>
       <if test="record.totalAmount != null">
         total_amount = #{record.totalAmount,jdbcType=REAL},
+      </if>
+      <if test="record.freightCharge != null">
+        freight_charge = #{record.freightCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="record.moneyOff != null">
+        money_off = #{record.moneyOff,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalDeduction != null">
+        total_deduction = #{record.totalDeduction,jdbcType=DECIMAL},
       </if>
       <if test="record.totalCount != null">
         total_count = #{record.totalCount,jdbcType=INTEGER},
@@ -418,9 +443,6 @@
       </if>
       <if test="record.totalCoin != null">
         total_coin = #{record.totalCoin,jdbcType=INTEGER},
-      </if>
-      <if test="record.freightCharge != null">
-        freight_charge = #{record.freightCharge,jdbcType=DECIMAL},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -478,14 +500,16 @@
       address_id = #{record.addressId,jdbcType=INTEGER},
       pay_way = #{record.payWay,jdbcType=TINYINT},
       `source` = #{record.source,jdbcType=BIT},
-      current_status = #{record.currentStatus,jdbcType=TINYINT},
       pre_status = #{record.preStatus,jdbcType=TINYINT},
+      current_status = #{record.currentStatus,jdbcType=TINYINT},
       evaluate = #{record.evaluate,jdbcType=BIT},
       total_amount = #{record.totalAmount,jdbcType=REAL},
+      freight_charge = #{record.freightCharge,jdbcType=DECIMAL},
+      money_off = #{record.moneyOff,jdbcType=DECIMAL},
+      total_deduction = #{record.totalDeduction,jdbcType=DECIMAL},
       total_count = #{record.totalCount,jdbcType=INTEGER},
       total_point = #{record.totalPoint,jdbcType=INTEGER},
       total_coin = #{record.totalCoin,jdbcType=INTEGER},
-      freight_charge = #{record.freightCharge,jdbcType=DECIMAL},
       remark = #{record.remark,jdbcType=VARCHAR},
       trade_time = #{record.tradeTime,jdbcType=TIMESTAMP},
       payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
@@ -525,17 +549,26 @@
       <if test="source != null">
         `source` = #{source,jdbcType=BIT},
       </if>
-      <if test="currentStatus != null">
-        current_status = #{currentStatus,jdbcType=TINYINT},
-      </if>
       <if test="preStatus != null">
         pre_status = #{preStatus,jdbcType=TINYINT},
+      </if>
+      <if test="currentStatus != null">
+        current_status = #{currentStatus,jdbcType=TINYINT},
       </if>
       <if test="evaluate != null">
         evaluate = #{evaluate,jdbcType=BIT},
       </if>
       <if test="totalAmount != null">
         total_amount = #{totalAmount,jdbcType=REAL},
+      </if>
+      <if test="freightCharge != null">
+        freight_charge = #{freightCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyOff != null">
+        money_off = #{moneyOff,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDeduction != null">
+        total_deduction = #{totalDeduction,jdbcType=DECIMAL},
       </if>
       <if test="totalCount != null">
         total_count = #{totalCount,jdbcType=INTEGER},
@@ -545,9 +578,6 @@
       </if>
       <if test="totalCoin != null">
         total_coin = #{totalCoin,jdbcType=INTEGER},
-      </if>
-      <if test="freightCharge != null">
-        freight_charge = #{freightCharge,jdbcType=DECIMAL},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -602,14 +632,16 @@
       address_id = #{addressId,jdbcType=INTEGER},
       pay_way = #{payWay,jdbcType=TINYINT},
       `source` = #{source,jdbcType=BIT},
-      current_status = #{currentStatus,jdbcType=TINYINT},
       pre_status = #{preStatus,jdbcType=TINYINT},
+      current_status = #{currentStatus,jdbcType=TINYINT},
       evaluate = #{evaluate,jdbcType=BIT},
       total_amount = #{totalAmount,jdbcType=REAL},
+      freight_charge = #{freightCharge,jdbcType=DECIMAL},
+      money_off = #{moneyOff,jdbcType=DECIMAL},
+      total_deduction = #{totalDeduction,jdbcType=DECIMAL},
       total_count = #{totalCount,jdbcType=INTEGER},
       total_point = #{totalPoint,jdbcType=INTEGER},
       total_coin = #{totalCoin,jdbcType=INTEGER},
-      freight_charge = #{freightCharge,jdbcType=DECIMAL},
       remark = #{remark,jdbcType=VARCHAR},
       trade_time = #{tradeTime,jdbcType=TIMESTAMP},
       payment_time = #{paymentTime,jdbcType=TIMESTAMP},

@@ -21,7 +21,6 @@
     <result column="child_point" jdbcType="INTEGER" property="childPoint" />
     <result column="sku_name" jdbcType="VARCHAR" property="skuName" />
     <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl" />
     <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
     <result column="spec_value" jdbcType="VARCHAR" property="specValue" />
     <result column="spec_name" jdbcType="VARCHAR" property="specName" />
@@ -29,6 +28,9 @@
     <result column="sku_id" jdbcType="BIGINT" property="skuId" />
     <result column="total_coin" jdbcType="INTEGER" property="totalCoin" />
     <result column="present_coin" jdbcType="INTEGER" property="presentCoin" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zsl.malluserdb.po.OrderList">
+    <result column="picture_url" jdbcType="LONGVARCHAR" property="pictureUrl" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -91,9 +93,28 @@
   <sql id="Base_Column_List">
     id, trade_no, member_id, current_status, trade_amount, trade_count, trade_point, 
     evaluate, freight_charge, trade_time, end_time, order_no, order_evaluate, current_state, 
-    child_amount, child_count, child_point, sku_name, price, picture_url, shop_name, 
-    spec_value, spec_name, shop_id, sku_id, total_coin, present_coin
+    child_amount, child_count, child_point, sku_name, price, shop_name, spec_value, spec_name, 
+    shop_id, sku_id, total_coin, present_coin
   </sql>
+  <sql id="Blob_Column_List">
+    picture_url
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.zsl.malluserdb.po.OrderListExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from order_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.OrderListExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -108,7 +129,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleSelective" parameterType="map" resultMap="BaseResultMap">
+  <select id="selectByExampleSelective" parameterType="map" resultMap="ResultMapWithBLOBs">
     select
     <if test="example.distinct">
       distinct
@@ -121,6 +142,8 @@
       </when>
       <otherwise>
         <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List" />
       </otherwise>
     </choose>
     from order_list
@@ -147,18 +170,18 @@
       end_time, order_no, order_evaluate, 
       current_state, child_amount, child_count, 
       child_point, sku_name, price, 
-      picture_url, shop_name, spec_value, 
-      spec_name, shop_id, sku_id, 
-      total_coin, present_coin)
+      shop_name, spec_value, spec_name, 
+      shop_id, sku_id, total_coin, 
+      present_coin, picture_url)
     values (#{tradeNo,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, #{currentStatus,jdbcType=TINYINT}, 
       #{tradeAmount,jdbcType=REAL}, #{tradeCount,jdbcType=INTEGER}, #{tradePoint,jdbcType=INTEGER}, 
       #{evaluate,jdbcType=BIT}, #{freightCharge,jdbcType=DECIMAL}, #{tradeTime,jdbcType=TIMESTAMP}, 
       #{endTime,jdbcType=TIMESTAMP}, #{orderNo,jdbcType=VARCHAR}, #{orderEvaluate,jdbcType=BIT}, 
       #{currentState,jdbcType=BIT}, #{childAmount,jdbcType=DECIMAL}, #{childCount,jdbcType=INTEGER}, 
       #{childPoint,jdbcType=INTEGER}, #{skuName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
-      #{pictureUrl,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{specValue,jdbcType=VARCHAR}, 
-      #{specName,jdbcType=VARCHAR}, #{shopId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, 
-      #{totalCoin,jdbcType=INTEGER}, #{presentCoin,jdbcType=INTEGER})
+      #{shopName,jdbcType=VARCHAR}, #{specValue,jdbcType=VARCHAR}, #{specName,jdbcType=VARCHAR}, 
+      #{shopId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{totalCoin,jdbcType=INTEGER}, 
+      #{presentCoin,jdbcType=INTEGER}, #{pictureUrl,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.OrderList">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -220,9 +243,6 @@
       <if test="price != null">
         price,
       </if>
-      <if test="pictureUrl != null">
-        picture_url,
-      </if>
       <if test="shopName != null">
         shop_name,
       </if>
@@ -243,6 +263,9 @@
       </if>
       <if test="presentCoin != null">
         present_coin,
+      </if>
+      <if test="pictureUrl != null">
+        picture_url,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -300,9 +323,6 @@
       <if test="price != null">
         #{price,jdbcType=DECIMAL},
       </if>
-      <if test="pictureUrl != null">
-        #{pictureUrl,jdbcType=VARCHAR},
-      </if>
       <if test="shopName != null">
         #{shopName,jdbcType=VARCHAR},
       </if>
@@ -323,6 +343,9 @@
       </if>
       <if test="presentCoin != null">
         #{presentCoin,jdbcType=INTEGER},
+      </if>
+      <if test="pictureUrl != null">
+        #{pictureUrl,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -392,9 +415,6 @@
       <if test="record.price != null">
         price = #{record.price,jdbcType=DECIMAL},
       </if>
-      <if test="record.pictureUrl != null">
-        picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
-      </if>
       <if test="record.shopName != null">
         shop_name = #{record.shopName,jdbcType=VARCHAR},
       </if>
@@ -416,7 +436,43 @@
       <if test="record.presentCoin != null">
         present_coin = #{record.presentCoin,jdbcType=INTEGER},
       </if>
+      <if test="record.pictureUrl != null">
+        picture_url = #{record.pictureUrl,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update order_list
+    set id = #{record.id,jdbcType=INTEGER},
+      trade_no = #{record.tradeNo,jdbcType=VARCHAR},
+      member_id = #{record.memberId,jdbcType=INTEGER},
+      current_status = #{record.currentStatus,jdbcType=TINYINT},
+      trade_amount = #{record.tradeAmount,jdbcType=REAL},
+      trade_count = #{record.tradeCount,jdbcType=INTEGER},
+      trade_point = #{record.tradePoint,jdbcType=INTEGER},
+      evaluate = #{record.evaluate,jdbcType=BIT},
+      freight_charge = #{record.freightCharge,jdbcType=DECIMAL},
+      trade_time = #{record.tradeTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      order_no = #{record.orderNo,jdbcType=VARCHAR},
+      order_evaluate = #{record.orderEvaluate,jdbcType=BIT},
+      current_state = #{record.currentState,jdbcType=BIT},
+      child_amount = #{record.childAmount,jdbcType=DECIMAL},
+      child_count = #{record.childCount,jdbcType=INTEGER},
+      child_point = #{record.childPoint,jdbcType=INTEGER},
+      sku_name = #{record.skuName,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      shop_name = #{record.shopName,jdbcType=VARCHAR},
+      spec_value = #{record.specValue,jdbcType=VARCHAR},
+      spec_name = #{record.specName,jdbcType=VARCHAR},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      sku_id = #{record.skuId,jdbcType=BIGINT},
+      total_coin = #{record.totalCoin,jdbcType=INTEGER},
+      present_coin = #{record.presentCoin,jdbcType=INTEGER},
+      picture_url = #{record.pictureUrl,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -442,7 +498,6 @@
       child_point = #{record.childPoint,jdbcType=INTEGER},
       sku_name = #{record.skuName,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=DECIMAL},
-      picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
       shop_name = #{record.shopName,jdbcType=VARCHAR},
       spec_value = #{record.specValue,jdbcType=VARCHAR},
       spec_name = #{record.specName,jdbcType=VARCHAR},
@@ -466,7 +521,21 @@
     </if>
     limit 1
   </select>
-  <select id="selectOneByExampleSelective" parameterType="map" resultMap="BaseResultMap">
+  <select id="selectOneByExampleWithBLOBs" parameterType="com.zsl.malluserdb.po.OrderListExample" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from order_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+  <select id="selectOneByExampleSelective" parameterType="map" resultMap="ResultMapWithBLOBs">
     select
     <choose>
       <when test="selective != null and selective.length > 0">
@@ -476,6 +545,8 @@
       </when>
       <otherwise>
         <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List" />
       </otherwise>
     </choose>
     from order_list

@@ -20,6 +20,8 @@ public class GoodsOrderDetail implements Serializable {
 
     private BigDecimal totalFreight;
 
+    private String freightInfo;
+
     private Integer presentCoin;
 
     private Boolean returned;
@@ -37,6 +39,10 @@ public class GoodsOrderDetail implements Serializable {
     private BigDecimal fatherMoney;
 
     private BigDecimal grandfatherMoney;
+
+    private BigDecimal deduction;
+
+    private BigDecimal deductionGoodsAmount;
 
     private static final long serialVersionUID = 1L;
 
@@ -94,6 +100,14 @@ public class GoodsOrderDetail implements Serializable {
 
     public void setTotalFreight(BigDecimal totalFreight) {
         this.totalFreight = totalFreight;
+    }
+
+    public String getFreightInfo() {
+        return freightInfo;
+    }
+
+    public void setFreightInfo(String freightInfo) {
+        this.freightInfo = freightInfo == null ? null : freightInfo.trim();
     }
 
     public Integer getPresentCoin() {
@@ -168,6 +182,22 @@ public class GoodsOrderDetail implements Serializable {
         this.grandfatherMoney = grandfatherMoney;
     }
 
+    public BigDecimal getDeduction() {
+        return deduction;
+    }
+
+    public void setDeduction(BigDecimal deduction) {
+        this.deduction = deduction;
+    }
+
+    public BigDecimal getDeductionGoodsAmount() {
+        return deductionGoodsAmount;
+    }
+
+    public void setDeductionGoodsAmount(BigDecimal deductionGoodsAmount) {
+        this.deductionGoodsAmount = deductionGoodsAmount;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -181,6 +211,7 @@ public class GoodsOrderDetail implements Serializable {
         sb.append(", totalCount=").append(totalCount);
         sb.append(", totalPoint=").append(totalPoint);
         sb.append(", totalFreight=").append(totalFreight);
+        sb.append(", freightInfo=").append(freightInfo);
         sb.append(", presentCoin=").append(presentCoin);
         sb.append(", returned=").append(returned);
         sb.append(", surplusValidCount=").append(surplusValidCount);
@@ -190,6 +221,8 @@ public class GoodsOrderDetail implements Serializable {
         sb.append(", presentMoney=").append(presentMoney);
         sb.append(", fatherMoney=").append(fatherMoney);
         sb.append(", grandfatherMoney=").append(grandfatherMoney);
+        sb.append(", deduction=").append(deduction);
+        sb.append(", deductionGoodsAmount=").append(deductionGoodsAmount);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -214,6 +247,7 @@ public class GoodsOrderDetail implements Serializable {
             && (this.getTotalCount() == null ? other.getTotalCount() == null : this.getTotalCount().equals(other.getTotalCount()))
             && (this.getTotalPoint() == null ? other.getTotalPoint() == null : this.getTotalPoint().equals(other.getTotalPoint()))
             && (this.getTotalFreight() == null ? other.getTotalFreight() == null : this.getTotalFreight().equals(other.getTotalFreight()))
+            && (this.getFreightInfo() == null ? other.getFreightInfo() == null : this.getFreightInfo().equals(other.getFreightInfo()))
             && (this.getPresentCoin() == null ? other.getPresentCoin() == null : this.getPresentCoin().equals(other.getPresentCoin()))
             && (this.getReturned() == null ? other.getReturned() == null : this.getReturned().equals(other.getReturned()))
             && (this.getSurplusValidCount() == null ? other.getSurplusValidCount() == null : this.getSurplusValidCount().equals(other.getSurplusValidCount()))
@@ -222,7 +256,9 @@ public class GoodsOrderDetail implements Serializable {
             && (this.getGoodsSpec() == null ? other.getGoodsSpec() == null : this.getGoodsSpec().equals(other.getGoodsSpec()))
             && (this.getPresentMoney() == null ? other.getPresentMoney() == null : this.getPresentMoney().equals(other.getPresentMoney()))
             && (this.getFatherMoney() == null ? other.getFatherMoney() == null : this.getFatherMoney().equals(other.getFatherMoney()))
-            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()));
+            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()))
+            && (this.getDeduction() == null ? other.getDeduction() == null : this.getDeduction().equals(other.getDeduction()))
+            && (this.getDeductionGoodsAmount() == null ? other.getDeductionGoodsAmount() == null : this.getDeductionGoodsAmount().equals(other.getDeductionGoodsAmount()));
     }
 
     @Override
@@ -236,6 +272,7 @@ public class GoodsOrderDetail implements Serializable {
         result = prime * result + ((getTotalCount() == null) ? 0 : getTotalCount().hashCode());
         result = prime * result + ((getTotalPoint() == null) ? 0 : getTotalPoint().hashCode());
         result = prime * result + ((getTotalFreight() == null) ? 0 : getTotalFreight().hashCode());
+        result = prime * result + ((getFreightInfo() == null) ? 0 : getFreightInfo().hashCode());
         result = prime * result + ((getPresentCoin() == null) ? 0 : getPresentCoin().hashCode());
         result = prime * result + ((getReturned() == null) ? 0 : getReturned().hashCode());
         result = prime * result + ((getSurplusValidCount() == null) ? 0 : getSurplusValidCount().hashCode());
@@ -245,6 +282,8 @@ public class GoodsOrderDetail implements Serializable {
         result = prime * result + ((getPresentMoney() == null) ? 0 : getPresentMoney().hashCode());
         result = prime * result + ((getFatherMoney() == null) ? 0 : getFatherMoney().hashCode());
         result = prime * result + ((getGrandfatherMoney() == null) ? 0 : getGrandfatherMoney().hashCode());
+        result = prime * result + ((getDeduction() == null) ? 0 : getDeduction().hashCode());
+        result = prime * result + ((getDeductionGoodsAmount() == null) ? 0 : getDeductionGoodsAmount().hashCode());
         return result;
     }
 
@@ -256,6 +295,7 @@ public class GoodsOrderDetail implements Serializable {
         totalCount("total_count", "totalCount", "INTEGER", false),
         totalPoint("total_point", "totalPoint", "INTEGER", false),
         totalFreight("total_freight", "totalFreight", "DECIMAL", false),
+        freightInfo("freight_info", "freightInfo", "VARCHAR", false),
         presentCoin("present_coin", "presentCoin", "INTEGER", false),
         returned("returned", "returned", "BIT", false),
         surplusValidCount("surplus_valid_count", "surplusValidCount", "INTEGER", false),
@@ -264,7 +304,9 @@ public class GoodsOrderDetail implements Serializable {
         goodsSpec("goods_spec", "goodsSpec", "VARCHAR", false),
         presentMoney("present_money", "presentMoney", "DECIMAL", false),
         fatherMoney("father_money", "fatherMoney", "DECIMAL", false),
-        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false);
+        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false),
+        deduction("deduction", "deduction", "DECIMAL", false),
+        deductionGoodsAmount("deduction_goods_amount", "deductionGoodsAmount", "DECIMAL", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

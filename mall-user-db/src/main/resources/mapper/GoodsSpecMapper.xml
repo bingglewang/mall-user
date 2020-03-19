@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.zsl.malluserdb.po.GoodsSpec">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="spec_no" jdbcType="VARCHAR" property="specNo" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
     <result column="spec_name" jdbcType="VARCHAR" property="specName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, spec_no, spec_name, create_time, update_time
+    id, spec_no, spu_id, spec_name, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsSpecExample" resultMap="BaseResultMap">
     select
@@ -141,10 +142,10 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into goods_spec (spec_no, spec_name, create_time, 
-      update_time)
-    values (#{specNo,jdbcType=VARCHAR}, #{specName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    insert into goods_spec (spec_no, spu_id, spec_name, 
+      create_time, update_time)
+    values (#{specNo,jdbcType=VARCHAR}, #{spuId,jdbcType=BIGINT}, #{specName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsSpec">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -154,6 +155,9 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="specNo != null">
         spec_no,
+      </if>
+      <if test="spuId != null">
+        spu_id,
       </if>
       <if test="specName != null">
         spec_name,
@@ -168,6 +172,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="specNo != null">
         #{specNo,jdbcType=VARCHAR},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
       </if>
       <if test="specName != null">
         #{specName,jdbcType=VARCHAR},
@@ -195,6 +202,9 @@
       <if test="record.specNo != null">
         spec_no = #{record.specNo,jdbcType=VARCHAR},
       </if>
+      <if test="record.spuId != null">
+        spu_id = #{record.spuId,jdbcType=BIGINT},
+      </if>
       <if test="record.specName != null">
         spec_name = #{record.specName,jdbcType=VARCHAR},
       </if>
@@ -213,6 +223,7 @@
     update goods_spec
     set id = #{record.id,jdbcType=BIGINT},
       spec_no = #{record.specNo,jdbcType=VARCHAR},
+      spu_id = #{record.spuId,jdbcType=BIGINT},
       spec_name = #{record.specName,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -225,6 +236,9 @@
     <set>
       <if test="specNo != null">
         spec_no = #{specNo,jdbcType=VARCHAR},
+      </if>
+      <if test="spuId != null">
+        spu_id = #{spuId,jdbcType=BIGINT},
       </if>
       <if test="specName != null">
         spec_name = #{specName,jdbcType=VARCHAR},
@@ -241,6 +255,7 @@
   <update id="updateByPrimaryKey" parameterType="com.zsl.malluserdb.po.GoodsSpec">
     update goods_spec
     set spec_no = #{specNo,jdbcType=VARCHAR},
+      spu_id = #{spuId,jdbcType=BIGINT},
       spec_name = #{specName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

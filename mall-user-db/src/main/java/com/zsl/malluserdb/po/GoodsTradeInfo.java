@@ -21,21 +21,25 @@ public class GoodsTradeInfo implements Serializable {
 
     private Boolean source;
 
-    private Byte currentStatus;
-
     private Byte preStatus;
+
+    private Byte currentStatus;
 
     private Boolean evaluate;
 
     private Float totalAmount;
+
+    private BigDecimal freightCharge;
+
+    private BigDecimal moneyOff;
+
+    private BigDecimal totalDeduction;
 
     private Integer totalCount;
 
     private Integer totalPoint;
 
     private Integer totalCoin;
-
-    private BigDecimal freightCharge;
 
     private String remark;
 
@@ -123,20 +127,20 @@ public class GoodsTradeInfo implements Serializable {
         this.source = source;
     }
 
-    public Byte getCurrentStatus() {
-        return currentStatus;
-    }
-
-    public void setCurrentStatus(Byte currentStatus) {
-        this.currentStatus = currentStatus;
-    }
-
     public Byte getPreStatus() {
         return preStatus;
     }
 
     public void setPreStatus(Byte preStatus) {
         this.preStatus = preStatus;
+    }
+
+    public Byte getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(Byte currentStatus) {
+        this.currentStatus = currentStatus;
     }
 
     public Boolean getEvaluate() {
@@ -153,6 +157,30 @@ public class GoodsTradeInfo implements Serializable {
 
     public void setTotalAmount(Float totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public BigDecimal getFreightCharge() {
+        return freightCharge;
+    }
+
+    public void setFreightCharge(BigDecimal freightCharge) {
+        this.freightCharge = freightCharge;
+    }
+
+    public BigDecimal getMoneyOff() {
+        return moneyOff;
+    }
+
+    public void setMoneyOff(BigDecimal moneyOff) {
+        this.moneyOff = moneyOff;
+    }
+
+    public BigDecimal getTotalDeduction() {
+        return totalDeduction;
+    }
+
+    public void setTotalDeduction(BigDecimal totalDeduction) {
+        this.totalDeduction = totalDeduction;
     }
 
     public Integer getTotalCount() {
@@ -177,14 +205,6 @@ public class GoodsTradeInfo implements Serializable {
 
     public void setTotalCoin(Integer totalCoin) {
         this.totalCoin = totalCoin;
-    }
-
-    public BigDecimal getFreightCharge() {
-        return freightCharge;
-    }
-
-    public void setFreightCharge(BigDecimal freightCharge) {
-        this.freightCharge = freightCharge;
     }
 
     public String getRemark() {
@@ -312,14 +332,16 @@ public class GoodsTradeInfo implements Serializable {
         sb.append(", addressId=").append(addressId);
         sb.append(", payWay=").append(payWay);
         sb.append(", source=").append(source);
-        sb.append(", currentStatus=").append(currentStatus);
         sb.append(", preStatus=").append(preStatus);
+        sb.append(", currentStatus=").append(currentStatus);
         sb.append(", evaluate=").append(evaluate);
         sb.append(", totalAmount=").append(totalAmount);
+        sb.append(", freightCharge=").append(freightCharge);
+        sb.append(", moneyOff=").append(moneyOff);
+        sb.append(", totalDeduction=").append(totalDeduction);
         sb.append(", totalCount=").append(totalCount);
         sb.append(", totalPoint=").append(totalPoint);
         sb.append(", totalCoin=").append(totalCoin);
-        sb.append(", freightCharge=").append(freightCharge);
         sb.append(", remark=").append(remark);
         sb.append(", tradeTime=").append(tradeTime);
         sb.append(", paymentTime=").append(paymentTime);
@@ -358,14 +380,16 @@ public class GoodsTradeInfo implements Serializable {
             && (this.getAddressId() == null ? other.getAddressId() == null : this.getAddressId().equals(other.getAddressId()))
             && (this.getPayWay() == null ? other.getPayWay() == null : this.getPayWay().equals(other.getPayWay()))
             && (this.getSource() == null ? other.getSource() == null : this.getSource().equals(other.getSource()))
-            && (this.getCurrentStatus() == null ? other.getCurrentStatus() == null : this.getCurrentStatus().equals(other.getCurrentStatus()))
             && (this.getPreStatus() == null ? other.getPreStatus() == null : this.getPreStatus().equals(other.getPreStatus()))
+            && (this.getCurrentStatus() == null ? other.getCurrentStatus() == null : this.getCurrentStatus().equals(other.getCurrentStatus()))
             && (this.getEvaluate() == null ? other.getEvaluate() == null : this.getEvaluate().equals(other.getEvaluate()))
             && (this.getTotalAmount() == null ? other.getTotalAmount() == null : this.getTotalAmount().equals(other.getTotalAmount()))
+            && (this.getFreightCharge() == null ? other.getFreightCharge() == null : this.getFreightCharge().equals(other.getFreightCharge()))
+            && (this.getMoneyOff() == null ? other.getMoneyOff() == null : this.getMoneyOff().equals(other.getMoneyOff()))
+            && (this.getTotalDeduction() == null ? other.getTotalDeduction() == null : this.getTotalDeduction().equals(other.getTotalDeduction()))
             && (this.getTotalCount() == null ? other.getTotalCount() == null : this.getTotalCount().equals(other.getTotalCount()))
             && (this.getTotalPoint() == null ? other.getTotalPoint() == null : this.getTotalPoint().equals(other.getTotalPoint()))
             && (this.getTotalCoin() == null ? other.getTotalCoin() == null : this.getTotalCoin().equals(other.getTotalCoin()))
-            && (this.getFreightCharge() == null ? other.getFreightCharge() == null : this.getFreightCharge().equals(other.getFreightCharge()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getTradeTime() == null ? other.getTradeTime() == null : this.getTradeTime().equals(other.getTradeTime()))
             && (this.getPaymentTime() == null ? other.getPaymentTime() == null : this.getPaymentTime().equals(other.getPaymentTime()))
@@ -393,14 +417,16 @@ public class GoodsTradeInfo implements Serializable {
         result = prime * result + ((getAddressId() == null) ? 0 : getAddressId().hashCode());
         result = prime * result + ((getPayWay() == null) ? 0 : getPayWay().hashCode());
         result = prime * result + ((getSource() == null) ? 0 : getSource().hashCode());
-        result = prime * result + ((getCurrentStatus() == null) ? 0 : getCurrentStatus().hashCode());
         result = prime * result + ((getPreStatus() == null) ? 0 : getPreStatus().hashCode());
+        result = prime * result + ((getCurrentStatus() == null) ? 0 : getCurrentStatus().hashCode());
         result = prime * result + ((getEvaluate() == null) ? 0 : getEvaluate().hashCode());
         result = prime * result + ((getTotalAmount() == null) ? 0 : getTotalAmount().hashCode());
+        result = prime * result + ((getFreightCharge() == null) ? 0 : getFreightCharge().hashCode());
+        result = prime * result + ((getMoneyOff() == null) ? 0 : getMoneyOff().hashCode());
+        result = prime * result + ((getTotalDeduction() == null) ? 0 : getTotalDeduction().hashCode());
         result = prime * result + ((getTotalCount() == null) ? 0 : getTotalCount().hashCode());
         result = prime * result + ((getTotalPoint() == null) ? 0 : getTotalPoint().hashCode());
         result = prime * result + ((getTotalCoin() == null) ? 0 : getTotalCoin().hashCode());
-        result = prime * result + ((getFreightCharge() == null) ? 0 : getFreightCharge().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getTradeTime() == null) ? 0 : getTradeTime().hashCode());
         result = prime * result + ((getPaymentTime() == null) ? 0 : getPaymentTime().hashCode());
@@ -426,14 +452,16 @@ public class GoodsTradeInfo implements Serializable {
         addressId("address_id", "addressId", "INTEGER", false),
         payWay("pay_way", "payWay", "TINYINT", false),
         source("source", "source", "BIT", true),
-        currentStatus("current_status", "currentStatus", "TINYINT", false),
         preStatus("pre_status", "preStatus", "TINYINT", false),
+        currentStatus("current_status", "currentStatus", "TINYINT", false),
         evaluate("evaluate", "evaluate", "BIT", false),
         totalAmount("total_amount", "totalAmount", "REAL", false),
+        freightCharge("freight_charge", "freightCharge", "DECIMAL", false),
+        moneyOff("money_off", "moneyOff", "DECIMAL", false),
+        totalDeduction("total_deduction", "totalDeduction", "DECIMAL", false),
         totalCount("total_count", "totalCount", "INTEGER", false),
         totalPoint("total_point", "totalPoint", "INTEGER", false),
         totalCoin("total_coin", "totalCoin", "INTEGER", false),
-        freightCharge("freight_charge", "freightCharge", "DECIMAL", false),
         remark("remark", "remark", "VARCHAR", false),
         tradeTime("trade_time", "tradeTime", "TIMESTAMP", false),
         paymentTime("payment_time", "paymentTime", "TIMESTAMP", false),

@@ -45,8 +45,6 @@ public class OrderList implements Serializable {
 
     private BigDecimal price;
 
-    private String pictureUrl;
-
     private String shopName;
 
     private String specValue;
@@ -60,6 +58,8 @@ public class OrderList implements Serializable {
     private Integer totalCoin;
 
     private Integer presentCoin;
+
+    private String pictureUrl;
 
     private static final long serialVersionUID = 1L;
 
@@ -215,14 +215,6 @@ public class OrderList implements Serializable {
         this.price = price;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
-    }
-
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl == null ? null : pictureUrl.trim();
-    }
-
     public String getShopName() {
         return shopName;
     }
@@ -279,6 +271,14 @@ public class OrderList implements Serializable {
         this.presentCoin = presentCoin;
     }
 
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl == null ? null : pictureUrl.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -304,7 +304,6 @@ public class OrderList implements Serializable {
         sb.append(", childPoint=").append(childPoint);
         sb.append(", skuName=").append(skuName);
         sb.append(", price=").append(price);
-        sb.append(", pictureUrl=").append(pictureUrl);
         sb.append(", shopName=").append(shopName);
         sb.append(", specValue=").append(specValue);
         sb.append(", specName=").append(specName);
@@ -312,6 +311,7 @@ public class OrderList implements Serializable {
         sb.append(", skuId=").append(skuId);
         sb.append(", totalCoin=").append(totalCoin);
         sb.append(", presentCoin=").append(presentCoin);
+        sb.append(", pictureUrl=").append(pictureUrl);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -348,14 +348,14 @@ public class OrderList implements Serializable {
             && (this.getChildPoint() == null ? other.getChildPoint() == null : this.getChildPoint().equals(other.getChildPoint()))
             && (this.getSkuName() == null ? other.getSkuName() == null : this.getSkuName().equals(other.getSkuName()))
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-            && (this.getPictureUrl() == null ? other.getPictureUrl() == null : this.getPictureUrl().equals(other.getPictureUrl()))
             && (this.getShopName() == null ? other.getShopName() == null : this.getShopName().equals(other.getShopName()))
             && (this.getSpecValue() == null ? other.getSpecValue() == null : this.getSpecValue().equals(other.getSpecValue()))
             && (this.getSpecName() == null ? other.getSpecName() == null : this.getSpecName().equals(other.getSpecName()))
             && (this.getShopId() == null ? other.getShopId() == null : this.getShopId().equals(other.getShopId()))
             && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
             && (this.getTotalCoin() == null ? other.getTotalCoin() == null : this.getTotalCoin().equals(other.getTotalCoin()))
-            && (this.getPresentCoin() == null ? other.getPresentCoin() == null : this.getPresentCoin().equals(other.getPresentCoin()));
+            && (this.getPresentCoin() == null ? other.getPresentCoin() == null : this.getPresentCoin().equals(other.getPresentCoin()))
+            && (this.getPictureUrl() == null ? other.getPictureUrl() == null : this.getPictureUrl().equals(other.getPictureUrl()));
     }
 
     @Override
@@ -381,7 +381,6 @@ public class OrderList implements Serializable {
         result = prime * result + ((getChildPoint() == null) ? 0 : getChildPoint().hashCode());
         result = prime * result + ((getSkuName() == null) ? 0 : getSkuName().hashCode());
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
-        result = prime * result + ((getPictureUrl() == null) ? 0 : getPictureUrl().hashCode());
         result = prime * result + ((getShopName() == null) ? 0 : getShopName().hashCode());
         result = prime * result + ((getSpecValue() == null) ? 0 : getSpecValue().hashCode());
         result = prime * result + ((getSpecName() == null) ? 0 : getSpecName().hashCode());
@@ -389,6 +388,7 @@ public class OrderList implements Serializable {
         result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
         result = prime * result + ((getTotalCoin() == null) ? 0 : getTotalCoin().hashCode());
         result = prime * result + ((getPresentCoin() == null) ? 0 : getPresentCoin().hashCode());
+        result = prime * result + ((getPictureUrl() == null) ? 0 : getPictureUrl().hashCode());
         return result;
     }
 
@@ -412,14 +412,14 @@ public class OrderList implements Serializable {
         childPoint("child_point", "childPoint", "INTEGER", false),
         skuName("sku_name", "skuName", "VARCHAR", false),
         price("price", "price", "DECIMAL", false),
-        pictureUrl("picture_url", "pictureUrl", "VARCHAR", false),
         shopName("shop_name", "shopName", "VARCHAR", false),
         specValue("spec_value", "specValue", "VARCHAR", false),
         specName("spec_name", "specName", "VARCHAR", false),
         shopId("shop_id", "shopId", "BIGINT", false),
         skuId("sku_id", "skuId", "BIGINT", false),
         totalCoin("total_coin", "totalCoin", "INTEGER", false),
-        presentCoin("present_coin", "presentCoin", "INTEGER", false);
+        presentCoin("present_coin", "presentCoin", "INTEGER", false),
+        pictureUrl("picture_url", "pictureUrl", "LONGVARCHAR", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

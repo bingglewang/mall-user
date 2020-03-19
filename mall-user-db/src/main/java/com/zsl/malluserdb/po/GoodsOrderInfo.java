@@ -1,8 +1,10 @@
 package com.zsl.malluserdb.po;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class GoodsOrderInfo implements Serializable {
     private Integer id;
@@ -21,7 +23,13 @@ public class GoodsOrderInfo implements Serializable {
 
     private String trackingNumber;
 
+    private Date shippingTime;
+
     private Boolean orderEvaluate;
+
+    private BigDecimal shopFreight;
+
+    private Integer freightTemplateType;
 
     private static final long serialVersionUID = 1L;
 
@@ -89,12 +97,36 @@ public class GoodsOrderInfo implements Serializable {
         this.trackingNumber = trackingNumber == null ? null : trackingNumber.trim();
     }
 
+    public Date getShippingTime() {
+        return shippingTime;
+    }
+
+    public void setShippingTime(Date shippingTime) {
+        this.shippingTime = shippingTime;
+    }
+
     public Boolean getOrderEvaluate() {
         return orderEvaluate;
     }
 
     public void setOrderEvaluate(Boolean orderEvaluate) {
         this.orderEvaluate = orderEvaluate;
+    }
+
+    public BigDecimal getShopFreight() {
+        return shopFreight;
+    }
+
+    public void setShopFreight(BigDecimal shopFreight) {
+        this.shopFreight = shopFreight;
+    }
+
+    public Integer getFreightTemplateType() {
+        return freightTemplateType;
+    }
+
+    public void setFreightTemplateType(Integer freightTemplateType) {
+        this.freightTemplateType = freightTemplateType;
     }
 
     @Override
@@ -111,7 +143,10 @@ public class GoodsOrderInfo implements Serializable {
         sb.append(", currentState=").append(currentState);
         sb.append(", trackingCompanyId=").append(trackingCompanyId);
         sb.append(", trackingNumber=").append(trackingNumber);
+        sb.append(", shippingTime=").append(shippingTime);
         sb.append(", orderEvaluate=").append(orderEvaluate);
+        sb.append(", shopFreight=").append(shopFreight);
+        sb.append(", freightTemplateType=").append(freightTemplateType);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -137,7 +172,10 @@ public class GoodsOrderInfo implements Serializable {
             && (this.getCurrentState() == null ? other.getCurrentState() == null : this.getCurrentState().equals(other.getCurrentState()))
             && (this.getTrackingCompanyId() == null ? other.getTrackingCompanyId() == null : this.getTrackingCompanyId().equals(other.getTrackingCompanyId()))
             && (this.getTrackingNumber() == null ? other.getTrackingNumber() == null : this.getTrackingNumber().equals(other.getTrackingNumber()))
-            && (this.getOrderEvaluate() == null ? other.getOrderEvaluate() == null : this.getOrderEvaluate().equals(other.getOrderEvaluate()));
+            && (this.getShippingTime() == null ? other.getShippingTime() == null : this.getShippingTime().equals(other.getShippingTime()))
+            && (this.getOrderEvaluate() == null ? other.getOrderEvaluate() == null : this.getOrderEvaluate().equals(other.getOrderEvaluate()))
+            && (this.getShopFreight() == null ? other.getShopFreight() == null : this.getShopFreight().equals(other.getShopFreight()))
+            && (this.getFreightTemplateType() == null ? other.getFreightTemplateType() == null : this.getFreightTemplateType().equals(other.getFreightTemplateType()));
     }
 
     @Override
@@ -152,7 +190,10 @@ public class GoodsOrderInfo implements Serializable {
         result = prime * result + ((getCurrentState() == null) ? 0 : getCurrentState().hashCode());
         result = prime * result + ((getTrackingCompanyId() == null) ? 0 : getTrackingCompanyId().hashCode());
         result = prime * result + ((getTrackingNumber() == null) ? 0 : getTrackingNumber().hashCode());
+        result = prime * result + ((getShippingTime() == null) ? 0 : getShippingTime().hashCode());
         result = prime * result + ((getOrderEvaluate() == null) ? 0 : getOrderEvaluate().hashCode());
+        result = prime * result + ((getShopFreight() == null) ? 0 : getShopFreight().hashCode());
+        result = prime * result + ((getFreightTemplateType() == null) ? 0 : getFreightTemplateType().hashCode());
         return result;
     }
 
@@ -165,7 +206,10 @@ public class GoodsOrderInfo implements Serializable {
         currentState("current_state", "currentState", "BIT", false),
         trackingCompanyId("tracking_company_id", "trackingCompanyId", "INTEGER", false),
         trackingNumber("tracking_number", "trackingNumber", "VARCHAR", false),
-        orderEvaluate("order_evaluate", "orderEvaluate", "BIT", false);
+        shippingTime("shipping_time", "shippingTime", "TIMESTAMP", false),
+        orderEvaluate("order_evaluate", "orderEvaluate", "BIT", false),
+        shopFreight("shop_freight", "shopFreight", "DECIMAL", false),
+        freightTemplateType("freight_template_type", "freightTemplateType", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 
