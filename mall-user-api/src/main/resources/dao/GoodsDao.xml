@@ -32,7 +32,9 @@
         select min(price) from goods_sku where spu_id = #{id}
     </select>
     <select id="selectTotalSal" resultType="java.lang.Integer">
-        select sum(sales_volume) from goods_sku where spu_id = #{id}
+        select if(spu.show_sales > -1 ,spu.show_sales, sum(sku.sales_volume)) totalSales from goods_sku sku
+        LEFT JOIN goods_spu spu on spu.id = sku.spu_id
+        where spu_id = #{id}
     </select>
     <select id="selectMinGiftPoint" resultType="java.math.BigDecimal">
         select min(gift_point) from goods_sku where spu_id = #{id}
