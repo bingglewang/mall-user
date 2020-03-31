@@ -33,6 +33,8 @@
     <result column="present_money" jdbcType="DECIMAL" property="presentMoney" />
     <result column="father_money" jdbcType="DECIMAL" property="fatherMoney" />
     <result column="grandfather_money" jdbcType="DECIMAL" property="grandfatherMoney" />
+    <result column="father_coin" jdbcType="INTEGER" property="fatherCoin" />
+    <result column="grandfather_coin" jdbcType="INTEGER" property="grandfatherCoin" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -97,7 +99,8 @@
     current_status, evaluate, total_amount, freight_charge, money_off, total_deduction, 
     total_count, total_point, total_coin, remark, trade_time, payment_time, finish_time, 
     end_time, shipments_time, hidden, recipients, recipients_phone, shipping_address, 
-    shipping_address_detail, present_money, father_money, grandfather_money
+    shipping_address_detail, present_money, father_money, grandfather_money, father_coin, 
+    grandfather_coin
   </sql>
   <select id="selectByExample" parameterType="com.zsl.malluserdb.po.GoodsTradeInfoExample" resultMap="BaseResultMap">
     select
@@ -180,8 +183,8 @@
       payment_time, finish_time, end_time, 
       shipments_time, hidden, recipients, 
       recipients_phone, shipping_address, shipping_address_detail, 
-      present_money, father_money, grandfather_money
-      )
+      present_money, father_money, grandfather_money, 
+      father_coin, grandfather_coin)
     values (#{tradeNo,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
       #{addressId,jdbcType=INTEGER}, #{payWay,jdbcType=TINYINT}, #{source,jdbcType=BIT}, 
       #{preStatus,jdbcType=TINYINT}, #{currentStatus,jdbcType=TINYINT}, #{evaluate,jdbcType=BIT}, 
@@ -191,8 +194,8 @@
       #{paymentTime,jdbcType=TIMESTAMP}, #{finishTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{shipmentsTime,jdbcType=TIMESTAMP}, #{hidden,jdbcType=BIT}, #{recipients,jdbcType=VARCHAR}, 
       #{recipientsPhone,jdbcType=VARCHAR}, #{shippingAddress,jdbcType=VARCHAR}, #{shippingAddressDetail,jdbcType=VARCHAR}, 
-      #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, #{grandfatherMoney,jdbcType=DECIMAL}
-      )
+      #{presentMoney,jdbcType=DECIMAL}, #{fatherMoney,jdbcType=DECIMAL}, #{grandfatherMoney,jdbcType=DECIMAL}, 
+      #{fatherCoin,jdbcType=INTEGER}, #{grandfatherCoin,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zsl.malluserdb.po.GoodsTradeInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -290,6 +293,12 @@
       <if test="grandfatherMoney != null">
         grandfather_money,
       </if>
+      <if test="fatherCoin != null">
+        father_coin,
+      </if>
+      <if test="grandfatherCoin != null">
+        grandfather_coin,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="tradeNo != null">
@@ -381,6 +390,12 @@
       </if>
       <if test="grandfatherMoney != null">
         #{grandfatherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fatherCoin != null">
+        #{fatherCoin,jdbcType=INTEGER},
+      </if>
+      <if test="grandfatherCoin != null">
+        #{grandfatherCoin,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -486,6 +501,12 @@
       <if test="record.grandfatherMoney != null">
         grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
       </if>
+      <if test="record.fatherCoin != null">
+        father_coin = #{record.fatherCoin,jdbcType=INTEGER},
+      </if>
+      <if test="record.grandfatherCoin != null">
+        grandfather_coin = #{record.grandfatherCoin,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -523,7 +544,9 @@
       shipping_address_detail = #{record.shippingAddressDetail,jdbcType=VARCHAR},
       present_money = #{record.presentMoney,jdbcType=DECIMAL},
       father_money = #{record.fatherMoney,jdbcType=DECIMAL},
-      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL}
+      grandfather_money = #{record.grandfatherMoney,jdbcType=DECIMAL},
+      father_coin = #{record.fatherCoin,jdbcType=INTEGER},
+      grandfather_coin = #{record.grandfatherCoin,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -621,6 +644,12 @@
       <if test="grandfatherMoney != null">
         grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
       </if>
+      <if test="fatherCoin != null">
+        father_coin = #{fatherCoin,jdbcType=INTEGER},
+      </if>
+      <if test="grandfatherCoin != null">
+        grandfather_coin = #{grandfatherCoin,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -655,7 +684,9 @@
       shipping_address_detail = #{shippingAddressDetail,jdbcType=VARCHAR},
       present_money = #{presentMoney,jdbcType=DECIMAL},
       father_money = #{fatherMoney,jdbcType=DECIMAL},
-      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL}
+      grandfather_money = #{grandfatherMoney,jdbcType=DECIMAL},
+      father_coin = #{fatherCoin,jdbcType=INTEGER},
+      grandfather_coin = #{grandfatherCoin,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectOneByExample" parameterType="com.zsl.malluserdb.po.GoodsTradeInfoExample" resultMap="BaseResultMap">

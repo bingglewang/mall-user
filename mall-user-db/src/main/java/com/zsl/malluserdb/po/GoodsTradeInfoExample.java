@@ -3003,6 +3003,186 @@ public class GoodsTradeInfoExample {
             addCriterion("grandfather_money not between", value1, value2, "grandfatherMoney");
             return (Criteria) this;
         }
+
+        public Criteria andFatherCoinIsNull() {
+            addCriterion("father_coin is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinIsNotNull() {
+            addCriterion("father_coin is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinEqualTo(Integer value) {
+            addCriterion("father_coin =", value, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("father_coin = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinNotEqualTo(Integer value) {
+            addCriterion("father_coin <>", value, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinNotEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("father_coin <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinGreaterThan(Integer value) {
+            addCriterion("father_coin >", value, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinGreaterThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("father_coin > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinGreaterThanOrEqualTo(Integer value) {
+            addCriterion("father_coin >=", value, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("father_coin >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinLessThan(Integer value) {
+            addCriterion("father_coin <", value, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinLessThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("father_coin < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinLessThanOrEqualTo(Integer value) {
+            addCriterion("father_coin <=", value, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("father_coin <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinIn(List<Integer> values) {
+            addCriterion("father_coin in", values, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinNotIn(List<Integer> values) {
+            addCriterion("father_coin not in", values, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinBetween(Integer value1, Integer value2) {
+            addCriterion("father_coin between", value1, value2, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andFatherCoinNotBetween(Integer value1, Integer value2) {
+            addCriterion("father_coin not between", value1, value2, "fatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinIsNull() {
+            addCriterion("grandfather_coin is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinIsNotNull() {
+            addCriterion("grandfather_coin is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinEqualTo(Integer value) {
+            addCriterion("grandfather_coin =", value, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("grandfather_coin = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinNotEqualTo(Integer value) {
+            addCriterion("grandfather_coin <>", value, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinNotEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("grandfather_coin <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinGreaterThan(Integer value) {
+            addCriterion("grandfather_coin >", value, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinGreaterThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("grandfather_coin > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinGreaterThanOrEqualTo(Integer value) {
+            addCriterion("grandfather_coin >=", value, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinGreaterThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("grandfather_coin >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinLessThan(Integer value) {
+            addCriterion("grandfather_coin <", value, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinLessThanColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("grandfather_coin < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinLessThanOrEqualTo(Integer value) {
+            addCriterion("grandfather_coin <=", value, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinLessThanOrEqualToColumn(GoodsTradeInfo.Column column) {
+            addCriterion(new StringBuilder("grandfather_coin <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinIn(List<Integer> values) {
+            addCriterion("grandfather_coin in", values, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinNotIn(List<Integer> values) {
+            addCriterion("grandfather_coin not in", values, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinBetween(Integer value1, Integer value2) {
+            addCriterion("grandfather_coin between", value1, value2, "grandfatherCoin");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrandfatherCoinNotBetween(Integer value1, Integer value2) {
+            addCriterion("grandfather_coin not between", value1, value2, "grandfatherCoin");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -69,6 +69,10 @@ public class GoodsTradeInfo implements Serializable {
 
     private BigDecimal grandfatherMoney;
 
+    private Integer fatherCoin;
+
+    private Integer grandfatherCoin;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -319,6 +323,22 @@ public class GoodsTradeInfo implements Serializable {
         this.grandfatherMoney = grandfatherMoney;
     }
 
+    public Integer getFatherCoin() {
+        return fatherCoin;
+    }
+
+    public void setFatherCoin(Integer fatherCoin) {
+        this.fatherCoin = fatherCoin;
+    }
+
+    public Integer getGrandfatherCoin() {
+        return grandfatherCoin;
+    }
+
+    public void setGrandfatherCoin(Integer grandfatherCoin) {
+        this.grandfatherCoin = grandfatherCoin;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -356,6 +376,8 @@ public class GoodsTradeInfo implements Serializable {
         sb.append(", presentMoney=").append(presentMoney);
         sb.append(", fatherMoney=").append(fatherMoney);
         sb.append(", grandfatherMoney=").append(grandfatherMoney);
+        sb.append(", fatherCoin=").append(fatherCoin);
+        sb.append(", grandfatherCoin=").append(grandfatherCoin);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -403,7 +425,9 @@ public class GoodsTradeInfo implements Serializable {
             && (this.getShippingAddressDetail() == null ? other.getShippingAddressDetail() == null : this.getShippingAddressDetail().equals(other.getShippingAddressDetail()))
             && (this.getPresentMoney() == null ? other.getPresentMoney() == null : this.getPresentMoney().equals(other.getPresentMoney()))
             && (this.getFatherMoney() == null ? other.getFatherMoney() == null : this.getFatherMoney().equals(other.getFatherMoney()))
-            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()));
+            && (this.getGrandfatherMoney() == null ? other.getGrandfatherMoney() == null : this.getGrandfatherMoney().equals(other.getGrandfatherMoney()))
+            && (this.getFatherCoin() == null ? other.getFatherCoin() == null : this.getFatherCoin().equals(other.getFatherCoin()))
+            && (this.getGrandfatherCoin() == null ? other.getGrandfatherCoin() == null : this.getGrandfatherCoin().equals(other.getGrandfatherCoin()));
     }
 
     @Override
@@ -441,6 +465,8 @@ public class GoodsTradeInfo implements Serializable {
         result = prime * result + ((getPresentMoney() == null) ? 0 : getPresentMoney().hashCode());
         result = prime * result + ((getFatherMoney() == null) ? 0 : getFatherMoney().hashCode());
         result = prime * result + ((getGrandfatherMoney() == null) ? 0 : getGrandfatherMoney().hashCode());
+        result = prime * result + ((getFatherCoin() == null) ? 0 : getFatherCoin().hashCode());
+        result = prime * result + ((getGrandfatherCoin() == null) ? 0 : getGrandfatherCoin().hashCode());
         return result;
     }
 
@@ -475,7 +501,9 @@ public class GoodsTradeInfo implements Serializable {
         shippingAddressDetail("shipping_address_detail", "shippingAddressDetail", "VARCHAR", false),
         presentMoney("present_money", "presentMoney", "DECIMAL", false),
         fatherMoney("father_money", "fatherMoney", "DECIMAL", false),
-        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false);
+        grandfatherMoney("grandfather_money", "grandfatherMoney", "DECIMAL", false),
+        fatherCoin("father_coin", "fatherCoin", "INTEGER", false),
+        grandfatherCoin("grandfather_coin", "grandfatherCoin", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 
